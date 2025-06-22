@@ -3,6 +3,7 @@ import PrimaryDropdown from "../components/PrimaryDropdown.jsx";
 import SecondaryDropdown from "../components/SecondaryDropdown.jsx";
 import data from "../data/page1Data.json";
 import { ageGroups90, genreList } from "../utils.js";
+import "./css/PobPais.css"; 
 
 const PobPais = () => {
   const [primarySelected, setPrimarySelected] = useState("");
@@ -14,30 +15,37 @@ const PobPais = () => {
   const terciaryOptions = genreList;
 
   useEffect(() => {
-    // Puedes usar primarySelected y secondarySelected aquí para filtrar o mostrar información
     console.log({ primarySelected, secondarySelected, terciarySelected });
-
-    // Actualizar tabla y/o piramide
   }, [primarySelected, secondarySelected, terciarySelected]);
 
   return (
-    <div>
-      <h2>Página 1</h2>
-      <PrimaryDropdown
-        options={primaryOptions}
-        selected={primarySelected}
-        onChange={setPrimarySelected}
-      />
-      <SecondaryDropdown
-        options={secondaryOptions}
-        selected={secondarySelected}
-        onChange={setSecondarySelected}
-      />
-      <SecondaryDropdown
-        options={terciaryOptions}
-        selected={terciarySelected}
-        onChange={setTerciarySelected}
-      />
+    <div className="page-container">
+      <header className="page-header">
+        <h2>Página 1</h2>
+      </header>
+      <main className="page-main">
+        <section className="left-panel">
+          <PrimaryDropdown
+            options={primaryOptions}
+            selected={primarySelected}
+            onChange={setPrimarySelected}
+          />
+          <SecondaryDropdown
+            options={secondaryOptions}
+            selected={secondarySelected}
+            onChange={setSecondarySelected}
+          />
+          <SecondaryDropdown
+            options={terciaryOptions}
+            selected={terciarySelected}
+            onChange={setTerciarySelected}
+          />
+        </section>
+        <section className="right-panel">
+          {/* Aquí podrías mostrar una tabla, pirámide poblacional, etc. */}
+          <p>Visualización o contenido derecho</p>
+        </section>
+      </main>
     </div>
   );
 };
