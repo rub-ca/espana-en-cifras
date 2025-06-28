@@ -1,0 +1,36 @@
+ .table-pob-pais {
+     max-height: 100%;
+     overflow: auto;
+     margin: 0px;
+     white-space: nowrap;
+
+     td,
+     th {
+         padding: 6px;
+     }
+
+     .row-genre-total {
+         background-color: white;
+         font-weight: bold;
+     }
+
+     .row-genre-hombre {
+         background-color: rgb(227, 254, 255);
+     }
+
+     .row-genre-mujer {
+         background-color: rgb(253, 240, 255);
+     }
+
+     .pob-align-right {
+         text-align: right;
+     }
+
+     .pob-cabecera-tabla {
+         position: sticky;
+         top: 0;
+         z-index: 1;
+         background-color: rgb(181, 202, 219);
+     }
+
+ }

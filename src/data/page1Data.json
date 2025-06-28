@@ -1,4 +1,0 @@
-{
-  "primaryOptions": ["Región Norte", "Región Sur", "Región Centro"],
-  "secondaryOptions": ["Edad", "Género", "Nivel Educativo", "Ocupación"]
-}
