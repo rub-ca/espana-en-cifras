@@ -16,7 +16,6 @@ const TablePobMuniPais = ({ data, primarySelected, secondaryDropdowns }) => {
     const headers = ['Género / Pais origen']
     for (let year = 0; year < numYears; year++) headers.push(`${getYear(year)}`)
 
-
     const rows = []
 
     for (let genre = 0; genre < numGenres; genre++) {
