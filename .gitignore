@@ -24,3 +24,5 @@ dist-ssr
 *.sw?
 src/data/PobMuniPais.json
 src/data/PobMuniPais-old.json
+public/data/PobMuniPais.json
+public/data/PobMuniPais-old.json

@@ -1,5 +1,4 @@
-import React, { useState } from "react"
-import data from "../data/PobMuniPais.json"
+import React, { useState, useEffect } from "react"
 import namesPrimary from "../data/PobMuniPais-names.json"
 import "./css/GeneralPagePob.css"
 import { genreList, paises59 } from "../utilsPob.js"
@@ -8,19 +7,41 @@ import MainTitle from "../components/core/MainTitle.jsx"
 import SecondaryTitle from "../components/core/SecondaryTitle.jsx"
 import TablePobMuniPais from "../components/poblacion/TablePobMuniPais.jsx"
 
-
 const PobMuniPais = () => {
+  const [data, setData] = useState(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
+
+  useEffect(() => {
+    const cargarDatos = async () => {
+      try {
+        const res = await fetch("/data/PobMuniPais.json")
+        if (!res.ok) throw new Error("Error al cargar los datos")
+        const json = await res.json()
+        setData(json)
+      } catch (err) {
+        setError(err.message)
+      } finally {
+        setLoading(false)
+      }
+    }
+    cargarDatos()
+  }, [])
+
   // Dropdown states
   const [primarySelected, setPrimarySelected] = useState("")
   const [secondarySelected, setSecondarySelected] = useState([])
   const [terciarySelected, setTerciarySelected] = useState([])
+
+  if (loading) return <div>Cargando datos...</div>
+  if (error) return <div>Error</div>
 
   // Dropdown options
   const primaryOptions = namesPrimary
   const secondaryOptions = genreList
   const secondaryPlaceholder = "Género"
   const terciaryOptions = paises59
-  const tertiaryPlaceholder = "Pais de origen"
+  const tertiaryPlaceholder = "País de origen"
 
   const secondaryDropdowns = [
     {
@@ -34,9 +55,8 @@ const PobMuniPais = () => {
       selected: terciarySelected,
       onChange: setTerciarySelected,
       placeholder: tertiaryPlaceholder,
-    }
+    },
   ]
-
 
   return (
     <div className="page-pob-container">
@@ -48,21 +68,19 @@ const PobMuniPais = () => {
           primaryOptions={primaryOptions}
           primarySelected={primarySelected}
           setPrimarySelected={setPrimarySelected}
-
           secondaryDropdowns={secondaryDropdowns}
         />
       </header>
 
       <main className="page-pob-main">
-        <section className="pob-left-panel">
-        </section>
+        <section className="pob-left-panel"></section>
 
         <section className="pob-right-panel">
-          {<TablePobMuniPais
+          <TablePobMuniPais
             data={data}
             primarySelected={primarySelected}
             secondaryDropdowns={secondaryDropdowns}
-          />}
+          />
         </section>
       </main>
     </div>
