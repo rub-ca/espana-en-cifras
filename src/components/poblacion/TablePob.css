@@ -26,6 +26,10 @@
          text-align: right;
      }
 
+     .pob-align-center {
+         text-align: center;
+     }
+
      .pob-cabecera-tabla {
          position: sticky;
          top: 0;
