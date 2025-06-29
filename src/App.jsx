@@ -10,6 +10,7 @@ const App = () => {
         <Route path="/pob-pais" element={<PagePobPais />} />
         <Route path="/pob-prov-pais" element={<PagePobProvPais />} />
         <Route path="/pob-muni-pais" element={<PagePobMuniPais />} />
+        <Route path="/" element={<PagePobMuniPais />} />
       </Routes>
     </Router>
   )
