@@ -1,6 +1,8 @@
-import React from 'react'
-import ReactECharts from 'echarts-for-react'
+import React, { lazy, Suspense } from "react"
+// import ReactECharts from 'echarts-for-react'
 import { getYear, getIndexPrimarySelected, getPais13Inverse, getPais13InverseInclude, getYearInverse, getPais13 } from "../../utilsPob.js"
+
+const ReactECharts = lazy(() => import('echarts-for-react'))
 
 // First filter[0] always is the primary filter
 // Second filter[1] is always yearSelected
@@ -160,12 +162,10 @@ const PiramidePob = ({ data, pageName, filters }) => {
             <h2 key={index}>{titulo}</h2>
         ))}
 
-        <ReactECharts
-            option={options}
-            style={{ height: '600px', width: '100%' }}
-        />
+        <Suspense fallback={<div>Cargando gráfico...</div>}>
+            <ReactECharts option={options} style={{ height: '600px', width: '100%' }} />
+        </Suspense>
     </div>
 }
-
 
 export default PiramidePob

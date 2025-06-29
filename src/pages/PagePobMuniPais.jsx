@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react"
-import namesPrimary from "../data/PobMuniPais-names.json"
 import "./css/GeneralPagePob.css"
 import { genreList, paises59 } from "../utilsPob.js"
 import PobFiltersHeader from "../components/poblacion/PobFiltersHeader.jsx"
@@ -8,6 +7,7 @@ import SecondaryTitle from "../components/core/SecondaryTitle.jsx"
 import TablePobMuniPais from "../components/poblacion/TablePobMuniPais.jsx"
 
 const PobMuniPais = () => {
+  const [namesPrimary, setNamesPrimary] = useState(null)
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
@@ -19,6 +19,11 @@ const PobMuniPais = () => {
         if (!res.ok) throw new Error("Error al cargar los datos")
         const json = await res.json()
         setData(json)
+
+        const resNames = await fetch("/data/PobMuniPais-names.json")
+        if (!resNames.ok) throw new Error("Error al cargar los nombres")
+        const namesJson = await resNames.json()
+        setNamesPrimary(namesJson)
       } catch (err) {
         setError(err.message)
       } finally {
