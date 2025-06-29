@@ -1,5 +1,4 @@
 import React, { lazy, Suspense } from "react"
-// import ReactECharts from 'echarts-for-react'
 import { getYear, getIndexPrimarySelected, getPais13Inverse, getPais13InverseInclude, getYearInverse, getPais13 } from "../../utilsPob.js"
 
 const ReactECharts = lazy(() => import('echarts-for-react'))
