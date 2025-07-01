@@ -1,5 +1,5 @@
 import "./TablePob.css"
-import { getYear, getAgeGroup, getGenre, addDotsToNumbers, getRowClassByGenre, getIndexPrimarySelected } from "../../utilsPob.js"
+import { getYear, getAgeGroup90, getGenre, addDotsToNumbers, getRowClassByGenre, getIndexPrimarySelected } from "../../utilsPob.js"
 import ThHeader from './ThHeader'
 import TdFirstCell from './TdFirstCell'
 import TdAlignRight from './TdAlignRight'
@@ -20,14 +20,14 @@ const TablePobPais = ({ data, primarySelected, secondaryDropdowns, listeners }) 
     const rows = []
 
     for (let age = 0; age < numAgeGroups; age++) {
-        if (secondaryDropdowns[0].selected?.length && !secondaryDropdowns[0].selected.includes(getAgeGroup(age)))
+        if (secondaryDropdowns[0].selected?.length && !secondaryDropdowns[0].selected.includes(getAgeGroup90(age)))
             continue
 
         for (let genre = 0; genre < numGenres; genre++) {
             if (secondaryDropdowns[1].selected?.length && !secondaryDropdowns[1].selected.includes(getGenre(genre)))
                 continue
 
-            const row = [`${getAgeGroup(age)} / ${getGenre(genre)}`]
+            const row = [`${getAgeGroup90(age)} / ${getGenre(genre)}`]
             for (let year = 0; year < numYears; year++) {
                 const value = dataArray[age][year][genre]
                 row.push(addDotsToNumbers(value))

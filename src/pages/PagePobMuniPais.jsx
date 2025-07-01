@@ -4,7 +4,7 @@ import { genreList, paises59 } from "../utilsPob.js"
 import PobFiltersHeader from "../components/poblacion/PobFiltersHeader.jsx"
 import MainTitle from "../components/core/MainTitle.jsx"
 import SecondaryTitle from "../components/core/SecondaryTitle.jsx"
-import TablePobMuniPais from "../components/poblacion/TablePobMuniPais.jsx"
+import TablePobMuni from "../components/poblacion/TablePobMuni.jsx"
 
 const PobMuniPais = () => {
   const [namesPrimary, setNamesPrimary] = useState(null)
@@ -81,10 +81,11 @@ const PobMuniPais = () => {
         <section className="pob-left-panel"></section>
 
         <section className="pob-right-panel">
-          <TablePobMuniPais
+          <TablePobMuni
             data={data}
             primarySelected={primarySelected}
             secondaryDropdowns={secondaryDropdowns}
+            page="PagePobMuniPais"
           />
         </section>
       </main>

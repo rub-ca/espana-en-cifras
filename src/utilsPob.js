@@ -14,11 +14,14 @@ export function addDotsToNumbers(num) {
 export const ageGroups90 = ['total', '00-04', '05-09', '10-14', '15-19', '20-24', '25-29',
     '30-34', '35-39', '40-44', '45-49', '50-54', '55-59', '60-64', '65-69', '70-74',
     '75-79', '80-84', '85-89', '++ 90']
-export function getAgeGroup(g) {
+export const ageGroups100 = ['total', '00-04', '05-09', '10-14', '15-19', '20-24', '25-29',
+    '30-34', '35-39', '40-44', '45-49', '50-54', '55-59', '60-64', '65-69', '70-74',
+    '75-79', '80-84', '85-89', '90-94', '95-99', '++100']
+export function getAgeGroup90(g) {
     return ageGroups90[g] || null
 }
-export function getAgeGroupInverse(ageGroup) {
-    return ageGroups90.indexOf(ageGroup)
+export function getAgeGroup100(g) {
+    return ageGroups100[g] || null
 }
 
 export const genreList = ['Total', 'Hombres', 'Mujeres']
