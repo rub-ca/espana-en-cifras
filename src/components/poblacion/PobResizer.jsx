@@ -74,10 +74,6 @@ const PobResizer = () => {
             }else {
                  leftPanel.style.display = 'block'
             }
-            // if (rightWidthPercent > 75) {
-            //     leftWidthPercent = 0
-            //     rightWidthPercent = 100
-            // }
 
             // Aplicar los anchos en porcentaje
             leftPanel.style.width = `${leftWidthPercent}%`
