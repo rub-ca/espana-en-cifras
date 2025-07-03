@@ -1,5 +1,5 @@
 import "./TablePob.css"
-import { getYear, getGenre, addDotsToNumbers, getRowClassByGenre, getIndexPrimarySelected, getPais59, getAgeGroup100 } from "../../utilsPob.js"
+import { getYear, getGenre, addDotsToNumbers, getRowClassByGenre, getIndexPrimarySelected, getPais59, getAgeGroup100 } from "../../../utilsPob.js"
 import ThHeader from './ThHeader.jsx'
 import TdFirstCell from './TdFirstCell.jsx'
 import TdAlignRight from './TdAlignRight.jsx'

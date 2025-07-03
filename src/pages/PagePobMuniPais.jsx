@@ -4,7 +4,7 @@ import { genreList, paises59 } from "../utilsPob.js"
 import PobFiltersHeader from "../components/poblacion/PobFiltersHeader.jsx"
 import MainTitle from "../components/core/MainTitle.jsx"
 import SecondaryTitle from "../components/core/SecondaryTitle.jsx"
-import TablePobMuni from "../components/poblacion/TablePobMuni.jsx"
+import TablePobMuni from "../components/poblacion/tables/TablePobMuni.jsx"
 
 const PobMuniPais = () => {
   const [namesPrimary, setNamesPrimary] = useState(null)

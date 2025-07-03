@@ -1,47 +1,42 @@
 import "./TablePob.css"
-import { getYear, getAgeGroup90, getGenre, addDotsToNumbers, getRowClassByGenre, getPais13, getIndexPrimarySelected } from "../../utilsPob.js"
+import { getYear, getAgeGroup90, getGenre, addDotsToNumbers, getRowClassByGenre, getIndexPrimarySelected } from "../../../utilsPob.js"
 import ThHeader from './ThHeader'
 import TdFirstCell from './TdFirstCell'
 import TdAlignRight from './TdAlignRight'
 
-const TablePobProvPais = ({ data, primarySelected, secondaryDropdowns, listeners }) => {
+const TablePobPais = ({ data, primarySelected, secondaryDropdowns, listeners }) => {
     if (!primarySelected) return <div>No hay datos disponibles</div>
 
     const dataArray = data[getIndexPrimarySelected(data, primarySelected)].data
 
     const numAgeGroups = dataArray.length
-    const numpaises = dataArray[0].length
-    const numYears = dataArray[0][0].length
-    const numGenres = dataArray[0][0][0].length
+    const numYears = dataArray[0].length
+    const numGenres = dataArray[0][0].length
 
-    const headers = ['Edad / Pais origen / Género']
+    const headers = ['Edad / Género']
     for (let year = 0; year < numYears; year++) headers.push(`${getYear(year)}`)
 
 
     const rows = []
 
     for (let age = 0; age < numAgeGroups; age++) {
-        if (secondaryDropdowns[0].selected?.length &&
-            !secondaryDropdowns[0].selected.includes(getAgeGroup90(age))) continue
+        if (secondaryDropdowns[0].selected?.length && !secondaryDropdowns[0].selected.includes(getAgeGroup90(age)))
+            continue
 
-        for (let pais = 0; pais < numpaises; pais++) {
-            if ((secondaryDropdowns[2].selected?.length &&
-                !secondaryDropdowns[2].selected.includes(getPais13(pais))) || getPais13(pais) == null) continue
+        for (let genre = 0; genre < numGenres; genre++) {
+            if (secondaryDropdowns[1].selected?.length && !secondaryDropdowns[1].selected.includes(getGenre(genre)))
+                continue
 
-            for (let genre = 0; genre < numGenres; genre++) {
-                if (secondaryDropdowns[1].selected?.length &&
-                    !secondaryDropdowns[1].selected.includes(getGenre(genre))) continue
-
-                const row = [`${getAgeGroup90(age)} / ${getPais13(pais)} / ${getGenre(genre)}`]
-                for (let year = 0; year < numYears; year++) {
-                    const value = dataArray[age][pais][year][genre]
-                    row.push(addDotsToNumbers(value))
-                }
-
-                rows.push(row)
+            const row = [`${getAgeGroup90(age)} / ${getGenre(genre)}`]
+            for (let year = 0; year < numYears; year++) {
+                const value = dataArray[age][year][genre]
+                row.push(addDotsToNumbers(value))
             }
+
+            rows.push(row)
         }
     }
+
     return (
         <div className="table-pob-pais">
             <div className="table-container">
@@ -59,15 +54,13 @@ const TablePobProvPais = ({ data, primarySelected, secondaryDropdowns, listeners
                         </tr>
                     </thead>
                     <tbody>
-                        {rows.map((r, rowIndex) => (
-                            <tr key={rowIndex} className={getRowClassByGenre(r)}>
-                                {r.map((cell, cellIndex) =>
+                        {rows.map((row, rowIndex) => (
+                            <tr key={rowIndex} className={getRowClassByGenre(row)}>
+                                {row.map((cell, cellIndex) =>
                                     cellIndex === 0 ? (
                                         <TdFirstCell
                                             key={cellIndex}
-                                            onClick={() => listeners[1](cell)}
                                             children={cell}
-                                            cursorPointer={true}
                                         />
                                     ) : (
                                         <TdAlignRight key={cellIndex}>{cell}</TdAlignRight>
@@ -82,4 +75,4 @@ const TablePobProvPais = ({ data, primarySelected, secondaryDropdowns, listeners
     )
 }
 
-export default TablePobProvPais
+export default TablePobPais
