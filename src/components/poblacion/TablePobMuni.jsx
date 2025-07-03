@@ -4,7 +4,7 @@ import ThHeader from './ThHeader.jsx'
 import TdFirstCell from './TdFirstCell.jsx'
 import TdAlignRight from './TdAlignRight.jsx'
 
-const TablePobMuniPais = ({ data, primarySelected, secondaryDropdowns, page }) => {
+const TablePobMuniPais = ({ data, primarySelected, secondaryDropdowns, page, listeners }) => {
     if (!primarySelected) return <div>No hay datos disponibles</div>
 
     const dataArray = data[getIndexPrimarySelected(data, primarySelected)].data
@@ -71,8 +71,9 @@ const TablePobMuniPais = ({ data, primarySelected, secondaryDropdowns, page }) =
                             {headers.map((h, i) => (
                                 <ThHeader
                                     key={i}
+                                    onClick={() => listeners[0](h)}
                                     children={h}
-                                    cursorPointer={false}
+                                    cursorPointer={true}
                                 />
                             ))}
                         </tr>

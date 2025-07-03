@@ -5,6 +5,7 @@ import PobFiltersHeader from "../components/poblacion/PobFiltersHeader.jsx"
 import MainTitle from "../components/core/MainTitle.jsx"
 import SecondaryTitle from "../components/core/SecondaryTitle.jsx"
 import TablePobMuni from "../components/poblacion/TablePobMuni.jsx"
+import PiramidePob from "../components/poblacion/PiramidePob.jsx"
 
 const PobMuniPais = () => {
   const [namesPrimary, setNamesPrimary] = useState(null)
@@ -37,6 +38,9 @@ const PobMuniPais = () => {
   const [primarySelected, setPrimarySelected] = useState("")
   const [secondarySelected, setSecondarySelected] = useState([])
   const [terciarySelected, setTerciarySelected] = useState([])
+
+  // Piramide states
+  const [yearSelectedPiramide, setYearSelectedPiramide] = useState(2024)
 
   if (loading) return <div>Cargando datos...</div>
   if (error) return <div>Error</div>
@@ -78,7 +82,13 @@ const PobMuniPais = () => {
       </header>
 
       <main className="page-pob-main">
-        <section className="pob-left-panel"></section>
+        <section className="pob-left-panel">
+          <PiramidePob
+            data={data}
+            pageName="PobMuniEdad"
+            filters={[primarySelected, yearSelectedPiramide]}
+          />
+        </section>
 
         <section className="pob-right-panel">
           <TablePobMuni
@@ -86,6 +96,7 @@ const PobMuniPais = () => {
             primarySelected={primarySelected}
             secondaryDropdowns={secondaryDropdowns}
             page="PagePobMuniEdad"
+            listeners={[setYearSelectedPiramide]}
           />
         </section>
       </main>

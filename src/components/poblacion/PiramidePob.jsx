@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from "react"
-import { getYear, getIndexPrimarySelected, getPais13Inverse, getPais13InverseInclude, getYearInverse, getPais13 } from "../../utilsPob.js"
+import { getYear, getIndexPrimarySelected, getPais13Inverse, getPais13InverseInclude, getYearInverse, getPais13, ageGroups90, ageGroups100 } from "../../utilsPob.js"
 
 const ReactECharts = lazy(() => import('echarts-for-react'))
 
@@ -15,6 +15,8 @@ const PiramidePob = ({ data, pageName, filters }) => {
 
     infoTitleArray.push("")
     infoTitleArray.push("Año: " + getYearInverse(yearIndexSelected))
+
+    let labelsAge = ageGroups90
 
     if (pageName === "PobPais") {
         let primarySelected = getIndexPrimarySelected(data, filters[0] || "Total")
@@ -67,14 +69,28 @@ const PiramidePob = ({ data, pageName, filters }) => {
         resultadosMujeres = resultadosMujeres.slice(1)
 
         infoTitleArray.push("Pais origen: " + getPais13(indexPais).trim())
+    } else if (pageName === "PobMuniEdad") {
+        let primarySelected = getIndexPrimarySelected(data, filters[0] || "Total Nacional")
+        const datos = data[primarySelected].data
+        infoTitleArray[0] = data[primarySelected].name.trim()
+
+        resultadoHombres = datos[1].map(elemento => -elemento[yearIndexSelected])
+        resultadoHombres = resultadoHombres.slice(1)
+
+        resultadosMujeres = datos[2].map(elemento => elemento[yearIndexSelected])
+        resultadosMujeres = resultadosMujeres.slice(1)
+
+        labelsAge = ageGroups100
     }
-    else return <div class="contenedor-piramide"></div>
+    else return <div className="contenedor-piramide"></div>
 
 
     const maxValue = Math.max(
         ...resultadoHombres.map(v => Math.abs(v)),
         ...resultadosMujeres.map(v => Math.abs(v))
     )
+
+    labelsAge = labelsAge.slice(1) // Remove 'total' label
 
     const options = {
         tooltip: {
@@ -113,7 +129,7 @@ const PiramidePob = ({ data, pageName, filters }) => {
         },
         yAxis: {
             type: 'category',
-            data: ['00-04', '05-09', '10-14', '15-19', '20-24', '25-29', '30-34', '35-39', '40-44', '45-49', '50-54', '55-59', '60-64', '65-79', '80-84', '85-89', '90+'],
+            data: labelsAge,
         },
         series: [
             {
