@@ -1,0 +1,39 @@
+.pob-resizer {
+    height: 100%;
+    width: 12px;
+    background-color: rgb(231, 233, 236);
+    cursor: e-resize;
+    position: relative;
+    user-select: none;
+    transition: background-color 0.2s ease;
+}
+
+.pob-resizer::before,
+.pob-resizer::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 20px;
+    background: #999;
+    border-radius: 1px;
+    transition: background-color 0.2s ease;
+}
+
+.pob-resizer::before {
+    top: 25%;
+}
+
+.pob-resizer::after {
+    top: 55%;
+}
+
+.pob-resizer:hover {
+    background-color: rgb(200, 200, 200);
+}
+
+.pob-resizer:hover::before,
+.pob-resizer:hover::after {
+    background-color: #555;
+}

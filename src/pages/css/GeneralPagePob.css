@@ -55,6 +55,7 @@ body,
 .pob-right-panel {
   background-color: rgb(116, 141, 161);
   width: 64%;
+  display: flex
 }
 
 .mouse-cursor-pointer {

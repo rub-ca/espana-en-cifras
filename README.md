@@ -20,4 +20,3 @@ https://www.ine.es/jaxiT3/Tabla.htm?t=68535&L=0   -> PobMuniEdad  > 68535
 
 
 Bug encontrados:
-- hay algunos municipios que se llaman igual
