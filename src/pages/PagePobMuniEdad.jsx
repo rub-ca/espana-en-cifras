@@ -7,7 +7,7 @@ import SecondaryTitle from "../components/core/SecondaryTitle.jsx"
 import TablePobMuni from "../components/poblacion/tables/TablePobMuni.jsx"
 import PiramidePob from "../components/poblacion/PiramidePob.jsx"
 
-const PobMuniPais = () => {
+const PagePobMuniPais = () => {
   const [namesPrimary, setNamesPrimary] = useState(null)
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(true)
@@ -104,4 +104,4 @@ const PobMuniPais = () => {
   )
 }
 
-export default PobMuniPais
+export default PagePobMuniPais

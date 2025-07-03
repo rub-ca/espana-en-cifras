@@ -9,7 +9,7 @@ import PiramidePob from "../components/poblacion/PiramidePob.jsx"
 import PobResizer from "../components/poblacion/PobResizer.jsx"
 
 
-const PobProvPais = () => {
+const PagePobProvPais = () => {
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
@@ -111,4 +111,4 @@ const PobProvPais = () => {
   )
 }
 
-export default PobProvPais
+export default PagePobProvPais

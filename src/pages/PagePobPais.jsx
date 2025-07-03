@@ -8,7 +8,7 @@ import TablePobPais from "../components/poblacion/tables/TablePobPais.jsx"
 import PiramidePob from "../components/poblacion/PiramidePob.jsx"
 import PobResizer from "../components/poblacion/PobResizer.jsx"
 
-const PobPais = () => {
+const PagePobPais = () => {
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
@@ -100,4 +100,4 @@ const PobPais = () => {
   )
 }
 
-export default PobPais
+export default PagePobPais
