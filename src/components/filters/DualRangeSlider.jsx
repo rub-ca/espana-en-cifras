@@ -46,7 +46,7 @@ function DualRangeSlider({
 
   // Inputs numéricos editables trabajan con valores "reales" (exponenciales o no)
   const handleMinInputChange = (e) => {
-    let value = Number(e.target.value)
+    let value = Number(removeDots(e.target.value))
     if (isNaN(value)) return
     if (value < minLimit) value = minLimit
     if (value >= maxValue) value = maxValue - 1
@@ -54,7 +54,7 @@ function DualRangeSlider({
   }
 
   const handleMaxInputChange = (e) => {
-    let value = Number(e.target.value)
+    let value = Number(removeDots(e.target.value))
     if (isNaN(value)) return
     if (value > maxLimit) value = maxLimit
     if (value <= minValue) value = minValue + 1
@@ -69,10 +69,10 @@ function DualRangeSlider({
 
         {/* Input valor mínimo editable */}
         <input
-          type="number"
+          type="text"
           min={minLimit}
           max={maxLimit}
-          value={minValue}
+          value={addDots(minValue)}
           onChange={handleMinInputChange}
           style={cssValueBox}
         />
@@ -115,10 +115,10 @@ function DualRangeSlider({
 
         {/* Input valor máximo editable */}
         <input
-          type="number"
+          type="text"
           min={minLimit}
           max={maxLimit}
-          value={maxValue}
+          value={addDots(maxValue)}
           onChange={handleMaxInputChange}
           style={cssValueBox}
         />
@@ -198,6 +198,17 @@ const cssValueBox = {
   fontWeight: 'bold',
   fontSize: 12,
   margin: '0px',
+}
+
+function addDots(value) {
+  console.log("\n addDots")
+  console.log(value)
+  console.log(value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.'))
+  return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
+}
+
+function removeDots(value) {
+  return value.toString().replace(/\./g, '')
 }
 
 export default DualRangeSlider
