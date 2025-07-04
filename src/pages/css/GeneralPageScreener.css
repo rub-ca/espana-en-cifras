@@ -10,7 +10,7 @@
 }
 
 .screener-left-panel {
-    width: 32%;
+    width: 29%;
     height: 100%;
     background-color: rgb(245, 229, 229);
     display: flex;
@@ -20,7 +20,7 @@
 
 .screener-right-panel {
     background-color: rgb(116, 141, 161);
-    width: 68%;
+    width: 71%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -38,6 +38,7 @@
     cursor: pointer;
     margin-top: 1rem;
 }
+
 .screener-buscar-button:disabled {
     background-color: rgb(175, 175, 175);
     cursor: default;
