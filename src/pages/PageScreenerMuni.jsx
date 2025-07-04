@@ -9,13 +9,13 @@ const PageScreenerMuni = () => {
 
     const [resultados, setResultados] = useState([])
 
-    const [poblacionGeneralTitulo, setPoblacionGeneralTitulo] = useState('Cantidad de habitantes')
+    const poblacionGeneralTitulo = 'Cantidad de habitantes'
     const [minPoblacionGeneral, setMinPoblacionGeneral] = useState(100)
     const [maxPoblacionGeneral, setMaxPoblacionGeneral] = useState(500000)
     const minLimitPoblacionGeneral = 0
     const maxLimitPoblacionGeneral = 5000000
 
-    const [poblacionExtranjeraTitulo, setPoblacionExtranjeraTitulo] = useState('Porcentaje población extranjera')
+    const poblacionExtranjeraTitulo = 'Porcentaje población extranjera'
     const [minPoblacionExtranjera, setMinPoblacionExtranjera] = useState(20)
     const [maxPoblacionExtranjera, setMaxPoblacionExtranjera] = useState(80)
     const minLimitPoblacionExtranjera = 0
@@ -39,7 +39,6 @@ const PageScreenerMuni = () => {
 
                 <DualRangeSlider
                     title={poblacionGeneralTitulo}
-                    setTitle={setPoblacionGeneralTitulo}
                     minValue={minPoblacionGeneral}
                     setMinValue={setMinPoblacionGeneral}
                     maxValue={maxPoblacionGeneral}
@@ -49,7 +48,6 @@ const PageScreenerMuni = () => {
                 />
                 <DualRangeSlider
                     title={poblacionExtranjeraTitulo}
-                    setTitle={setPoblacionExtranjeraTitulo}
                     minValue={minPoblacionExtranjera}
                     setMinValue={setMinPoblacionExtranjera}
                     maxValue={maxPoblacionExtranjera}

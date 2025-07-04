@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function DualRangeSlider({ title, setTitle, minValue, setMinValue, maxValue, setMaxValue, minLimit, maxLimit }) {
+function DualRangeSlider({ title, minValue, setMinValue, maxValue, setMaxValue, minLimit, maxLimit }) {
   // Maneja cambios en el slider mínimo
   const handleMinChange = (e) => {
     const value = Math.min(Number(e.target.value), maxValue - 1)
