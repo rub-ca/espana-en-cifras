@@ -22,12 +22,16 @@ const PageHeader = () => {
                             Poblacion por provincia
                         </NavigationLink>
 
-                        <NavigationLink to="/pob-prov-pais">
+                        <NavigationLink to="/pob-muni-edad">
                             Poblacion por municipio y edad
                         </NavigationLink>
 
-                        <NavigationLink to="/pob-prov-pais">
+                        <NavigationLink to="/pob-muni-pais">
                             Poblacion por municipio y pais
+                        </NavigationLink>
+
+                        <NavigationLink to="/screener-muni">
+                            Municipios screener
                         </NavigationLink>
                     </nav>
                 </div>
