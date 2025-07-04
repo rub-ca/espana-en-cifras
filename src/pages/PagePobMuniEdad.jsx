@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
-import { genreList, ageGroups100 } from "../utilsPob.js"
+import { genreList, ageGroups100 } from "../js/utilsPob.js"
 import PobFiltersHeader from "../components/poblacion/PobFiltersHeader.jsx"
-import MainTitle from "../components/core/MainTitle.jsx"
+import PageHeader from "../components/core/PageHeader.jsx"
 import TablePobMuni from "../components/poblacion/tables/TablePobMuni.jsx"
 import PiramidePob from "../components/poblacion/PiramidePob.jsx"
 

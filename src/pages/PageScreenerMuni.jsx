@@ -1,5 +1,6 @@
 import React, { useState } from "react"
-import DualRangeSlider from "../components/screener-muni/DualRangeSlider.jsx"
+import { buscarMunicipios } from '../js/buscadorMunicipios.js'
+import DualRangeSlider from "../components/filters/DualRangeSlider.jsx"
 import PageHeader from "../components/core/PageHeader.jsx"
 
 const PageScreenerMuni = () => {
@@ -44,7 +45,17 @@ const PageScreenerMuni = () => {
                         maxLimit={maxLimitPoblacionExtranjera}
                     />
 
-                    <button className="screener-buscar-button">Buscar!</button>
+                    <button className="screener-buscar-button"
+                        onClick={() =>
+                            buscarMunicipios(
+                                minPoblacionGeneral,
+                                maxPoblacionGeneral,
+                                minPoblacionExtranjera,
+                                maxPoblacionExtranjera
+                            )
+                        }>
+                        Buscar!
+                    </button>
                 </div>
 
                 <div className="screener-right-panel">

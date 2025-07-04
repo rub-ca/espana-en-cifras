@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { ageGroups90, genreList } from "../utilsPob.js"
+import { ageGroups90, genreList } from "../js/utilsPob.js"
 import PobFiltersHeader from "../components/poblacion/PobFiltersHeader.jsx"
 import PageHeader from "../components/core/PageHeader.jsx"
 import TablePobPais from "../components/poblacion/tables/TablePobPais.jsx"
