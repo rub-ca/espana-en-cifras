@@ -24,29 +24,6 @@ const PobResizer = () => {
             document.body.style.userSelect = "auto"
         }
 
-        // const onMouseMove = (e) => {
-        //     if (!isDragging) return
-
-        //     const containerRect = container.getBoundingClientRect()
-        //     const containerWidth = containerRect.width
-
-        //     const minRightWidth = containerWidth * 0.64 // 64%
-        //     const maxRightWidth = containerWidth // 100%
-
-        //     // Calcular ancho derecho basado en la posición del mouse
-        //     const rightWidth = containerRect.right - e.clientX
-
-        //     let newRightWidth = rightWidth
-
-        //     if (newRightWidth < minRightWidth) newRightWidth = minRightWidth
-        //     if (newRightWidth > maxRightWidth) newRightWidth = maxRightWidth
-
-        //     const newLeftWidth = containerWidth - newRightWidth
-
-        //     // Aplicar los nuevos anchos
-        //     leftPanel.style.width = `${newLeftWidth}px`
-        //     rightPanel.style.width = `${newRightWidth}px`
-        // }
         const onMouseMove = (e) => {
             if (!isDragging) return
 
