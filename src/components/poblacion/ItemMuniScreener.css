@@ -1,0 +1,17 @@
+.screener-muni-result {
+    display: flex;
+    width: 100%;
+
+    div {
+        flex: 1;
+        min-width: 0;
+    }
+}
+
+.screener-muni-result-a {
+    background-color: rgb(196, 196, 243);
+}
+
+.screener-muni-result-b {
+    background-color: rgb(240, 221, 221);
+}

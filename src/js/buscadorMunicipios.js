@@ -1,4 +1,6 @@
+
 export async function buscarMunicipios(
+    setResultados,
     minPoblacionGeneral,
     maxPoblacionGeneral,
     minPoblacionExtranjera,
@@ -10,6 +12,8 @@ export async function buscarMunicipios(
     if (!res.ok) throw new Error("Error al cargar los datos")
     const json = await res.json()
 
+    const resultados = []
+
     json.forEach(muni => {
         const pobla = muni.data[0][0][0]
         if (pobla < minPoblacionGeneral || pobla > maxPoblacionGeneral) return
@@ -19,8 +23,14 @@ export async function buscarMunicipios(
         const resultExtranj = 100 - (poblaEsp / poblaTotal * 100)
         if (resultExtranj < minPoblacionExtranjera || resultExtranj > maxPoblacionExtranjera) return
 
-        let output = `${muni.name} - Población total: ${poblaTotal}, 
-        Población extranjera: ${resultExtranj.toFixed(2)}%`
-        console.log(output)
+        const r = {
+            name: muni.name,
+            poblacionTotal: poblaTotal,
+            poblacionExtranjera: resultExtranj.toFixed(2),
+        }
+
+        resultados.push(r)
+        setResultados(resultados)
     })
+
 }

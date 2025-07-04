@@ -2,8 +2,11 @@ import React, { useState } from "react"
 import { buscarMunicipios } from '../js/buscadorMunicipios.js'
 import DualRangeSlider from "../components/filters/DualRangeSlider.jsx"
 import PageHeader from "../components/core/PageHeader.jsx"
+import ItemMuniScreener from "../components/poblacion/ItemMuniScreener.jsx"
 
 const PageScreenerMuni = () => {
+    const [resultados, setResultados] = useState([])
+
     const [poblacionGeneralTitulo, setPoblacionGeneralTitulo] = useState('Cantidad de habitantes')
     const [minPoblacionGeneral, setMinPoblacionGeneral] = useState(100)
     const [maxPoblacionGeneral, setMaxPoblacionGeneral] = useState(500000)
@@ -48,6 +51,7 @@ const PageScreenerMuni = () => {
                     <button className="screener-buscar-button"
                         onClick={() =>
                             buscarMunicipios(
+                                setResultados,
                                 minPoblacionGeneral,
                                 maxPoblacionGeneral,
                                 minPoblacionExtranjera,
@@ -59,6 +63,20 @@ const PageScreenerMuni = () => {
                 </div>
 
                 <div className="screener-right-panel">
+                    {resultados.length === 0 ? (
+                        <p>No hay resultados</p>
+                    ) : (
+                        resultados.map((muni, index) => (
+                            <div key={index}>
+                                <ItemMuniScreener
+                                    index={index}
+                                    name={muni.name}
+                                    pobTotal={muni.poblacionTotal}
+                                    pobExtranj={muni.poblacionExtranjera}
+                                />
+                            </div>
+                        ))
+                    )}
 
                 </div>
             </div>

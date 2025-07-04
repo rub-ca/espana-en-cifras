@@ -22,7 +22,9 @@
     background-color: rgb(116, 141, 161);
     width: 68%;
     height: 100%;
-    display: flex
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
 }
 
 .screener-buscar-button{
