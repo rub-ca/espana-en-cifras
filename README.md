@@ -20,3 +20,8 @@ https://www.ine.es/jaxiT3/Tabla.htm?t=68535&L=0   -> PobMuniEdad  > 68535
 
 
 Bug encontrados:
+
+
+Mejoras:
+
+- Dual range filter que sea exponencial

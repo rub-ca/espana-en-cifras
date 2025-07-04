@@ -22,7 +22,7 @@ public class PobMuniPais {
     //
     // in js:
     // data[0].data[1][2][3]
-    // province [0] | genre [1] male | region [2] | year [3]
+    // muni [0] | genre [1] male | region [2] | year [3]
 
     final static int AMOUNT_PAISES = 59;
     final static int MAX_YEARS = 4;
@@ -65,6 +65,8 @@ public class PobMuniPais {
                     System.out.println("No se puede procesar fila " + rowIndex);
                     continue;
                 }
+
+
                 allData.add(municipioData);
                 allNames.add(municipioData.getMunicipio());
             }
@@ -92,7 +94,7 @@ public class PobMuniPais {
         Row row = sheet.getRow(rowIndex);
         if (row == null) return null;
 
-        String municipioName = getCellValueAsString(row.getCell(0)).replaceAll("\\d", "").trim();
+        String municipioName = getCellValueAsString(row.getCell(0)).trim();
         ArrayList<ArrayList<ArrayList<Long>>> data = new ArrayList<>();
 
         for (int columnaGeneroIndex = 0; columnaGeneroIndex < 3; columnaGeneroIndex++) {
