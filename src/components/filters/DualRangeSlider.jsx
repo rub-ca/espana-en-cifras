@@ -1,4 +1,5 @@
 import React from 'react'
+import { addDots, removeDots } from '../../js/utilsPob.js'
 
 function DualRangeSlider({
   title,
@@ -198,14 +199,6 @@ const cssValueBox = {
   fontWeight: 'bold',
   fontSize: 12,
   margin: '0px',
-}
-
-function addDots(value) {
-  return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
-}
-
-function removeDots(value) {
-  return value.toString().replace(/\./g, '')
 }
 
 export default DualRangeSlider

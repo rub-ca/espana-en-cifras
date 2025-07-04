@@ -1,4 +1,5 @@
 import './ItemMuniScreener.css'
+import { addDots } from '../../js/utilsPob.js'
 
 const ItemMuniScreener = ({ index, name, pobTotal, pobExtranj }) => {
     let classIndex = 'screener-muni-result'
@@ -10,7 +11,7 @@ const ItemMuniScreener = ({ index, name, pobTotal, pobExtranj }) => {
     return (
         <div className={classIndex} key={index}>
             <div>{name}</div>
-            <div>{pobTotal}</div>
+            <div>{addDots(pobTotal)}</div>
             <div>{pobExtranj}</div>
         </div>
     )

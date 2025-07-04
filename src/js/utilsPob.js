@@ -77,3 +77,12 @@ export function getPais59Inverse(pais) {
 export function getIndexPrimarySelected(data, p) {
     return data.findIndex(item => item.name.trim() === p)
 }
+
+
+export function addDots(value) {
+    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
+}
+
+export function removeDots(value) {
+    return value.toString().replace(/\./g, '')
+}
