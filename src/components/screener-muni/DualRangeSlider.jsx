@@ -132,7 +132,6 @@ const cssComponent = `
 `
 
 const cssWrapperMain = {
-  background: '#fff',
   padding: '10px',
   display: 'flex',
   flexDirection: 'column',
@@ -150,6 +149,7 @@ const cssWrapperSlider = {
 
 const cssTitulo = {
   margin: '0px',
+  marginBottom: 10,
 }
 
 const cssBar = {

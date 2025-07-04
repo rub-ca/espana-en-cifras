@@ -3,50 +3,57 @@ import DualRangeSlider from "../components/screener-muni/DualRangeSlider.jsx"
 import PageHeader from "../components/core/PageHeader.jsx"
 
 const PageScreenerMuni = () => {
-  const [title, setTitle] = useState('titulo')
+    const [poblacionGeneralTitulo, setPoblacionGeneralTitulo] = useState('Cantidad de habitantes')
+    const [minPoblacionGeneral, setMinPoblacionGeneral] = useState(100)
+    const [maxPoblacionGeneral, setMaxPoblacionGeneral] = useState(500000)
+    const minLimitPoblacionGeneral = 0
+    const maxLimitPoblacionGeneral = 5000000
 
-  const [minValue, setMinValue] = useState(20)
-  const [maxValue, setMaxValue] = useState(80)
+    const [poblacionExtranjeraTitulo, setPoblacionExtranjeraTitulo] = useState('Porcentaje población extranjera')
+    const [minPoblacionExtranjera, setMinPoblacionExtranjera] = useState(20)
+    const [maxPoblacionExtranjera, setMaxPoblacionExtranjera] = useState(80)
+    const minLimitPoblacionExtranjera = 0
+    const maxLimitPoblacionExtranjera = 100
 
-  const minLimit = 0
-  const maxLimit = 100
+    return (
+        <div className="page-container">
+            <PageHeader />
 
-  const [title2, setTitle2] = useState('titulo')
+            <div className="page-screener-container">
+                <div className="screener-left-panel">
+                    <h2>Buscador de municipios</h2>
 
-  const [minValue2, setMinValue2] = useState(20000)
-  const [maxValue2, setMaxValue2] = useState(1000000)
+                    <DualRangeSlider
+                        title={poblacionGeneralTitulo}
+                        setTitle={setPoblacionGeneralTitulo}
+                        minValue={minPoblacionGeneral}
+                        setMinValue={setMinPoblacionGeneral}
+                        maxValue={maxPoblacionGeneral}
+                        setMaxValue={setMaxPoblacionGeneral}
+                        minLimit={minLimitPoblacionGeneral}
+                        maxLimit={maxLimitPoblacionGeneral}
+                    />
+                    <DualRangeSlider
+                        title={poblacionExtranjeraTitulo}
+                        setTitle={setPoblacionExtranjeraTitulo}
+                        minValue={minPoblacionExtranjera}
+                        setMinValue={setMinPoblacionExtranjera}
+                        maxValue={maxPoblacionExtranjera}
+                        setMaxValue={setMaxPoblacionExtranjera}
+                        minLimit={minLimitPoblacionExtranjera}
+                        maxLimit={maxLimitPoblacionExtranjera}
+                    />
 
-  const minLimit2 = 0
-  const maxLimit2 = 10000000
+                    <button className="screener-buscar-button">Buscar!</button>
+                </div>
 
-  return (
-    <div className="page-container">
-      <PageHeader />
-      <div className="page-pob-container">
-        <DualRangeSlider
-          title={title}
-          setTitle={setTitle}
-          minValue={minValue}
-          setMinValue={setMinValue}
-          maxValue={maxValue}
-          setMaxValue={setMaxValue}
-          minLimit={minLimit}
-          maxLimit={maxLimit}
-        />
-        <DualRangeSlider
-          title={title2}
-          setTitle={setTitle2}
-          minValue={minValue2}
-          setMinValue={setMinValue2}
-          maxValue={maxValue2}
-          setMaxValue={setMaxValue2}
-          minLimit={minLimit2}
-          maxLimit={maxLimit2}
-        />
-        <DualRangeSlider />
-      </div>
-    </div>
-  )
+                <div className="screener-right-panel">
+
+                </div>
+            </div>
+
+        </div>
+    )
 }
 
 export default PageScreenerMuni
