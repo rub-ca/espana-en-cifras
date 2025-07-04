@@ -67,12 +67,10 @@ const PobResizer = () => {
 
             let leftWidthPercent = 100 - rightWidthPercent
 
-            console.log(`Nuevo ancho izquierdo: ${leftWidthPercent}%, Nuevo ancho derecho: ${rightWidthPercent}%`)
-
             if (rightWidthPercent == 100) {
                 leftPanel.style.display = 'none'
-            }else {
-                 leftPanel.style.display = 'block'
+            } else {
+                leftPanel.style.display = 'block'
             }
 
             // Aplicar los anchos en porcentaje

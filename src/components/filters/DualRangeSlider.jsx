@@ -201,9 +201,6 @@ const cssValueBox = {
 }
 
 function addDots(value) {
-  console.log("\n addDots")
-  console.log(value)
-  console.log(value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.'))
   return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
 }
 
