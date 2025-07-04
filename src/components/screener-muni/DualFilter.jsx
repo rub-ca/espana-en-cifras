@@ -19,41 +19,9 @@ function DualFilter() {
 
   return (
     <>
-      <style>{`
-        input[type=range] {
-          -webkit-appearance: none;
-          width: 100%;
-          height: 6px;
-          background: transparent;
-          pointer-events: none; /* deshabilitamos pointer events en todo el slider */
-          position: absolute;
-          top: 22px;
-        }
-        input[type=range]::-webkit-slider-thumb {
-          -webkit-appearance: none;
-          pointer-events: auto; /* habilitamos pointer events SOLO en el thumb */
-          height: 20px;
-          width: 20px;
-          background: #0b79d0;
-          border-radius: 50%;
-          cursor: pointer;
-          margin-top: -7px; /* para centrar el thumb en la barra */
-          position: relative;
-          z-index: 3;
-        }
-        input[type=range]::-moz-range-thumb {
-          pointer-events: auto;
-          height: 20px;
-          width: 20px;
-          background: #0b79d0;
-          border-radius: 50%;
-          cursor: pointer;
-          position: relative;
-          z-index: 3;
-        }
-      `}</style>
+      <style>{cssComponent}</style>
 
-      <div style={{ width: 300, margin: '50px auto', position: 'relative', height: 50 }}>
+      <div style={cssDivContainer}>
         {/* Slider mínimo */}
         <input
           type="range"
@@ -88,13 +56,49 @@ function DualFilter() {
           }}
         />
       </div>
-
-      <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 30 }}>
-        <span>Mínimo: {minValue}</span>
-        <span>Máximo: {maxValue}</span>
-      </div>
     </>
   )
 }
 
+const cssComponent = `
+        input[type=range] {
+          -webkit-appearance: none;
+          width: 100%;
+          height: 6px;
+          background: transparent;
+          pointer-events: none; /* deshabilitamos pointer events en todo el slider */
+          position: absolute;
+          top: 22px;
+        }
+        input[type=range]::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          pointer-events: auto; /* habilitamos pointer events SOLO en el thumb */
+          height: 20px;
+          width: 20px;
+          background: #0b79d0;
+          border-radius: 50%;
+          cursor: pointer;
+          margin-top: -7px; /* para centrar el thumb en la barra */
+          position: relative;
+          z-index: 3;
+        }
+        input[type=range]::-moz-range-thumb {
+          pointer-events: auto;
+          height: 20px;
+          width: 20px;
+          background: #0b79d0;
+          border-radius: 50%;
+          cursor: pointer;
+          position: relative;
+          z-index: 3;
+        }
+
+      `
+const cssDivContainer = {
+  width: 300,
+  margin: '50px auto',
+  position: 'relative',
+  height: 50,
+  background: 'red'
+}
 export default DualFilter
