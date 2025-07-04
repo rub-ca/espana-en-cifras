@@ -27,7 +27,7 @@
     overflow: auto;
 }
 
-.screener-buscar-button{
+.screener-buscar-button {
     width: 33%;
     height: 3rem;
     background-color: rgb(255, 255, 255);
@@ -37,4 +37,8 @@
     color: rgb(0, 0, 0);
     cursor: pointer;
     margin-top: 1rem;
+}
+.screener-buscar-button:disabled {
+    background-color: rgb(175, 175, 175);
+    cursor: default;
 }

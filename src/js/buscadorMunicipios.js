@@ -1,5 +1,6 @@
 
 export async function buscarMunicipios(
+    dataMuniPais,
     setResultados,
     minPoblacionGeneral,
     maxPoblacionGeneral,
@@ -8,13 +9,10 @@ export async function buscarMunicipios(
     // muni [0] | data -> genre [1] male | region [2] | year [3]
     // muni [0] | data -> genre [1] male | age [2] | year [3]
 
-    const res = await fetch("/data/PobMuniPais.json")
-    if (!res.ok) throw new Error("Error al cargar los datos")
-    const json = await res.json()
-
     const resultados = []
+    setResultados(resultados)
 
-    json.forEach(muni => {
+    dataMuniPais.forEach(muni => {
         const pobla = muni.data[0][0][0]
         if (pobla < minPoblacionGeneral || pobla > maxPoblacionGeneral) return
 

@@ -1,7 +1,11 @@
 import './ItemMuniScreener.css'
 
 const ItemMuniScreener = ({ index, name, pobTotal, pobExtranj }) => {
-    const classIndex = index % 2 === 0 ? 'screener-muni-result screener-muni-result-a' : 'screener-muni-result screener-muni-result-b'
+    let classIndex = 'screener-muni-result'
+
+    if (index === -1) classIndex += ' screener-muni-result-header'
+    else if (index % 2 === 0) classIndex += ' screener-muni-result-a'
+    else classIndex += ' screener-muni-result-b'
 
     return (
         <div className={classIndex} key={index}>
