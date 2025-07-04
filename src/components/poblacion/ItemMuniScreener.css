@@ -23,4 +23,7 @@
     background-color: rgb(247, 230, 206);
     font-size: large;
     font-weight: bold;
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }

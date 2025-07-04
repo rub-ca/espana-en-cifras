@@ -24,6 +24,5 @@ Bug encontrados:
 
 Mejoras:
 
-- Dual range filter que sea exponencial
 - En el header de la poblacion añadir un boton para resetear (volver a tener todos los valores por defecto) 
 - En el header de la poblacion añadir un boton para decir de donde proviene la información (quizás un modal)
