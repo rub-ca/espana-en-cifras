@@ -1,17 +1,7 @@
-html,
-body,
-#root {
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  overflow: hidden;
-  font-family: monospace, sans-serif;
-  background-color: rgb(231, 233, 236);
-}
+@import './vars.css';
 
 .page-pob-container {
-  height: 100vh;
+  height: var(--content-height);
   width: 100%;
   margin: 0;
   padding: 0;
@@ -25,13 +15,13 @@ body,
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 16%;
+  height: 8%;
+  background-color: aqua;
 }
 
 .page-pob-main {
   display: flex;
-  max-height: 84%;
-  height: 84%;
+  height: 92%;
 }
 
 .pob-left-panel {

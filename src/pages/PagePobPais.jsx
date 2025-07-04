@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react"
-import "./css/GeneralPagePob.css"
 import { ageGroups90, genreList } from "../utilsPob.js"
 import PobFiltersHeader from "../components/poblacion/PobFiltersHeader.jsx"
 import MainTitle from "../components/core/MainTitle.jsx"
-import SecondaryTitle from "../components/core/SecondaryTitle.jsx"
 import TablePobPais from "../components/poblacion/tables/TablePobPais.jsx"
 import PiramidePob from "../components/poblacion/PiramidePob.jsx"
 import PobResizer from "../components/poblacion/PobResizer.jsx"
@@ -63,39 +61,41 @@ const PagePobPais = () => {
   ]
 
   return (
-    <div className="page-pob-container">
-      <header className="page-pob-header">
+    <div className="page-container">
+      <div className="page-header">
         <MainTitle />
-        <SecondaryTitle title="Población por País" />
+      </div>
 
-        <PobFiltersHeader
-          primaryOptions={primaryOptions}
-          primarySelected={primarySelected}
-          setPrimarySelected={setPrimarySelected}
-
-          secondaryDropdowns={secondaryDropdowns}
-        />
-      </header>
-
-      <main className="page-pob-main">
-        <section className="pob-left-panel">
-          <PiramidePob
-            data={data}
-            pageName="PobPais"
-            filters={[primarySelected, yearSelectedPiramide]}
-          />
-        </section>
-
-        <section className="pob-right-panel">
-          <PobResizer />
-          <TablePobPais
-            data={data}
+      <div className="page-pob-container">
+        <header className="page-pob-header">
+          <PobFiltersHeader
+            primaryOptions={primaryOptions}
             primarySelected={primarySelected}
+            setPrimarySelected={setPrimarySelected}
             secondaryDropdowns={secondaryDropdowns}
-            listeners={[setYearSelectedPiramide]}
           />
-        </section>
-      </main>
+        </header>
+
+        <main className="page-pob-main">
+          <section className="pob-left-panel">
+            <PiramidePob
+              data={data}
+              pageName="PobPais"
+              filters={[primarySelected, yearSelectedPiramide]}
+            />
+          </section>
+
+          <section className="pob-right-panel">
+            <PobResizer />
+            <TablePobPais
+              data={data}
+              primarySelected={primarySelected}
+              secondaryDropdowns={secondaryDropdowns}
+              listeners={[setYearSelectedPiramide]}
+            />
+          </section>
+        </main>
+      </div>
     </div>
   )
 }

@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-import "./css/GeneralPagePob.css"
 import DualRangeSlider from "../components/screener-muni/DualRangeSlider.jsx"
 
 const PageScreenerMuni = () => {

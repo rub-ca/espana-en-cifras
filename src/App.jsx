@@ -1,4 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import "./pages/css/GeneralPage.css"
+import "./pages/css/GeneralPagePob.css"
 import PagePobPais from "./pages/PagePobPais.jsx"
 import PagePobProvPais from "./pages/PagePobProvPais.jsx"
 import PagePobMuniPais from "./pages/PagePobMuniPais.jsx"
