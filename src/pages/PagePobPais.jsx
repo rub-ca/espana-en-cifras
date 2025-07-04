@@ -62,9 +62,7 @@ const PagePobPais = () => {
 
   return (
     <div className="page-container">
-      <div className="page-header">
-        <MainTitle />
-      </div>
+      <PageHeader />
 
       <div className="page-pob-container">
         <header className="page-pob-header">

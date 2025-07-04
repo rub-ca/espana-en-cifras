@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import DualRangeSlider from "../components/screener-muni/DualRangeSlider.jsx"
+import PageHeader from "../components/core/PageHeader.jsx"
 
 const PageScreenerMuni = () => {
   const [title, setTitle] = useState('titulo')
@@ -19,28 +20,31 @@ const PageScreenerMuni = () => {
   const maxLimit2 = 10000000
 
   return (
-    <div className="page-pob-container">
-      <DualRangeSlider
-        title={title}
-        setTitle={setTitle}
-        minValue={minValue}
-        setMinValue={setMinValue}
-        maxValue={maxValue}
-        setMaxValue={setMaxValue}
-        minLimit={minLimit}
-        maxLimit={maxLimit}
-      />
-      <DualRangeSlider
-        title={title2}
-        setTitle={setTitle2}
-        minValue={minValue2}
-        setMinValue={setMinValue2}
-        maxValue={maxValue2}
-        setMaxValue={setMaxValue2}
-        minLimit={minLimit2}
-        maxLimit={maxLimit2}
-      />
-      <DualRangeSlider />
+    <div className="page-container">
+      <PageHeader />
+      <div className="page-pob-container">
+        <DualRangeSlider
+          title={title}
+          setTitle={setTitle}
+          minValue={minValue}
+          setMinValue={setMinValue}
+          maxValue={maxValue}
+          setMaxValue={setMaxValue}
+          minLimit={minLimit}
+          maxLimit={maxLimit}
+        />
+        <DualRangeSlider
+          title={title2}
+          setTitle={setTitle2}
+          minValue={minValue2}
+          setMinValue={setMinValue2}
+          maxValue={maxValue2}
+          setMaxValue={setMaxValue2}
+          minLimit={minLimit2}
+          maxLimit={maxLimit2}
+        />
+        <DualRangeSlider />
+      </div>
     </div>
   )
 }

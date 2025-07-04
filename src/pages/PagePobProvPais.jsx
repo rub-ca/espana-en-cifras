@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import { ageGroups90, genreList, paises13 } from "../utilsPob.js"
 import PobFiltersHeader from "../components/poblacion/PobFiltersHeader.jsx"
 import MainTitle from "../components/core/MainTitle.jsx"
+import PageHeader from "../components/core/PageHeader.jsx"
 import TablePobProvPais from "../components/poblacion/tables/TablePobProvPais.jsx"
 import PiramidePob from "../components/poblacion/PiramidePob.jsx"
 import PobResizer from "../components/poblacion/PobResizer.jsx"
@@ -73,9 +74,7 @@ const PagePobProvPais = () => {
 
   return (
     <div className="page-container">
-      <div className="page-header">
-        <MainTitle />
-      </div>
+      <PageHeader />
 
       <div className="page-pob-container">
         <header className="page-pob-header">
