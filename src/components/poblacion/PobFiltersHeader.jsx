@@ -1,6 +1,6 @@
 import React from "react"
-import PrimaryDropdown from "../dropdowns/PrimaryDropdown.jsx"
-import SecondaryDropdown from "../dropdowns/SecondaryDropdown.jsx"
+import PrimaryDropdown from "../filters/PrimaryDropdown.jsx"
+import SecondaryDropdown from "../filters/SecondaryDropdown.jsx"
 import "./PobFiltersHeader.css" 
 
 const PobFiltersHeader = ({
