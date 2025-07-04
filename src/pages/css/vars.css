@@ -1,4 +1,6 @@
 :root {
   --header-height: 13%;
   --content-height: 87%;
+
+  --back-color-maybe: rgb(231, 233, 236);
 }
