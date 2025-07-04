@@ -63,8 +63,6 @@ const PagePobMuniPais = () => {
 
     return (
         <div className="page-container">
-            <PageHeader />
-
             <div className="page-pob-container">
                 <header className="page-pob-header">
                     <PobFiltersHeader

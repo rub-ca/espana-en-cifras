@@ -21,7 +21,7 @@ const PageScreenerMuni = () => {
 
     return (
         <div className="page-container">
-            <PageHeader />
+          
 
             <div className="page-screener-container">
                 <div className="screener-left-panel">

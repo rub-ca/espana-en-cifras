@@ -7,10 +7,13 @@ import PagePobProvPais from "./pages/PagePobProvPais.jsx"
 import PagePobMuniPais from "./pages/PagePobMuniPais.jsx"
 import PagePobMuniEdad from "./pages/PagePobMuniEdad.jsx"
 import PageScreenerMuni from "./pages/PageScreenerMuni.jsx"
+import PageHeader from "./components/core/PageHeader.jsx"
 
 const App = () => {
     return (
         <Router>
+              <PageHeader />
+              
             <Routes>
                 <Route path="/pob-pais" element={<PagePobPais />} />
                 <Route path="/pob-prov-pais" element={<PagePobProvPais />} />
