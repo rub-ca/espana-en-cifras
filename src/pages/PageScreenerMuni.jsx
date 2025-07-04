@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { buscarMunicipios } from '../js/buscadorMunicipios.js'
 import DualRangeSlider from "../components/filters/DualRangeSlider.jsx"
-import PageHeader from "../components/core/PageHeader.jsx"
+import PageHeader from "../components/core/HeaderPage.jsx"
 import ItemMuniScreener from "../components/poblacion/ItemMuniScreener.jsx"
 
 const PageScreenerMuni = () => {
@@ -20,67 +20,62 @@ const PageScreenerMuni = () => {
     const maxLimitPoblacionExtranjera = 100
 
     return (
-        <div className="page-container">
-          
+        <div className="page-screener-container">
+            <div className="screener-left-panel">
+                <h2>Buscador de municipios</h2>
 
-            <div className="page-screener-container">
-                <div className="screener-left-panel">
-                    <h2>Buscador de municipios</h2>
+                <DualRangeSlider
+                    title={poblacionGeneralTitulo}
+                    setTitle={setPoblacionGeneralTitulo}
+                    minValue={minPoblacionGeneral}
+                    setMinValue={setMinPoblacionGeneral}
+                    maxValue={maxPoblacionGeneral}
+                    setMaxValue={setMaxPoblacionGeneral}
+                    minLimit={minLimitPoblacionGeneral}
+                    maxLimit={maxLimitPoblacionGeneral}
+                />
+                <DualRangeSlider
+                    title={poblacionExtranjeraTitulo}
+                    setTitle={setPoblacionExtranjeraTitulo}
+                    minValue={minPoblacionExtranjera}
+                    setMinValue={setMinPoblacionExtranjera}
+                    maxValue={maxPoblacionExtranjera}
+                    setMaxValue={setMaxPoblacionExtranjera}
+                    minLimit={minLimitPoblacionExtranjera}
+                    maxLimit={maxLimitPoblacionExtranjera}
+                />
 
-                    <DualRangeSlider
-                        title={poblacionGeneralTitulo}
-                        setTitle={setPoblacionGeneralTitulo}
-                        minValue={minPoblacionGeneral}
-                        setMinValue={setMinPoblacionGeneral}
-                        maxValue={maxPoblacionGeneral}
-                        setMaxValue={setMaxPoblacionGeneral}
-                        minLimit={minLimitPoblacionGeneral}
-                        maxLimit={maxLimitPoblacionGeneral}
-                    />
-                    <DualRangeSlider
-                        title={poblacionExtranjeraTitulo}
-                        setTitle={setPoblacionExtranjeraTitulo}
-                        minValue={minPoblacionExtranjera}
-                        setMinValue={setMinPoblacionExtranjera}
-                        maxValue={maxPoblacionExtranjera}
-                        setMaxValue={setMaxPoblacionExtranjera}
-                        minLimit={minLimitPoblacionExtranjera}
-                        maxLimit={maxLimitPoblacionExtranjera}
-                    />
-
-                    <button className="screener-buscar-button"
-                        onClick={() =>
-                            buscarMunicipios(
-                                setResultados,
-                                minPoblacionGeneral,
-                                maxPoblacionGeneral,
-                                minPoblacionExtranjera,
-                                maxPoblacionExtranjera
-                            )
-                        }>
-                        Buscar!
-                    </button>
-                </div>
-
-                <div className="screener-right-panel">
-                    {resultados.length === 0 ? (
-                        <p>No hay resultados</p>
-                    ) : (
-                        resultados.map((muni, index) => (
-                            <div key={index}>
-                                <ItemMuniScreener
-                                    index={index}
-                                    name={muni.name}
-                                    pobTotal={muni.poblacionTotal}
-                                    pobExtranj={muni.poblacionExtranjera}
-                                />
-                            </div>
-                        ))
-                    )}
-
-                </div>
+                <button className="screener-buscar-button"
+                    onClick={() =>
+                        buscarMunicipios(
+                            setResultados,
+                            minPoblacionGeneral,
+                            maxPoblacionGeneral,
+                            minPoblacionExtranjera,
+                            maxPoblacionExtranjera
+                        )
+                    }>
+                    Buscar!
+                </button>
             </div>
 
+            <div className="screener-right-panel">
+                {resultados.length === 0 ? (
+                    <p>No hay resultados</p>
+                ) : (
+                    resultados.map((muni, index) => (
+                        <div key={index}>
+                            <ItemMuniScreener
+                                index={index}
+                                name={muni.name}
+                                pobTotal={muni.poblacionTotal}
+                                pobExtranj={muni.poblacionExtranjera}
+                            />
+                        </div>
+                    ))
+                )}
+
+            </div>
         </div>
     )
 }

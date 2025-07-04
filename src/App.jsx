@@ -7,21 +7,24 @@ import PagePobProvPais from "./pages/PagePobProvPais.jsx"
 import PagePobMuniPais from "./pages/PagePobMuniPais.jsx"
 import PagePobMuniEdad from "./pages/PagePobMuniEdad.jsx"
 import PageScreenerMuni from "./pages/PageScreenerMuni.jsx"
-import PageHeader from "./components/core/PageHeader.jsx"
+import HeaderPage from "./components/core/HeaderPage.jsx"
 
 const App = () => {
     return (
         <Router>
-              <PageHeader />
-              
-            <Routes>
-                <Route path="/pob-pais" element={<PagePobPais />} />
-                <Route path="/pob-prov-pais" element={<PagePobProvPais />} />
-                <Route path="/pob-muni-pais" element={<PagePobMuniPais />} />
-                <Route path="/pob-muni-edad" element={<PagePobMuniEdad />} />
-                <Route path="/screener-muni" element={<PageScreenerMuni />} />
-                <Route path="/" element={<PagePobMuniEdad />} />
-            </Routes>
+            <div className="page-container">
+                <HeaderPage />
+
+                <Routes>
+                    <Route path="/pob-pais" element={<PagePobPais />} />
+                    <Route path="/pob-prov-pais" element={<PagePobProvPais />} />
+                    <Route path="/pob-muni-pais" element={<PagePobMuniPais />} />
+                    <Route path="/pob-muni-edad" element={<PagePobMuniEdad />} />
+                    <Route path="/screener-muni" element={<PageScreenerMuni />} />
+                    <Route path="/" element={<PagePobMuniEdad />} />
+                </Routes>
+
+            </div>
         </Router>
     )
 }

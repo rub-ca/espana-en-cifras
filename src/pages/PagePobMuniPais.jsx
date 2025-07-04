@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { genreList, paises59 } from "../js/utilsPob.js"
 import PobFiltersHeader from "../components/poblacion/PobFiltersHeader.jsx"
-import PageHeader from "../components/core/PageHeader.jsx"
+import PageHeader from "../components/core/HeaderPage.jsx"
 import TablePobMuni from "../components/poblacion/tables/TablePobMuni.jsx"
 
 const PagePobMuniPais = () => {
@@ -62,30 +62,28 @@ const PagePobMuniPais = () => {
     ]
 
     return (
-        <div className="page-container">
-            <div className="page-pob-container">
-                <header className="page-pob-header">
-                    <PobFiltersHeader
-                        primaryOptions={primaryOptions}
+        <div className="page-pob-container">
+            <header className="page-pob-header">
+                <PobFiltersHeader
+                    primaryOptions={primaryOptions}
+                    primarySelected={primarySelected}
+                    setPrimarySelected={setPrimarySelected}
+                    secondaryDropdowns={secondaryDropdowns}
+                />
+            </header>
+
+            <main className="page-pob-main">
+                <section className="pob-left-panel"></section>
+
+                <section className="pob-right-panel">
+                    <TablePobMuni
+                        data={data}
                         primarySelected={primarySelected}
-                        setPrimarySelected={setPrimarySelected}
                         secondaryDropdowns={secondaryDropdowns}
+                        page="PagePobMuniPais"
                     />
-                </header>
-
-                <main className="page-pob-main">
-                    <section className="pob-left-panel"></section>
-
-                    <section className="pob-right-panel">
-                        <TablePobMuni
-                            data={data}
-                            primarySelected={primarySelected}
-                            secondaryDropdowns={secondaryDropdowns}
-                            page="PagePobMuniPais"
-                        />
-                    </section>
-                </main>
-            </div>
+                </section>
+            </main>
         </div>
     )
 }
