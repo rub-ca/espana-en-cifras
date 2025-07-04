@@ -1,19 +1,50 @@
-import React, { useState } from 'react'
+import React from 'react'
 
-function DualRangeSlider({ title, minValue, setMinValue, maxValue, setMaxValue, minLimit, maxLimit }) {
-  // Maneja cambios en el slider mínimo
+function DualRangeSlider({
+  title,
+  isExponential = false,
+  minValue,
+  setMinValue,
+  maxValue,
+  setMaxValue,
+  minLimit,
+  maxLimit,
+}) {
+  const exp = 3 // potencia para la curva exponencial
+
+  // Funciones para transformar valores si isExponential = true,
+  // sino retornan el valor sin cambios.
+
+  const linearToExpo = (linearVal) => {
+    if (!isExponential) return linearVal
+    const pos = (linearVal - minLimit) / (maxLimit - minLimit)
+    return minLimit + (maxLimit - minLimit) * Math.pow(pos, exp)
+  }
+
+  const expoToLinear = (expoVal) => {
+    if (!isExponential) return expoVal
+    const pos = (expoVal - minLimit) / (maxLimit - minLimit)
+    return minLimit + (maxLimit - minLimit) * Math.pow(pos, 1 / exp)
+  }
+
+  // Valores lineales para posicionar sliders (la posición real que mueve el input range)
+  const minLinear = expoToLinear(minValue)
+  const maxLinear = expoToLinear(maxValue)
+
+  // Handlers para los sliders (trabajan en escala lineal, convierten a exponencial si toca)
   const handleMinChange = (e) => {
-    const value = Math.min(Number(e.target.value), maxValue - 1)
-    setMinValue(value)
+    const linearVal = Math.min(Number(e.target.value), maxLinear - 1)
+    const expoVal = linearToExpo(linearVal)
+    setMinValue(Math.round(expoVal))
   }
 
-  // Maneja cambios en el slider máximo
   const handleMaxChange = (e) => {
-    const value = Math.max(Number(e.target.value), minValue + 1)
-    setMaxValue(value)
+    const linearVal = Math.max(Number(e.target.value), minLinear + 1)
+    const expoVal = linearToExpo(linearVal)
+    setMaxValue(Math.round(expoVal))
   }
 
-  // Maneja cambios en input mínimo editable
+  // Inputs numéricos editables trabajan con valores "reales" (exponenciales o no)
   const handleMinInputChange = (e) => {
     let value = Number(e.target.value)
     if (isNaN(value)) return
@@ -22,7 +53,6 @@ function DualRangeSlider({ title, minValue, setMinValue, maxValue, setMaxValue, 
     setMinValue(value)
   }
 
-  // Maneja cambios en input máximo editable
   const handleMaxInputChange = (e) => {
     let value = Number(e.target.value)
     if (isNaN(value)) return
@@ -53,7 +83,7 @@ function DualRangeSlider({ title, minValue, setMinValue, maxValue, setMaxValue, 
             type="range"
             min={minLimit}
             max={maxLimit}
-            value={minValue}
+            value={minLinear}
             onChange={handleMinChange}
             style={{ zIndex: 3 }}
           />
@@ -63,7 +93,7 @@ function DualRangeSlider({ title, minValue, setMinValue, maxValue, setMaxValue, 
             type="range"
             min={minLimit}
             max={maxLimit}
-            value={maxValue}
+            value={maxLinear}
             onChange={handleMaxChange}
             style={{ zIndex: 2 }}
           />
@@ -71,12 +101,12 @@ function DualRangeSlider({ title, minValue, setMinValue, maxValue, setMaxValue, 
           {/* Barra de rango seleccionado */}
           <div
             style={{
-              position: 'absolute',
+              position: "absolute",
               height: 6,
-              background: '#0b79d0',
+              background: "#0b79d0",
               top: 22,
-              left: `${(minValue / maxLimit) * 100}%`,
-              right: `${100 - (maxValue / maxLimit) * 100}%`,
+              left: `${((expoToLinear(minValue) - minLimit) / (maxLimit - minLimit)) * 100}%`,
+              right: `${100 - ((expoToLinear(maxValue) - minLimit) / (maxLimit - minLimit)) * 100}%`,
               borderRadius: 4,
               zIndex: 1,
             }}
@@ -96,6 +126,7 @@ function DualRangeSlider({ title, minValue, setMinValue, maxValue, setMaxValue, 
     </div>
   )
 }
+
 
 const cssComponent = `
   input[type=range] {

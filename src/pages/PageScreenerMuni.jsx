@@ -39,6 +39,7 @@ const PageScreenerMuni = () => {
 
                 <DualRangeSlider
                     title={poblacionGeneralTitulo}
+                    isExponential={true}
                     minValue={minPoblacionGeneral}
                     setMinValue={setMinPoblacionGeneral}
                     maxValue={maxPoblacionGeneral}
