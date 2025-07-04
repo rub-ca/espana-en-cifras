@@ -26,3 +26,4 @@ Mejoras:
 
 - En el header de la poblacion añadir un boton para resetear (volver a tener todos los valores por defecto) 
 - En el header de la poblacion añadir un boton para decir de donde proviene la información (quizás un modal)
+- En muni screener, al lado del nombre, añadir dos enlaces, uno que te abra el municipio en la pagina de edades y otro en la pagina de muni por pais origen
