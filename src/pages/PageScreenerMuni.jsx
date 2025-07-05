@@ -18,8 +18,25 @@ const PageScreenerMuni = () => {
     const poblacionExtranjeraTitulo = 'Porcentaje población extranjera'
     const [minPoblacionExtranjera, setMinPoblacionExtranjera] = useState(20)
     const [maxPoblacionExtranjera, setMaxPoblacionExtranjera] = useState(80)
+    const [poblacionExtranjeraActivado, setPoblacionExtranjeraActivado] = useState(false)
     const minLimitPoblacionExtranjera = 0
     const maxLimitPoblacionExtranjera = 100
+
+    const porcentajeEdadTitulo = 'Porcentaje de población en el rango'
+    const [minPorcentajeEdad, setMinPorcentajeEdad] = useState(0)
+    const [maxPorcentajeEdad, setMaxPorcentajeEdad] = useState(100)
+    const [porcentajeEdadActivado, setPorcentajeEdadActivado] = useState(false)
+    const minLimitPorcentajeEdad = 0
+    const maxLimitPorcentajeEdad = 100
+
+    const grupoEdadTitulo = 'Rango de edad'
+    const [grupoEdadMin, setGrupoEdadMin] = useState(0)
+    // const [grupoEdadMinReal, setGrupoEdadMinReal] = useState('')
+    const [grupoEdadMax, setGrupoEdadMax] = useState(100)
+    // const [grupoEdadMaxReal, setGrupoEdadMaxReal] = useState('')
+    const minLimitGrupoEdad = 0
+    const maxLimitGrupoEdad = 100
+
 
     useEffect(() => {
         const cargarDatos = async () => {
@@ -47,6 +64,32 @@ const PageScreenerMuni = () => {
                     minLimit={minLimitPoblacionGeneral}
                     maxLimit={maxLimitPoblacionGeneral}
                 />
+
+                <DualRangeSlider
+                    title={porcentajeEdadTitulo}
+                    minValue={minPorcentajeEdad}
+                    setMinValue={setMinPorcentajeEdad}
+                    maxValue={maxPorcentajeEdad}
+                    setMaxValue={setMaxPorcentajeEdad}
+                    minLimit={minLimitPorcentajeEdad}
+                    maxLimit={maxLimitPorcentajeEdad}
+                    activado={porcentajeEdadActivado}
+                    setActivado={setPorcentajeEdadActivado}
+                    marginBot="0px"
+                />
+
+                <DualRangeSlider
+                    title={grupoEdadTitulo}
+                    minValue={grupoEdadMin}
+                    setMinValue={setGrupoEdadMin}
+                    maxValue={grupoEdadMax}
+                    setMaxValue={setGrupoEdadMax}
+                    minLimit={minLimitGrupoEdad}
+                    maxLimit={maxLimitGrupoEdad}
+                    activado={porcentajeEdadActivado}
+                    setActivado={setPorcentajeEdadActivado}
+                />
+
                 <DualRangeSlider
                     title={poblacionExtranjeraTitulo}
                     minValue={minPoblacionExtranjera}
@@ -55,7 +98,10 @@ const PageScreenerMuni = () => {
                     setMaxValue={setMaxPoblacionExtranjera}
                     minLimit={minLimitPoblacionExtranjera}
                     maxLimit={maxLimitPoblacionExtranjera}
+                    activado={poblacionExtranjeraActivado}
+                    setActivado={setPoblacionExtranjeraActivado}
                 />
+
 
                 <button
                     className='screener-buscar-button'

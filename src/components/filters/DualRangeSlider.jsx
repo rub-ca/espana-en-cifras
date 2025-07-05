@@ -10,11 +10,11 @@ function DualRangeSlider({
   setMaxValue,
   minLimit,
   maxLimit,
+  activado = true,
+  setActivado = null,
+  marginBot = '40px',
 }) {
   const exp = 3 // potencia para la curva exponencial
-
-  // Funciones para transformar valores si isExponential = true,
-  // sino retornan el valor sin cambios.
 
   const linearToExpo = (linearVal) => {
     if (!isExponential) return linearVal
@@ -63,8 +63,16 @@ function DualRangeSlider({
   }
 
   return (
-    <div style={cssWrapperMain}>
-      <h4 style={cssTitulo}>{title}</h4>
+    <div style={cssWrapperMain(marginBot)}>
+      <h4
+        style={cssTitulo(activado, setActivado)}
+        onClick={() => {
+          setActivado(!activado)
+        }}>
+        {title}
+      </h4>
+
+
       <div style={cssWrapperSlider}>
         <style>{cssComponent}</style>
 
@@ -76,6 +84,7 @@ function DualRangeSlider({
           value={addDots(minValue)}
           onChange={handleMinInputChange}
           style={cssValueBox}
+          disabled={!activado}
         />
 
         <div style={cssBar}>
@@ -86,7 +95,7 @@ function DualRangeSlider({
             max={maxLimit}
             value={minLinear}
             onChange={handleMinChange}
-            style={{ zIndex: 3 }}
+            style={{ zIndex: 3, display: activado ? 'block' : 'none' }}
           />
 
           {/* Slider máximo */}
@@ -96,7 +105,8 @@ function DualRangeSlider({
             max={maxLimit}
             value={maxLinear}
             onChange={handleMaxChange}
-            style={{ zIndex: 2 }}
+            style={{ zIndex: 2, display: activado ? 'block' : 'none' }}
+            disabled={!activado}
           />
 
           {/* Barra de rango seleccionado */}
@@ -110,6 +120,7 @@ function DualRangeSlider({
               right: `${100 - ((expoToLinear(maxValue) - minLimit) / (maxLimit - minLimit)) * 100}%`,
               borderRadius: 4,
               zIndex: 1,
+              display: activado ? 'block' : 'none',
             }}
           />
         </div>
@@ -122,6 +133,7 @@ function DualRangeSlider({
           value={addDots(maxValue)}
           onChange={handleMaxInputChange}
           style={cssValueBox}
+          disabled={!activado}
         />
       </div>
     </div>
@@ -163,13 +175,16 @@ const cssComponent = `
   }
 `
 
-const cssWrapperMain = {
-  padding: '10px',
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  width: 320,
-  margin: '0px',
+function cssWrapperMain(marginBot) {
+  return {
+    padding: '10px',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    width: 320,
+    margin: '0px',
+    marginBottom: marginBot,
+  }
 }
 
 const cssWrapperSlider = {
@@ -179,10 +194,16 @@ const cssWrapperSlider = {
   margin: '0px auto',
 }
 
-const cssTitulo = {
-  margin: '0px',
-  marginBottom: 10,
+function cssTitulo(a, sA) {
+  return {
+    textAlign: 'center',
+    margin: '0px',
+    marginBottom: 10,
+    color: a ? 'black' : 'gray',
+    cursor: sA === null ? 'default' : 'pointer',
+  }
 }
+
 
 const cssBar = {
   position: 'relative',
