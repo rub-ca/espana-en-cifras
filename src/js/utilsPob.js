@@ -23,6 +23,29 @@ export function getAgeGroup90(g) {
 export function getAgeGroup100(g) {
     return ageGroups100[g] || null
 }
+export function getAgeGroup100ByNumberDRG(age, isMax) {
+    if (age == '100') { return '++100' }
+    if (age < 0) return null
+
+    for (let i = 1; i < ageGroups100.length; i++) {
+        const group = ageGroups100[i]
+        if (group === '++100') {
+            if (age >= 100) return group
+        }
+        else {
+            const [min, max] = group.split('-').map(x => parseInt(x))
+            if (age >= min && age <= max) {
+                if (isMax) return group.split('-')[1]
+                else return group.split('-')[0]
+            }
+        }
+    }
+    return null
+}
+export function getNumberByAgeGroup100DRG(group) {
+    if (group === '++100') return 100
+    return group
+}
 
 export const genreList = ['Total', 'Hombres', 'Mujeres']
 export function getGenre(g) {
@@ -85,4 +108,13 @@ export function addDots(value) {
 
 export function removeDots(value) {
     return value.toString().replace(/\./g, '')
+}
+
+export function addPercentage(value) {
+    return value.toString() + "%"
+}
+
+export function removePercentage(value) {
+    if (value.endsWith("%")) { return value.slice(0, -1) }
+    return value
 }

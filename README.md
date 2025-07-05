@@ -20,6 +20,8 @@ https://www.ine.es/jaxiT3/Tabla.htm?t=68535&L=0   -> PobMuniEdad  > 68535
 
 
 Bug encontrados:
+- En el dual range slider funciona mal si intentas introducir manualmente un numero menor que el limite menor actual
+- En el dual range slider funciona mal en rango de edad si pones un numero que no coincide exactamente que un limite de un rango
 
 
 Mejoras:

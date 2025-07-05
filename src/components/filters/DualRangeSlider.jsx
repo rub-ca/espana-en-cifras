@@ -1,5 +1,5 @@
 import React from 'react'
-import { addDots, removeDots } from '../../js/utilsPob.js'
+import { addDots, removeDots, getAgeGroup100ByNumberDRG, getNumberByAgeGroup100DRG, addPercentage, removePercentage } from '../../js/utilsPob.js'
 
 function DualRangeSlider({
   title,
@@ -13,8 +13,23 @@ function DualRangeSlider({
   activado = true,
   setActivado = null,
   marginBot = '40px',
+  shows = 'mil', // mil \ age100 \ percentage
 }) {
-  const exp = 3 // potencia para la curva exponencial
+  const exp = 3
+
+  let modifyValue = addDots
+  let deModifyValue = removeDots
+
+  if (shows == 'age100') {
+    modifyValue = getAgeGroup100ByNumberDRG
+    deModifyValue = getNumberByAgeGroup100DRG
+  } else if (shows == 'percentage') {
+    modifyValue = addPercentage
+    deModifyValue = removePercentage
+  }
+
+  // const modifyValue = shows === 'mil' ? addDots : getAgeGroup100ByNumberDRG
+  // const deModifyValue = shows === 'mil' ? removeDots : getNumberByAgeGroup100DRG
 
   const linearToExpo = (linearVal) => {
     if (!isExponential) return linearVal
@@ -33,13 +48,23 @@ function DualRangeSlider({
   const maxLinear = expoToLinear(maxValue)
 
   // Handlers para los sliders (trabajan en escala lineal, convierten a exponencial si toca)
+  // El valor de la edad hay que modificarlo porque queremos uno de los limites
+  // El valor de los numeros al ser solo un punto pero el valor ser el mismo no es necesario:
   const handleMinChange = (e) => {
+    if (shows === 'age100') e.target.value = modifyValue(e.target.value, false)
     const linearVal = Math.min(Number(e.target.value), maxLinear - 1)
     const expoVal = linearToExpo(linearVal)
     setMinValue(Math.round(expoVal))
   }
-
   const handleMaxChange = (e) => {
+    if (shows === 'age100') {
+      if (modifyValue(e.target.value, true) == '++100') { e.target.value = '100' }
+      else {
+        const newVal = modifyValue(e.target.value, true)
+        e.target.value = newVal
+      }
+    }
+
     const linearVal = Math.max(Number(e.target.value), minLinear + 1)
     const expoVal = linearToExpo(linearVal)
     setMaxValue(Math.round(expoVal))
@@ -47,7 +72,7 @@ function DualRangeSlider({
 
   // Inputs numéricos editables trabajan con valores "reales" (exponenciales o no)
   const handleMinInputChange = (e) => {
-    let value = Number(removeDots(e.target.value))
+    let value = Number(deModifyValue(e.target.value, false))
     if (isNaN(value)) return
     if (value < minLimit) value = minLimit
     if (value >= maxValue) value = maxValue - 1
@@ -55,7 +80,7 @@ function DualRangeSlider({
   }
 
   const handleMaxInputChange = (e) => {
-    let value = Number(removeDots(e.target.value))
+    let value = Number(deModifyValue(e.target.value, true))
     if (isNaN(value)) return
     if (value > maxLimit) value = maxLimit
     if (value <= minValue) value = minValue + 1
@@ -81,7 +106,7 @@ function DualRangeSlider({
           type="text"
           min={minLimit}
           max={maxLimit}
-          value={addDots(minValue)}
+          value={modifyValue(minValue, false)}
           onChange={handleMinInputChange}
           style={cssValueBox}
           disabled={!activado}
@@ -130,7 +155,7 @@ function DualRangeSlider({
           type="text"
           min={minLimit}
           max={maxLimit}
-          value={addDots(maxValue)}
+          value={modifyValue(maxValue, true)}
           onChange={handleMaxInputChange}
           style={cssValueBox}
           disabled={!activado}
