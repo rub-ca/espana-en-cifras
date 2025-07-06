@@ -11,8 +11,11 @@ export async function buscarMunicipios(
     // muni [0] | data -> genre [1] male | age [2] | year [3]
 
     const resultados = []
+    let maxLengthPoblacionTotal = 0
+
     setResultados({
-        resultados: resultados
+        resultados: resultados,
+        maxLengthPoblacionTotal: maxLengthPoblacionTotal
     })
 
     const header = {
@@ -63,11 +66,13 @@ export async function buscarMunicipios(
             pobExtranj: resultExtranj,
         }
 
+        if (r.poblacionTotal.length > maxLengthPoblacionTotal) { maxLengthPoblacionTotal = r.poblacionTotal.length }
         resultados.push(r)
         count++
     })
 
     setResultados({
-        resultados: resultados
+        resultados: resultados,
+        maxLengthPoblacionTotal: maxLengthPoblacionTotal
     })
 }

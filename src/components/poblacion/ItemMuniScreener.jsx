@@ -1,6 +1,6 @@
 import './ItemMuniScreener.css'
 
-const ItemMuniScreener = ({ index, name, pobTotal, pobExtranj, porcentajeEdad }) => {
+const ItemMuniScreener = ({ index, name, pobTotal, pobExtranj, porcentajeEdad, maxLengthPoblacionTotal }) => {
     let classIndex = 'screener-muni-result'
 
     if (index === 0) classIndex += ' screener-muni-result-header'
@@ -10,9 +10,14 @@ const ItemMuniScreener = ({ index, name, pobTotal, pobExtranj, porcentajeEdad })
     return (
         <div className={classIndex} key={index}>
             <div>{name}</div>
-            <div>{pobTotal}</div>
-            {porcentajeEdad !== null && porcentajeEdad !== undefined && <div>{porcentajeEdad}</div>}
-            {pobExtranj !== null && pobExtranj !== undefined && <div>{pobExtranj}</div>}
+
+            <div>{String(pobTotal).padStart(maxLengthPoblacionTotal, "\u00A0")}</div>
+
+            {porcentajeEdad !== null && porcentajeEdad !== undefined &&
+                <div>{porcentajeEdad.length == 6 ? porcentajeEdad : '\u00A0' + porcentajeEdad}</div>}
+
+            {pobExtranj !== null && pobExtranj !== undefined &&
+                <div>{pobExtranj.length == 6 ? pobExtranj : '\u00A0' + pobExtranj}</div>}
         </div>
     )
 }

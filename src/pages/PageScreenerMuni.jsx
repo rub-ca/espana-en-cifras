@@ -128,6 +128,7 @@ const PageScreenerMuni = () => {
                             pobTotal={r.poblacionTotal}
                             pobExtranj={r.pobExtranj}
                             porcentajeEdad={r.porcentajeEdad}
+                            maxLengthPoblacionTotal={resultados.maxLengthPoblacionTotal}
                         />
                     </div>
                 ))}
