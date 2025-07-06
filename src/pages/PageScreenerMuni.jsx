@@ -8,7 +8,9 @@ const PageScreenerMuni = () => {
     const [dataMuniPais, setDataMuniPais] = useState(null)
     const [dataMuniEdad, setDataMuniEdad] = useState(null)
 
-    const [resultados, setResultados] = useState([])
+    const [resultados, setResultados] = useState({
+        resultados: []
+    })
 
     const [minPoblacionGeneral, setMinPoblacionGeneral] = useState(100)
     const [maxPoblacionGeneral, setMaxPoblacionGeneral] = useState(500000)
@@ -42,6 +44,8 @@ const PageScreenerMuni = () => {
         cargarDatos("/data/PobMuniPais.json", setDataMuniPais)
         cargarDatos("/data/PobMuniEdad.json", setDataMuniEdad)
     }, [])
+
+    // console.log('resultados length: ', resultados.resultados.length)
 
     return (
         <div className="page-screener-container">
@@ -116,7 +120,7 @@ const PageScreenerMuni = () => {
             </div>
 
             <div className="screener-right-panel">
-                {resultados.length > 0 && resultados.map((r, index) => (
+                {resultados.resultados.length > 0 && resultados.resultados.map((r, index) => (
                     <div key={index}>
                         <ItemMuniScreener
                             index={index}

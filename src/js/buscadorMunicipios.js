@@ -11,18 +11,23 @@ export async function buscarMunicipios(
     // muni [0] | data -> genre [1] male | age [2] | year [3]
 
     const resultados = []
-    setResultados(resultados)
+    setResultados({
+        resultados: resultados
+    })
 
     const header = {
         name: "Municipio",
-        poblacionTotal: "Poblacion total",
+        poblacionTotal: "Cantidad de habitantes",
         pobExtranj: poblacionExtranjeraActivado ? 'Población extranjera' : null,
-        porcentajeEdad: porcentajeEdadActivado ? 'Porcentaje en grupo de edad' : null,
+        porcentajeEdad: porcentajeEdadActivado ? 'Poblacion en rango de edad' : null,
     }
 
     resultados.push(header)
 
+    let count = 0
     dataMuniPais.forEach((muni, muniIndex) => {
+        if (count >= 499) return // Limitar a 500 resultados
+
         const poblaTotal = muni.data[0][0][0]
         let resultExtranj = null
         let resultPorcentajeEdad = null
@@ -39,8 +44,6 @@ export async function buscarMunicipios(
 
         // Filtro porcentaje edad activado
         if (porcentajeEdadActivado) {
-
-
             const iGrupoMin = getIndexWhichContainsAgeGroup100DRG(grupoEdadMin)
             const iGrupoMax = getIndexWhichContainsAgeGroup100DRG(grupoEdadMax)
 
@@ -56,11 +59,15 @@ export async function buscarMunicipios(
         const r = {
             name: muni.name,
             poblacionTotal: addDots(poblaTotal),
-            pobExtranj: resultExtranj,
             porcentajeEdad: resultPorcentajeEdad,
+            pobExtranj: resultExtranj,
         }
 
         resultados.push(r)
+        count++
     })
-    setResultados(resultados)
+
+    setResultados({
+        resultados: resultados
+    })
 }

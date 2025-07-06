@@ -11,8 +11,8 @@ const ItemMuniScreener = ({ index, name, pobTotal, pobExtranj, porcentajeEdad })
         <div className={classIndex} key={index}>
             <div>{name}</div>
             <div>{pobTotal}</div>
-            {pobExtranj !== null && pobExtranj !== undefined && <div>{pobExtranj}</div>}
             {porcentajeEdad !== null && porcentajeEdad !== undefined && <div>{porcentajeEdad}</div>}
+            {pobExtranj !== null && pobExtranj !== undefined && <div>{pobExtranj}</div>}
         </div>
     )
 }
