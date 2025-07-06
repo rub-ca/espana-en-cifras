@@ -46,6 +46,9 @@ export function getNumberByAgeGroup100DRG(group) {
     if (group === '++100') return 100
     return group
 }
+export function getIndexWhichContainsAgeGroup100DRG(age) {
+    return ageGroups100.findIndex(g => g.includes(age.toString()))
+}
 
 export const genreList = ['Total', 'Hombres', 'Mujeres']
 export function getGenre(g) {

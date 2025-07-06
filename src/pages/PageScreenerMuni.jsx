@@ -33,18 +33,14 @@ const PageScreenerMuni = () => {
     const maxLimitGrupoEdad = 100
 
     useEffect(() => {
-        const cargarDatos = async () => {
-            const res = await fetch("/data/PobMuniPais.json")
+        const cargarDatos = async (path, setter) => {
+            const res = await fetch(path)
             if (!res.ok) throw new Error("Error al cargar los datos")
             const json = await res.json()
-            setDataMuniPais(json)
-
-            const res2 = await fetch("/data/PobMuniEdad.json")
-            if (!res2.ok) throw new Error("Error al cargar los datos")
-            const json2 = await res.json()
-            setDataMuniEdad(json2)
+            setter(json)
         }
-        cargarDatos()
+        cargarDatos("/data/PobMuniPais.json", setDataMuniPais)
+        cargarDatos("/data/PobMuniEdad.json", setDataMuniEdad)
     }, [])
 
     return (
