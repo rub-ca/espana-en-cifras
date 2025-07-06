@@ -6,6 +6,7 @@ import ItemMuniScreener from "../components/poblacion/ItemMuniScreener.jsx"
 
 const PageScreenerMuni = () => {
     const [dataMuniPais, setDataMuniPais] = useState(null)
+    const [dataMuniEdad, setDataMuniEdad] = useState(null)
 
     const [resultados, setResultados] = useState([])
 
@@ -37,10 +38,14 @@ const PageScreenerMuni = () => {
             if (!res.ok) throw new Error("Error al cargar los datos")
             const json = await res.json()
             setDataMuniPais(json)
+
+            const res2 = await fetch("/data/PobMuniEdad.json")
+            if (!res2.ok) throw new Error("Error al cargar los datos")
+            const json2 = await res.json()
+            setDataMuniEdad(json2)
         }
         cargarDatos()
     }, [])
-
 
     return (
         <div className="page-screener-container">
@@ -98,38 +103,31 @@ const PageScreenerMuni = () => {
                     shows='percentage'
                 />
 
-
                 <button
                     className='screener-buscar-button'
                     disabled={dataMuniPais === null}
                     children={dataMuniPais === null ? "Cargando..." : "Buscar!"}
                     onClick={() =>
                         buscarMunicipios(
-                            dataMuniPais,
-                            setResultados,
-                            minPoblacionGeneral,
-                            maxPoblacionGeneral,
-                            minPoblacionExtranjera,
-                            maxPoblacionExtranjera
+                            dataMuniPais, dataMuniEdad, setResultados,
+                            minPoblacionGeneral, maxPoblacionGeneral,
+                            poblacionExtranjeraActivado, minPoblacionExtranjera, maxPoblacionExtranjera,
+                            porcentajeEdadActivado, minPorcentajeEdad, maxPorcentajeEdad,
+                            grupoEdadMin, grupoEdadMax,
                         )
                     }>
                 </button>
             </div>
 
             <div className="screener-right-panel">
-                <ItemMuniScreener
-                    index={-1}
-                    name={"Municipio"}
-                    pobTotal={"Poblacion total"}
-                    pobExtranj={"Poblacion extranjera"}
-                />
-                {resultados.length > 0 && resultados.map((muni, index) => (
+                {resultados.length > 0 && resultados.map((r, index) => (
                     <div key={index}>
                         <ItemMuniScreener
                             index={index}
-                            name={muni.name}
-                            pobTotal={muni.poblacionTotal}
-                            pobExtranj={muni.poblacionExtranjera}
+                            name={r.name}
+                            pobTotal={r.poblacionTotal}
+                            pobExtranj={r.pobExtranj}
+                            porcentajeEdad={r.porcentajeEdad}
                         />
                     </div>
                 ))}

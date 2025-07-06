@@ -22,6 +22,7 @@ https://www.ine.es/jaxiT3/Tabla.htm?t=68535&L=0   -> PobMuniEdad  > 68535
 Bug encontrados:
 - En el dual range slider funciona mal si intentas introducir manualmente un numero menor que el limite menor actual
 - En el dual range slider funciona mal en rango de edad si pones un numero que no coincide exactamente que un limite de un rango
+- Es posible que se ralentize la pagina de screener en caso de que haya muchos resultados, una posible rapida solucion es limitar los resultados a mil y mostrar un aviso en caso de que haya más
 
 
 Mejoras:
