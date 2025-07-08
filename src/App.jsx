@@ -21,7 +21,7 @@ const App = () => {
                     <Route path="/pob-muni-pais" element={<PagePobMuniPais />} />
                     <Route path="/pob-muni-edad" element={<PagePobMuniEdad />} />
                     <Route path="/screener-muni" element={<PageScreenerMuni />} />
-                    <Route path="/" element={<PagePobMuniEdad />} />
+                    <Route path="/" element={<PagePobProvPais />} />
                 </Routes>
 
             </div>

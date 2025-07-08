@@ -45,8 +45,6 @@ const PageScreenerMuni = () => {
         cargarDatos("/data/PobMuniEdad.json", setDataMuniEdad)
     }, [])
 
-    // console.log('resultados length: ', resultados.resultados.length)
-
     return (
         <div className="page-screener-container">
             <div className="screener-left-panel">
