@@ -5,27 +5,15 @@ import PageHeader from "../components/core/HeaderPage.jsx"
 import TablePobProvPais from "../components/poblacion/tables/TablePobProvPais.jsx"
 import PiramidePob from "../components/poblacion/PiramidePob.jsx"
 import PobResizer from "../components/poblacion/PobResizer.jsx"
+import { loadDataJson } from "../data/loadDataJson.js"
 
 
 const PagePobProvPais = () => {
     const [data, setData] = useState(null)
     const [loading, setLoading] = useState(true)
-    const [error, setError] = useState(null)
 
     useEffect(() => {
-        const cargarDatos = async () => {
-            try {
-                const res = await fetch("/data/PobProvPais.json")
-                if (!res.ok) throw new Error("Error al cargar los datos")
-                const json = await res.json()
-                setData(json)
-            } catch (err) {
-                setError(err.message)
-            } finally {
-                setLoading(false)
-            }
-        }
-        cargarDatos()
+        loadDataJson("/data/PobProvPais.json", setData, setLoading)
     }, [])
 
     // Dropdown states
@@ -39,7 +27,6 @@ const PagePobProvPais = () => {
     const [origenSelectedPiramide, setOrigenSelectedPiramide] = useState("total")
 
     if (loading) return <div>Cargando datos...</div>
-    if (error) return <div>Error</div>
 
     // Dropdown options
     const primaryOptions = data.map(item => item.name.trim())

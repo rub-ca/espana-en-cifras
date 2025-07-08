@@ -3,32 +3,17 @@ import { genreList, ageGroups100 } from "../js/utilsPob.js"
 import PobFiltersHeader from "../components/poblacion/PobFiltersHeader.jsx"
 import TablePobMuni from "../components/poblacion/tables/TablePobMuni.jsx"
 import PiramidePob from "../components/poblacion/PiramidePob.jsx"
+import { loadDataJson } from "../data/loadDataJson.js"
 
 const PagePobMuniPais = () => {
   const [namesPrimary, setNamesPrimary] = useState(null)
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
+  const [loading2, setLoading2] = useState(true)
 
   useEffect(() => {
-    const cargarDatos = async () => {
-      try {
-        const res = await fetch("/data/PobMuniEdad.json")
-        if (!res.ok) throw new Error("Error al cargar los datos")
-        const json = await res.json()
-        setData(json)
-
-        const resNames = await fetch("/data/PobMuniEdad-names.json")
-        if (!resNames.ok) throw new Error("Error al cargar los nombres")
-        const namesJson = await resNames.json()
-        setNamesPrimary(namesJson)
-      } catch (err) {
-        setError(err.message)
-      } finally {
-        setLoading(false)
-      }
-    }
-    cargarDatos()
+    loadDataJson("/data/PobMuniEdad.json", setData, setLoading)
+    loadDataJson("/data/PobMuniEdad-names.json", setNamesPrimary, setLoading2)
   }, [])
 
   // Dropdown states
@@ -40,7 +25,7 @@ const PagePobMuniPais = () => {
   const [yearSelectedPiramide, setYearSelectedPiramide] = useState(2024)
 
   if (loading) return <div>Cargando datos...</div>
-  if (error) return <div>Error</div>
+  if (loading2) return <div>Cargando datos...</div>
 
   // Dropdown options
   const primaryOptions = namesPrimary

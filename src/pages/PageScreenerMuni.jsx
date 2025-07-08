@@ -3,6 +3,7 @@ import { buscarMunicipios } from '../js/buscadorMunicipios.js'
 import DualRangeSlider from "../components/filters/DualRangeSlider.jsx"
 import PageHeader from "../components/core/HeaderPage.jsx"
 import ItemMuniScreener from "../components/poblacion/ItemMuniScreener.jsx"
+import { loadDataJson } from "../data/loadDataJson.js"
 
 const PageScreenerMuni = () => {
     const [dataMuniPais, setDataMuniPais] = useState(null)
@@ -35,14 +36,8 @@ const PageScreenerMuni = () => {
     const maxLimitGrupoEdad = 100
 
     useEffect(() => {
-        const cargarDatos = async (path, setter) => {
-            const res = await fetch(path)
-            if (!res.ok) throw new Error("Error al cargar los datos")
-            const json = await res.json()
-            setter(json)
-        }
-        cargarDatos("/data/PobMuniPais.json", setDataMuniPais)
-        cargarDatos("/data/PobMuniEdad.json", setDataMuniEdad)
+        loadDataJson("/data/PobMuniPais.json", setDataMuniPais)
+        loadDataJson("/data/PobMuniEdad.json", setDataMuniEdad)
     }, [])
 
     return (
