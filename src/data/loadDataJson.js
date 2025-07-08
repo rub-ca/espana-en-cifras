@@ -1,7 +1,7 @@
 import { openDB } from 'idb'
 
 // Abrir o crear la base de datos
-const dbPromise = openDB('my-json-db', 1, {
+const dbPromise = openDB('espanaencifras-es-db', 1, {
     upgrade(db) {
         db.createObjectStore('json-files')
     },
