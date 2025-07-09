@@ -3,7 +3,7 @@ import { openDB } from 'idb'
 // Abrir o crear la base de datos
 const dbPromise = openDB('espanaencifras-es-db', 1, {
     upgrade(db) {
-        db.createObjectStore('json-files')
+        db.createObjectStore('json-files-2024')
     },
 })
 
@@ -13,7 +13,7 @@ export async function loadDataJson(path, setter, setLoading) {
     const db = await dbPromise
 
     // Intentar obtener datos de IndexedDB
-    let json = await db.get('json-files', path)
+    let json = await db.get('json-files-2024', path)
 
     if (!json) {
         // Si no está en DB, hacer fetch
@@ -25,7 +25,7 @@ export async function loadDataJson(path, setter, setLoading) {
         json = await res.json()
 
         // Guardar en IndexedDB
-        await db.put('json-files', json, path)
+        await db.put('json-files-2024', json, path)
     }
 
     // Setear los datos en React
