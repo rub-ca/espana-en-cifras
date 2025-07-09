@@ -114,16 +114,14 @@ const PageScreenerMuni = () => {
 
             <div className="screener-right-panel">
                 {resultados.resultados.length > 0 && resultados.resultados.map((r, index) => (
-                    <div key={index}>
-                        <ItemMuniScreener
-                            index={index}
-                            name={r.name}
-                            pobTotal={r.poblacionTotal}
-                            pobExtranj={r.pobExtranj}
-                            porcentajeEdad={r.porcentajeEdad}
-                            maxLengthPoblacionTotal={resultados.maxLengthPoblacionTotal}
-                        />
-                    </div>
+                    <ItemMuniScreener
+                        index={index}
+                        name={r.name}
+                        pobTotal={r.poblacionTotal}
+                        pobExtranj={r.pobExtranj}
+                        porcentajeEdad={r.porcentajeEdad}
+                        maxLengthPoblacionTotal={resultados.maxLengthPoblacionTotal}
+                    />
                 ))}
             </div>
         </div>
