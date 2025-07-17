@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { buscarMunicipios } from '../js/buscadorMunicipios.js'
 import DualRangeSlider from "../components/filters/DualRangeSlider.jsx"
-import PageHeader from "../components/core/HeaderPage.jsx"
 import ItemMuniScreener from "../components/poblacion/ItemMuniScreener.jsx"
 import { loadDataJson } from "../data/loadDataJson.js"
 
