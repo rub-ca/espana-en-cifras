@@ -8,12 +8,16 @@ const PageHeader = () => {
             <h2 className="main-title">España en Cifras</h2>
 
             <div className="navigation-container">
-                <div className="navigation-menu">1</div>
+                {/* <div className="navigation-menu">1</div>
 
-                <img className="arrowIcon" src={arrowRightIcon} alt="Icono descriptivo" />
+                <img className="arrowIcon" src={arrowRightIcon} alt="Icono descriptivo" /> */}
 
                 <div className="navigation-menu">
                     <nav>
+                        <NavigationLink to="/emp-pub-pri">
+                            Empleo publico y privado
+                        </NavigationLink>
+
                         <NavigationLink to="/pob-pais">
                             Poblacion por pais de origen
                         </NavigationLink>
