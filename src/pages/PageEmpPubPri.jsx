@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from "react"
 import PobResizer from "../components/poblacion/PobResizer.jsx"
+import { loadDataJson } from "../data/loadDataJson.js"
 
 const PageEmpPubPri = () => {
+    const [data, setData] = useState(null)
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        // Fetch data or perform any side effects here
+        loadDataJson("/data/EmpPubPri.json", setData, setLoading)
     }, [])
+
+    if (loading) return <div>Cargando datos...</div>
 
     return (
         <div className="page-pob-container">
