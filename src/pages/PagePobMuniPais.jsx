@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import { genreList, paises59 } from "../js/utilsPob.js"
 import PobFiltersHeader from "../components/poblacion/PobFiltersHeader.jsx"
 import PageHeader from "../components/core/HeaderPage.jsx"
-import TablePobMuni from "../components/poblacion/tables/TablePobMuni.jsx"
+import TablePobMuni from "../components//tables/TablePobMuni.jsx"
 import { loadDataJson } from "../data/loadDataJson.js"
 
 const PagePobMuniPais = () => {

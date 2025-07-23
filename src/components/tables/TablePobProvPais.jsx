@@ -1,5 +1,5 @@
 import "./TablePob.css"
-import { getYear, getAgeGroup90, getGenre, addDotsToNumbers, getRowClassByGenre, getPais13, getIndexPrimarySelected } from "../../../js/utilsPob.js"
+import { getYear, getAgeGroup90, getGenre, addDotsToNumbers, getRowClassByGenre, getPais13, getIndexPrimarySelected } from "../../js/utilsPob.js"
 import ThHeader from './ThHeader'
 import TdFirstCell from './TdFirstCell'
 import TdAlignRight from './TdAlignRight'
@@ -43,7 +43,7 @@ const TablePobProvPais = ({ data, primarySelected, secondaryDropdowns, listeners
         }
     }
     return (
-        <div className="table-pob-pais">
+        <div className="table">
             <div className="table-container">
                 <table>
                     <thead>

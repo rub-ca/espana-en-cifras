@@ -1,5 +1,5 @@
 import "./TablePob.css"
-import { getYear, getGenre, addDotsToNumbers, getRowClassByGenre, getIndexPrimarySelected, getPais59, getAgeGroup100 } from "../../../js/utilsPob.js"
+import { getYear, getGenre, addDotsToNumbers, getRowClassByGenre, getIndexPrimarySelected, getPais59, getAgeGroup100 } from "../../js/utilsPob.js"
 import ThHeader from './ThHeader.jsx'
 import TdFirstCell from './TdFirstCell.jsx'
 import TdAlignRight from './TdAlignRight.jsx'
@@ -63,7 +63,7 @@ const TablePobMuniPais = ({ data, primarySelected, secondaryDropdowns, page, lis
     const reorderedRows = order.flatMap(key => grouped[key])
 
     return (
-        <div className="table-pob-pais">
+        <div className="table">
             <div className="table-container">
                 <table>
                     <thead>

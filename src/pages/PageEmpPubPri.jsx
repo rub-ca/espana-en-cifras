@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import PobResizer from "../components/poblacion/PobResizer.jsx"
 import { loadDataJson } from "../data/loadDataJson.js"
+import TableEmpPubPri from "../components/tables/TableEmpPubPri.jsx"
 
 const PageEmpPubPri = () => {
     const [data, setData] = useState(null)
@@ -21,6 +22,8 @@ const PageEmpPubPri = () => {
 
                 <section className="pob-right-panel">
                     <PobResizer />
+
+                    <TableEmpPubPri data={data} />
 
                 </section>
             </main>

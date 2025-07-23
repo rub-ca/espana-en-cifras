@@ -1,8 +1,8 @@
 import "./TablePob.css"
-import { getYear, getAgeGroup90, getGenre, addDotsToNumbers, getRowClassByGenre, getIndexPrimarySelected } from "../../../js/utilsPob.js"
-import ThHeader from './ThHeader'
-import TdFirstCell from './TdFirstCell'
-import TdAlignRight from './TdAlignRight'
+import { getYear, getAgeGroup90, getGenre, addDotsToNumbers, getRowClassByGenre, getIndexPrimarySelected } from "../../js/utilsPob.js"
+import ThHeader from './ThHeader.jsx'
+import TdFirstCell from './TdFirstCell.jsx'
+import TdAlignRight from './TdAlignRight.jsx'
 
 const TablePobPais = ({ data, primarySelected, secondaryDropdowns, listeners }) => {
     if (!primarySelected) return <div>No hay datos disponibles</div>
@@ -38,7 +38,7 @@ const TablePobPais = ({ data, primarySelected, secondaryDropdowns, listeners }) 
     }
 
     return (
-        <div className="table-pob-pais">
+        <div className="table">
             <div className="table-container">
                 <table>
                     <thead>
