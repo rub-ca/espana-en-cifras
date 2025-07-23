@@ -44,7 +44,7 @@ const TablePobProvPais = ({ data, primarySelected, secondaryDropdowns, listeners
     }
     return (
         <div className="table">
-            <div className="table-container">
+            <div>
                 <table>
                     <thead>
                         <tr>

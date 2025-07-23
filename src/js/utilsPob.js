@@ -1,10 +1,10 @@
-export function getYear(y) {
+export function getYear(y, x = 2024) {
     if (y == "Edad / Género") return 0
     if (y == "Edad / Pais origen / Género") return 0
-    return 2024 - y
+    return x - y
 }
-export function getYearInverse(y) {
-    return Math.abs(y - 2024)
+export function getYearInverse(y, x = 2024) {
+    return Math.abs(y - x)
 }
 
 export function addDotsToNumbers(num) {
