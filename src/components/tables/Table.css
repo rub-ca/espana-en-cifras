@@ -22,6 +22,14 @@
          background-color: rgb(253, 240, 255);
      }
 
+     .row-emp-publico {
+         background-color: rgb(253, 240, 255);
+     }
+
+     .row-emp-privado {
+         background-color: rgb(227, 254, 255);
+     }
+
      .pob-align-right {
          text-align: right;
      }

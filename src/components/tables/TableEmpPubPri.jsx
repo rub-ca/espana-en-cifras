@@ -2,6 +2,7 @@ import ThHeader from './ThHeader.jsx'
 import TdFirstCell from './TdFirstCell.jsx'
 import TdAlignRight from './TdAlignRight.jsx'
 import { getYear } from "../../js/utilsPob.js"
+import { getRowClassByTypeOfWork } from "../../js/utilsEmp.js"
 
 const TableEmpPubPri = ({ data, listeners }) => {
 
@@ -9,6 +10,26 @@ const TableEmpPubPri = ({ data, listeners }) => {
 
     const headers = ['Comunidad / Público o Privado']
     for (let year = 0; year < numYears; year++) headers.push(`${getYear(year)}`)
+
+    const rows = []
+
+    for (let comunidad = 0; comunidad < data.length; comunidad++) {
+        for (let pubpri = 0; pubpri < 2; pubpri++) {
+
+            let type = "Público"
+            const row = [`${data[comunidad].name} / ${pubpri === 0 ? type : "Privado"}`]
+
+            for (let year = 0; year < numYears; year++) {
+                const value = data[comunidad].data[pubpri][year]
+                let multiplied = Math.round(value * 1000)
+
+                row.push(multiplied.toLocaleString('es-ES'))
+            }
+
+            rows.push(row)
+        }
+    }
+
 
     return (
         <div className="table">
@@ -20,19 +41,19 @@ const TableEmpPubPri = ({ data, listeners }) => {
                                 <ThHeader
                                     key={i}
                                     children={h}
-                                    cursorPointer={true}
+                                    cursorPointer={false}
                                 />
                             ))}
                         </tr>
                     </thead>
                     <tbody>
-                        {/* {rows.map((r, rowIndex) => (
-                            <tr key={rowIndex} className={getRowClassByGenre(r)}>
+                        {rows.map((r, rowIndex) => (
+                            <tr key={rowIndex} className={getRowClassByTypeOfWork(r)}>
                                 {r.map((cell, cellIndex) =>
                                     cellIndex === 0 ? (
                                         <TdFirstCell
                                             key={cellIndex}
-                                            onClick={() => listeners[1](cell)}
+                                            // onClick={() => listeners[0](cell)}
                                             children={cell}
                                             cursorPointer={true}
                                         />
@@ -41,7 +62,7 @@ const TableEmpPubPri = ({ data, listeners }) => {
                                     )
                                 )}
                             </tr>
-                        ))} */}
+                        ))}
                     </tbody>
                 </table>
             </div>

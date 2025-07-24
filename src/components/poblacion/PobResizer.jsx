@@ -5,7 +5,8 @@ const PobResizer = () => {
     const [isDragging, setIsDragging] = useState(false)
 
     useEffect(() => {
-        const container = document.querySelector(".page-pob-main")
+        const container = document.querySelector(".page-pob-main") ? document.querySelector(".page-pob-main") : document.querySelector(".page-pob-main-100height")
+
         const leftPanel = document.querySelector(".pob-left-panel")
         const rightPanel = document.querySelector(".pob-right-panel")
         const resizer = document.querySelector(".pob-resizer")
