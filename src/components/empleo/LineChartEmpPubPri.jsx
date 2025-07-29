@@ -3,21 +3,73 @@ import { getIndexComunidad19WithInclude } from "../../js/utilsEmp.js"
 
 const ReactECharts = lazy(() => import('echarts-for-react'))
 
-// PageEmpPubPri [0] publico [1] privado
+// PageEmpPubPri comunidad [0] publico [1] privado
 
-const LineChartEmpPubPri = ({ comunidadSelected, seriesData, seriesNames }) => {
+const LineChartEmpPubPri = ({ type, comunidadSelected, seriesData, seriesNames }) => {
+    const getOption = type === 'all' ? getOptionsAll : getOptionsComunidad
+    return getOption({ comunidadSelected, seriesData, seriesNames })
+}
+
+function getOptionsAll({ seriesData }) {
+    const newArray = seriesData.map(({ name, data }) => ({
+        name,
+        yearsArray:
+            data[1].map((val, i) => Math.round(data[0][i] / (val) * 1000) / 1000)
+                .reverse()
+    }))
+
+    const numYears = seriesData[0].data[0].length
+    const reversedYearsLegend = Array.from({ length: numYears }, (_, i) => (2024 - i).toString()).reverse()
+
+    const option = {
+        title: {
+            text: 'Relación empleo público y privado',
+            left: 'center',
+        },
+        tooltip: {
+            trigger: 'axis',
+            formatter: function (params) {
+                const sorted = [...params].sort((a, b) => b.data - a.data)
+                let result = `${sorted[0].axisValue}<br/>`
+                sorted.forEach(item => {
+                    result += `${item.marker} ${item.seriesName}: ${item.data}<br/>`
+                })
+                return result
+            }
+        },
+        xAxis: {
+            type: 'category',
+            data: reversedYearsLegend,
+        },
+        yAxis: {
+            type: 'log',
+            name: '%',
+            logBase: 2,
+            minorSplitLine: { show: true },
+        },
+        series: newArray.map(serie => ({
+            name: serie.name,
+            type: 'line',
+            data: serie.yearsArray,
+        })),
+    }
+
+    return <ReactECharts option={option} style={{ height: "60%", width: "100%" }} />
+}
+
+
+function getOptionsComunidad({ comunidadSelected, seriesData, seriesNames }) {
     const selectedSplitted = comunidadSelected.split("/")[0].trim()
 
     const data = seriesData[getIndexComunidad19WithInclude(selectedSplitted)].data
     const numYears = data[0].length
 
     const reversedYearsLegend = Array.from({ length: numYears }, (_, i) => (2024 - i).toString()).reverse()
-    const reversedSeriesData = data.map(data => [...data].reverse())
+    const reversedSeriesData = data.map(d => [...d].reverse())
 
     const maximoPrivado = Math.round(Math.max(...reversedSeriesData.flat()) * 1.15)
     const maximoPrivadoDivided = Math.round(maximoPrivado / 3)
-    const maximoPublico = (Math.max(...reversedSeriesData[0]) > maximoPrivadoDivided)
-        ? Math.max(...reversedSeriesData[0]) : maximoPrivadoDivided
+    const maximoPublico = Math.max(Math.max(...reversedSeriesData[0]), maximoPrivadoDivided)
 
     const option = {
         title: {
@@ -63,8 +115,34 @@ const LineChartEmpPubPri = ({ comunidadSelected, seriesData, seriesNames }) => {
         })),
     }
 
-    return <ReactECharts option={option} style={{ height: "400px", width: "100%" }} />
+    return <ReactECharts option={option} style={{ height: "40%", width: "100%" }} />
 }
 
 
 export default LineChartEmpPubPri
+
+
+
+/**
+ * 
+ * get options all()
+    para mostrar porcentaje
+
+    // const newArray = seriesData.map(({ name, data }) => ({
+    //     name,
+    //     yearsArray:
+    //         data[1].map((val, i) => Math.round((100 / (val / data[0][i])) * 100) / 100)
+    //             .reverse()
+    // }))
+
+
+    leyenda en el grafico
+    // legend: {
+    //     data: newArray.map(s => s.name),
+    //     bottom: 10, // ⬅️ aquí pones la leyenda abajo
+    // },
+
+
+
+
+ */

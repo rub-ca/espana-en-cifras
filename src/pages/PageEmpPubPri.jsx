@@ -21,6 +21,13 @@ const PageEmpPubPri = () => {
             <main className="page-pob-main-100height">
                 <section className="pob-left-panel">
                     <LineChartEmpPubPri
+                        type="comunidad"
+                        comunidadSelected={comunidadSelected}
+                        seriesData={data}
+                        seriesNames={["Público", "Privado"]}
+                    />
+                    <LineChartEmpPubPri
+                        type="all"
                         comunidadSelected={comunidadSelected}
                         seriesData={data}
                         seriesNames={["Público", "Privado"]}
