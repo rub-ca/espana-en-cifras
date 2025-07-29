@@ -12,6 +12,8 @@ const PageEmpPubPri = () => {
         loadDataJson("/data/EmpPubPri.json", setData, setLoading)
     }, [])
 
+    const [comunidadSelected, setComunidadSelected] = useState("Total Nacional / Público")
+
     if (loading) return <div>Cargando datos...</div>
 
     return (
@@ -19,17 +21,19 @@ const PageEmpPubPri = () => {
             <main className="page-pob-main-100height">
                 <section className="pob-left-panel">
                     <LineChartEmpPubPri
-                        numSeries={2}
-                        seriesData={data[0].data}
+                        comunidadSelected={comunidadSelected}
+                        seriesData={data}
                         seriesNames={["Público", "Privado"]}
                     />
-
                 </section>
 
                 <section className="pob-right-panel">
                     <PobResizer />
 
-                    <TableEmpPubPri data={data} />
+                    <TableEmpPubPri
+                        data={data}
+                        listeners={[setComunidadSelected]}
+                    />
                 </section>
             </main>
         </div>

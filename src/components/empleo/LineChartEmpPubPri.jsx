@@ -1,22 +1,23 @@
 import React, { lazy, Suspense } from "react"
+import { getIndexComunidad19WithInclude } from "../../js/utilsEmp.js"
 
 const ReactECharts = lazy(() => import('echarts-for-react'))
 
-const LineChartEmpPubPri = ({ numSeries, seriesData, seriesNames }) => {
-    console.log("\n\n")
-    const numYears = seriesData[0].length
+// PageEmpPubPri [0] publico [1] privado
 
-    let yearsLegend = []
-    for (let i = 0; i < numYears; i++) {
-        yearsLegend.push((2024 - i).toString())
-    }
+const LineChartEmpPubPri = ({ comunidadSelected, seriesData, seriesNames }) => {
+    const selectedSplitted = comunidadSelected.split("/")[0].trim()
 
-    const reversedYearsLegend = yearsLegend.reverse()
-    const reversedSeriesData = seriesData.map(data => [...data].reverse())
+    const data = seriesData[getIndexComunidad19WithInclude(selectedSplitted)].data
+    const numYears = data[0].length
 
-    console.log("seriesNames", seriesNames)
-    console.log("reversedYearsLegend", reversedYearsLegend)
-    console.log("reversedSeriesData", reversedSeriesData)
+    const reversedYearsLegend = Array.from({ length: numYears }, (_, i) => (2024 - i).toString()).reverse()
+    const reversedSeriesData = data.map(data => [...data].reverse())
+
+    const maximoPrivado = Math.round(Math.max(...reversedSeriesData.flat()) * 1.15)
+    const maximoPrivadoDivided = Math.round(maximoPrivado / 3)
+    const maximoPublico = (Math.max(...reversedSeriesData[0]) > maximoPrivadoDivided)
+        ? Math.max(...reversedSeriesData[0]) : maximoPrivadoDivided
 
     const option = {
         title: {
@@ -42,7 +43,7 @@ const LineChartEmpPubPri = ({ numSeries, seriesData, seriesNames }) => {
                 axisLabel: {
                     color: '#1a6ebdff',
                 },
-                max: 10000
+                max: maximoPublico
             },
             {
                 type: 'value',
@@ -51,6 +52,7 @@ const LineChartEmpPubPri = ({ numSeries, seriesData, seriesNames }) => {
                 axisLabel: {
                     color: '#79bd1aff',
                 },
+                max: maximoPrivado
             },
         ],
         series: reversedSeriesData.map((data, index) => ({

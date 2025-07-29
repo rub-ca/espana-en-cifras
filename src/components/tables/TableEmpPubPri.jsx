@@ -5,7 +5,6 @@ import { getYear } from "../../js/utilsPob.js"
 import { getRowClassByTypeOfWork } from "../../js/utilsEmp.js"
 
 const TableEmpPubPri = ({ data, listeners }) => {
-
     const numYears = data[0].data[0].length
 
     const headers = ['Comunidad / Público o Privado']
@@ -53,7 +52,7 @@ const TableEmpPubPri = ({ data, listeners }) => {
                                     cellIndex === 0 ? (
                                         <TdFirstCell
                                             key={cellIndex}
-                                            // onClick={() => listeners[0](cell)}
+                                            onClick={() => { listeners[0](cell) }}
                                             children={cell}
                                             cursorPointer={true}
                                         />
