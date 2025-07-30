@@ -1,5 +1,4 @@
 import "./HeaderPage.css"
-import arrowRightIcon from "../../assets/right-arrow.svg"
 import NavigationLink from "./NavigationLink.jsx"
 
 const PageHeader = () => {
@@ -14,6 +13,10 @@ const PageHeader = () => {
 
                 <div className="navigation-menu">
                     <nav>
+                        <NavigationLink to="/emp-prov-sector">
+                            Empleo por provincia y sector
+                        </NavigationLink>
+
                         <NavigationLink to="/emp-pub-pri">
                             Empleo publico y privado
                         </NavigationLink>

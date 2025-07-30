@@ -10,6 +10,7 @@ import PagePobMuniPais from "./pages/PagePobMuniPais.jsx"
 import PagePobMuniEdad from "./pages/PagePobMuniEdad.jsx"
 import PageScreenerMuni from "./pages/PageScreenerMuni.jsx"
 import PageEmpPubPri from "./pages/PageEmpPubPri.jsx"
+import PageEmpProvSector from "./pages/PageEmpProvSector.jsx"
 import HeaderPage from "./components/core/HeaderPage.jsx"
 
 const App = () => {
@@ -25,6 +26,7 @@ const App = () => {
                     <Route path="/pob-muni-edad" element={<PagePobMuniEdad />} />
                     <Route path="/screener-muni" element={<PageScreenerMuni />} />
                     <Route path="/emp-pub-pri" element={<PageEmpPubPri />} />
+                    <Route path="/emp-prov-sector" element={<PageEmpProvSector />} />
                     <Route path="/" element={<PagePobProvPais />} />
                 </Routes>
 
