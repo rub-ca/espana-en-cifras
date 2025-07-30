@@ -30,7 +30,7 @@ public class EmpPubPri {
 
 
     final static int AMOUNT_TYEARS = 93;
-    final static int AMOUNT_YEARS = 23;
+    final static int AMOUNT_YEARS = 23; // Cantidad de years, debe subir con el tiempo
     final static int FIRST_DATA_ROW = 9;
     final static int FIRST_TYPE_INDEX_COL = 1 + AMOUNT_TYEARS; // Los primeros datos son los totales
     final static int MAX_ROWS = 29;
