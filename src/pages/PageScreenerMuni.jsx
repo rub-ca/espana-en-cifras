@@ -8,6 +8,9 @@ const PageScreenerMuni = () => {
     const [dataMuniPais, setDataMuniPais] = useState(null)
     const [dataMuniEdad, setDataMuniEdad] = useState(null)
 
+    const [loading1, setLoading1] = useState(true)
+    const [loading2, setLoading2] = useState(true)
+
     const [resultados, setResultados] = useState({
         resultados: []
     })
@@ -35,9 +38,12 @@ const PageScreenerMuni = () => {
     const maxLimitGrupoEdad = 100
 
     useEffect(() => {
-        loadDataJson("/data/PobMuniPais.json", setDataMuniPais)
-        loadDataJson("/data/PobMuniEdad.json", setDataMuniEdad)
+        loadDataJson("/data/PobMuniPais.json", setDataMuniPais, setLoading1)
+        loadDataJson("/data/PobMuniEdad.json", setDataMuniEdad, setLoading2)
     }, [])
+
+    if (loading1) return <div>Cargando datos...</div>
+    if (loading2) return <div>Cargando datos...</div>
 
     return (
         <div className="page-screener-container">
