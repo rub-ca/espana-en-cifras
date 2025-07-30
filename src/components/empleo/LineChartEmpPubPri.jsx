@@ -19,7 +19,7 @@ function getOptionsAll({ seriesData }) {
     }))
 
     const numYears = seriesData[0].data[0].length
-    const reversedYearsLegend = Array.from({ length: numYears }, (_, i) => (2024 - i).toString()).reverse()
+    const reversedYearsLegend = Array.from({ length: numYears }, (_, i) => (2025 - i).toString()).reverse()
 
     const option = {
         title: {
@@ -43,9 +43,11 @@ function getOptionsAll({ seriesData }) {
         },
         yAxis: {
             type: 'log',
-            name: '%',
+            name: 'ratio',
             logBase: 2,
             minorSplitLine: { show: true },
+            min: 0.1,
+            max: 1.5,
         },
         series: newArray.map(serie => ({
             name: serie.name,
@@ -64,7 +66,7 @@ function getOptionsComunidad({ comunidadSelected, seriesData, seriesNames }) {
     const data = seriesData[getIndexComunidad19WithInclude(selectedSplitted)].data
     const numYears = data[0].length
 
-    const reversedYearsLegend = Array.from({ length: numYears }, (_, i) => (2024 - i).toString()).reverse()
+    const reversedYearsLegend = Array.from({ length: numYears }, (_, i) => (2025 - i).toString()).reverse()
     const reversedSeriesData = data.map(d => [...d].reverse())
 
     const maximoPrivado = Math.round(Math.max(...reversedSeriesData.flat()) * 1.15)

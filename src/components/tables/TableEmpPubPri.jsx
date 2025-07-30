@@ -8,8 +8,8 @@ const TableEmpPubPri = ({ data, listeners }) => {
     const numYears = data[0].data[0].length
 
     const headers = ['Comunidad / Público o Privado']
-    for (let year = 0; year < numYears; year++) headers.push(`${getYear(year)}`)
-
+    for (let year = 0; year < numYears; year++) headers.push(`${getYear(year, 2025)}`)
+        
     const rows = []
 
     for (let comunidad = 0; comunidad < data.length; comunidad++) {

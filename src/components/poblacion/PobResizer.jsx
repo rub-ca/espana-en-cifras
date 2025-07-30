@@ -31,7 +31,7 @@ const PobResizer = () => {
             const containerRect = container.getBoundingClientRect()
             const containerWidth = containerRect.width
 
-            const minRightPercent = 60 // 64%
+            const minRightPercent = 7 // 10%
             const maxRightPercent = 100 // 100%
 
             // Calcular ancho derecho en píxeles basado en la posición del mouse
