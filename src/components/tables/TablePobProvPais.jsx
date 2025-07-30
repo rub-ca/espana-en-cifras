@@ -17,7 +17,6 @@ const TablePobProvPais = ({ data, primarySelected, secondaryDropdowns, listeners
     const headers = ['Edad / Pais origen / Género']
     for (let year = 0; year < numYears; year++) headers.push(`${getYear(year)}`)
 
-
     const rows = []
 
     for (let age = 0; age < numAgeGroups; age++) {

@@ -9,6 +9,25 @@
          padding: 6px;
      }
 
+     .pob-cabecera-tabla {
+         position: sticky;
+         top: 0;
+         z-index: 1;
+         background-color: rgb(181, 202, 219);
+     }
+
+     /* ------------------------------------------ */
+
+     .pob-align-right {
+         text-align: right;
+     }
+
+     .pob-align-center {
+         text-align: center;
+     }
+
+     /* ------------------------------------------ */
+
      .row-genre-total {
          background-color: white;
          font-weight: bold;
@@ -22,6 +41,8 @@
          background-color: rgb(253, 240, 255);
      }
 
+     /* ------------------------------------------ */
+
      .row-emp-publico {
          background-color: rgb(253, 240, 255);
      }
@@ -30,19 +51,29 @@
          background-color: rgb(227, 254, 255);
      }
 
-     .pob-align-right {
-         text-align: right;
+     /* ------------------------------------------ */
+
+     .row-emp-sector-total {
+         background-color: rgb(192, 178, 178);
      }
 
-     .pob-align-center {
-         text-align: center;
+     .row-emp-sector-agricultura {
+         background-color: rgb(212, 255, 210);
      }
 
-     .pob-cabecera-tabla {
-         position: sticky;
-         top: 0;
-         z-index: 1;
-         background-color: rgb(181, 202, 219);
+     .row-emp-sector-industria {
+         background-color: rgb(235, 231, 231);
      }
+
+     .row-emp-sector-construccion {
+         background-color: rgb(227, 254, 255);
+     }
+
+     .row-emp-sector-servicios {
+         background-color: rgb(253, 240, 255);
+     }
+
+
+
 
  }

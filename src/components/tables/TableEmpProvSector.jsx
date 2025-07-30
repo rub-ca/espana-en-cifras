@@ -2,27 +2,28 @@ import ThHeader from './ThHeader.jsx'
 import TdFirstCell from './TdFirstCell.jsx'
 import TdAlignRight from './TdAlignRight.jsx'
 import { getYear } from "../../js/utilsPob.js"
-import { getRowClassByTypeOfWork } from "../../js/utilsEmp.js"
+import { getRowClassBySectorJob } from "../../js/utilsEmp.js"
 
-const TableEmpPubPri = ({ data, listeners }) => {
+// sector 0 total - sector 1 agriculture - sector 2 industry
+// sector 3 building -  sector 4 services
+const TableEmpProvSector = ({ data, listeners }) => {
     const numYears = data[0].data[0].length
 
-    const headers = ['Comunidad / Público o Privado']
+    const headers = ['Comunidad / Sector']
     for (let year = 0; year < numYears; year++) headers.push(`${getYear(year, 2025)}`)
 
     const rows = []
 
-    for (let comunidad = 0; comunidad < data.length; comunidad++) {
-        for (let pubpri = 0; pubpri < 2; pubpri++) {
-            const row = [`${data[comunidad].name} / ${pubpri === 0 ? "Público" : "Privado"}`]
+    for (let province = 0; province < data.length; province++) {
+        for (let sector = 0; sector < 5; sector++) {
+            const row = [`${data[province].name} / ${sector === 0 ? "Total" : sector === 1 ? "Agricultura" : sector === 2 ? "Industria" : sector === 3 ? "Construcción" : "Servicios"}`]
 
             for (let year = 0; year < numYears; year++) {
-                const value = data[comunidad].data[pubpri][year]
+                const value = data[province].data[sector][year]
                 let multiplied = Math.round(value * 1000)
 
                 row.push(multiplied.toLocaleString('es-ES'))
             }
-
             rows.push(row)
         }
     }
@@ -45,7 +46,7 @@ const TableEmpPubPri = ({ data, listeners }) => {
                     </thead>
                     <tbody>
                         {rows.map((r, rowIndex) => (
-                            <tr key={rowIndex} className={getRowClassByTypeOfWork(r)}>
+                            <tr key={rowIndex} className={getRowClassBySectorJob(r)}>
                                 {r.map((cell, cellIndex) =>
                                     cellIndex === 0 ? (
                                         <TdFirstCell
@@ -68,4 +69,4 @@ const TableEmpPubPri = ({ data, listeners }) => {
 
 }
 
-export default TableEmpPubPri
+export default TableEmpProvSector
