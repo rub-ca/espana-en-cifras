@@ -10,19 +10,9 @@ const LineChartEmpProvSector = ({ type, provSelected, dataProv, dataSector }) =>
 
 function getGraphProvinciaSector({ provSelected, dataProv, dataSector }) {
     const selectedSplitted = provSelected.split("/")[0].trim().replace(/\d+/g, '').trim()
-    console.log('\n\n')
-    console.log(`selectedSplitted:${selectedSplitted}:`)
+    const data = dataSector[dataProv.findIndex(d => d.name.includes(selectedSplitted))].data
 
-    const index = dataProv.findIndex(d => d.name.includes(selectedSplitted))
-    if (index === -1) {
-        console.error(`No se encontró la provincia: ${selectedSplitted}`)
-        return null
-    }
-
-    // let index = 0
-    const data = dataSector[index].data
     const headerSector = ['Total', 'Agricultura', 'Industria', 'Construcción', 'Servicios']
-
     const numYears = data[0].length
 
     const reversedYearsLegend = Array.from({ length: numYears }, (_, i) => (2025 - i).toString()).reverse()
