@@ -3,6 +3,7 @@ import PobResizer from "../components/poblacion/PobResizer.jsx"
 import { loadDataJson } from "../data/loadDataJson.js"
 import LineChartEmpProvSector from "../components/empleo/LineChartEmpProvSector.jsx"
 import TableEmpProvSector from "../components/tables/TableEmpProvSector.jsx"
+import SelectorTableEmpProvSector from "../components/empleo/SelectorTableEmpProvSector.jsx"
 
 const PageEmpProvSector = () => {
     const [dataProv, setDataProv] = useState(null)
@@ -10,7 +11,7 @@ const PageEmpProvSector = () => {
     const [loading1, setLoading1] = useState(true)
     const [loading2, setLoading2] = useState(true)
 
-    const [provSeleted, setProvSelected] = useState("Total Nacional")
+    const [provSelected, setProvSelected] = useState("Total Nacional / Total")
 
     useEffect(() => {
         loadDataJson("/data/PobProvPais.json", setDataProv, setLoading1)
@@ -25,12 +26,15 @@ const PageEmpProvSector = () => {
         <div className="page-pob-container">
             <main className="page-pob-main-100height">
                 <section className="pob-left-panel">
-                    {/* <LineChartEmpPubPri
-                        type="comunidad"
-                        comunidadSelected={comunidadSelected}
-                        seriesData={data}
-                        seriesNames={["Público", "Privado"]}
+                    <SelectorTableEmpProvSector />
+
+                    <LineChartEmpProvSector
+                        type="provincia_sector"
+                        provSelected={provSelected}
+                        dataProv={dataProv}
+                        dataSector={dataSector}
                     />
+                    {/*
                     <LineChartEmpPubPri
                         type="all"
                         comunidadSelected={comunidadSelected}

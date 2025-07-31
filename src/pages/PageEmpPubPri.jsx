@@ -30,7 +30,6 @@ const PageEmpPubPri = () => {
                         type="all"
                         comunidadSelected={comunidadSelected}
                         seriesData={data}
-                        seriesNames={["Público", "Privado"]}
                     />
                 </section>
 
