@@ -47,8 +47,7 @@ export async function loadDataZipJson(path, setter, setLoading) {
     // Intentar obtener datos de IndexedDB
     let json = await db.get(BD_PATH, path)
 
-    if (!json) {
-        
+    if (!json) {        
         console.log(`Cargando ZIP desde IndexedDB: ${path}`)
         // Si no está en DB, hacer fetch
         const res = await fetch("https://data.xn--espaaencifras-lkb.es" + path)
