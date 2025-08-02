@@ -1,63 +1,72 @@
-## Paginas poblacion:
+## Páginas población
 
-##### 1. PobEdadPais
-Filtro primario: pais de nacimiento
-Filtros secundarios: edad, genero
+#### 1. PobEdadPais
 
-Datos: https://www.ine.es/jaxiT3/Tabla.htm?t=56937
-Se han eliminado columnas del excel para dejar solo las cifras de enero
+**Filtro primario:** país de nacimiento  
+**Filtros secundarios:** edad, género  
 
-##### 2 PobProvPais
-Filtro primario: provincia
-Filtros secundarios: edad, pais de nacimiento, genero
+[Datos](https://www.ine.es/jaxiT3/Tabla.htm?t=56937)  
+Se han eliminado columnas del Excel para dejar solo las cifras de enero.
 
-Datos: https://www.ine.es/jaxiT3/Tabla.htm?t=56948&L=0
-Se han eliminado columnas del excel para dejar solo las cifras de enero
+---
 
-##### 3 PobMuniPais
-Filtro primario: municipios
-Filtros secundarios: genero, pais de nacimiento
+#### 2. PobProvPais
 
-https://www.ine.es/jaxiT3/Tabla.htm?t=66322&L=0
+**Filtro primario:** provincia  
+**Filtros secundarios:** edad, país de nacimiento, género  
 
-##### 4. PobMuniEdad
-Filtro primario: municipios
-Filtros secundarios: genero, edad
+[Datos](https://www.ine.es/jaxiT3/Tabla.htm?t=56948&L=0)  
+Se han eliminado columnas del Excel para dejar solo las cifras de enero.
 
-https://www.ine.es/jaxiT3/Tabla.htm?t=68535&L=0  
+---
 
+#### 3. PobMuniPais
 
+**Filtro primario:** municipios  
+**Filtros secundarios:** género, país de nacimiento  
 
-## Paginas empleo:
+[Datos](https://www.ine.es/jaxiT3/Tabla.htm?t=66322&L=0)
 
-https://www.ine.es/jaxiT3/Tabla.htm?t=65321  -> EmpPubPri
+---
 
-https://www.ine.es/jaxiT3/Tabla.htm?t=65354 -> EmpProvSector
-Pagina que muestra las personas que trabajan por provincia
-y sector agricultura/servicios/etc 
+#### 4. PobMuniEdad
 
-Pagina que a nivel nacional muestra cuantas personas trabajan en el sector privado
-y cuantas cobran del gobierno, sector publico, imv, paro, pensiones.
+**Filtro primario:** municipios  
+**Filtros secundarios:** género, edad  
 
+[Datos](https://www.ine.es/jaxiT3/Tabla.htm?t=68535&L=0)
 
+---
 
-Bug encontrados:
+## Páginas empleo
 
-- En el dual range slider funciona mal si intentas introducir manualmente un numero menor que el limite menor actual
-- En el dual range slider funciona mal en rango de edad si pones un numero que no coincide exactamente que un limite de un rango
-- Mientras se esta cargando una tabla se muestra un mensaje de no hay datos disponibles en vez de 'cargando datos'
+- [EmpPubPri](https://www.ine.es/jaxiT3/Tabla.htm?t=65321)  
+  Página que a nivel nacional muestra cuántas personas trabajan en el sector privado y cuántas cobran del gobierno (sector público, IMV, paro, pensiones).
 
+- [EmpProvSector](https://www.ine.es/jaxiT3/Tabla.htm?t=65354)  
+  Página que muestra las personas que trabajan por provincia y por sector (agricultura, servicios, etc).
 
+---
 
-Mejoras:
+## Bugs encontrados
 
-- En el header de la poblacion añadir un boton para resetear (volver a tener todos los valores por defecto) 
-- En el header de la poblacion añadir un boton para decir de donde proviene la información (quizás un modal)
-- En muni screener, al lado del nombre, añadir dos enlaces, uno que te abra el municipio en la pagina de edades y otro en la pagina de muni por pais origen
-- Se ha aplicado un limite maximo de resultados en el screener de municipios, pero todavia no hay nada visual que se lo diga al usuario
+- El dual range slider funciona mal si se introduce manualmente un número menor que el límite inferior actual.
+- En el dual range slider para el rango de edad, falla si se introduce un número que no coincide exactamente con un límite de rango.
+- Mientras se está cargando una tabla, se muestra el mensaje "no hay datos disponibles" en lugar de "cargando datos".
 
+---
 
+## Mejoras
 
-UI:
+- En el header de población, añadir un botón para **resetear** los filtros (volver a los valores por defecto).
+- En el header de población, añadir un botón para indicar **de dónde proviene la información** (por ejemplo, un modal).
+- En el **muni screener**, al lado del nombre del municipio, añadir dos enlaces:
+  - Uno que lo abra en la página de edades.
+  - Otro en la página de municipios por país de origen.
+- Se ha aplicado un **límite máximo de resultados** en el screener de municipios, pero aún no hay ninguna indicación visual que informe al usuario.
 
-- Emp prov sector, hacer coincidir los colores de los sectores en la tabla con los colores de los sectores en el grafico
+---
+
+## UI
+
+- En "EmpProvSector", hacer coincidir los **colores de los sectores en la tabla** con los **colores de los sectores en el gráfico**.
