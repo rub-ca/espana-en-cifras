@@ -66,11 +66,23 @@ Lo datos provienen de PobMuniPais y PobMuniEdad
 
 ## Páginas empleo
 
-- [EmpPubPri](https://www.ine.es/jaxiT3/Tabla.htm?t=65321)  
-  Página que a nivel nacional muestra cuántas personas trabajan en el sector privado y cuántas cobran del gobierno (sector público, IMV, paro, pensiones).
+#### 1. EmpPubPri /emp-pub-pri 
 
-- [EmpProvSector](https://www.ine.es/jaxiT3/Tabla.htm?t=65354)  
-  Página que muestra las personas que trabajan por provincia y por sector (agricultura, servicios, etc).
+[Datos - 65321](https://www.ine.es/jaxiT3/Tabla.htm?t=65321)  
+
+`data[0].data[3][1]`
+<br>
+`[comunidad].[type][year] (type 0 = publico, type 1 = privado)`
+
+---
+
+#### 2. EmpProvSector emp-prov-sector
+
+[Datos - 65321](https://www.ine.es/jaxiT3/Tabla.htm?t=65321)  
+
+`data[0].data[3][1]`
+<br>
+`[province].[sector][year] (total, agricultura, industria, construcción, servicios)`
 
 
 <br>
