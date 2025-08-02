@@ -7,7 +7,6 @@ Filtros secundarios: edad, genero
 Datos: https://www.ine.es/jaxiT3/Tabla.htm?t=56937
 Se han eliminado columnas del excel para dejar solo las cifras de enero
 
-<br>
 ##### 2 PobProvPais
 Filtro primario: provincia
 Filtros secundarios: edad, pais de nacimiento, genero
@@ -15,14 +14,12 @@ Filtros secundarios: edad, pais de nacimiento, genero
 Datos: https://www.ine.es/jaxiT3/Tabla.htm?t=56948&L=0 
 Se han eliminado columnas del excel para dejar solo las cifras de enero
 
-<br>
 ##### 3 PobMuniPais
 Filtro primario: municipios
 Filtros secundarios: genero, pais de nacimiento
 
 https://www.ine.es/jaxiT3/Tabla.htm?t=66322&L=0
 
-<br>
 ##### 4. PobMuniEdad
 Filtro primario: municipios
 Filtros secundarios: genero, edad
