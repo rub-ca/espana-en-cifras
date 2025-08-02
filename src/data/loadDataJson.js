@@ -33,3 +33,31 @@ export async function loadDataJson(path, setter, setLoading) {
 
     if (setLoading) setLoading(false)
 }
+
+
+    // const loadZipFromPublic = async () => {
+    //     try {
+    //         console.log('Cargando ZIP desde public/')
+    //         const response = await fetch('/your.zip') // archivo dentro de public/
+    //         if (!response.ok) throw new Error('Error al cargar el archivo ZIP')
+
+    //         console.log('Archivo ZIP cargado correctamente')
+    //         const blob = await response.blob()
+
+    //         const zip = await JSZip.loadAsync(blob)
+    //         console.log('ZIP cargado:', zip)
+
+
+    //         for (const filename of Object.keys(zip.files)) {
+    //             if (filename.endsWith('.json')) {
+    //                 const fileContent = await zip.files[filename].async('string')
+    //                 const jsonData = JSON.parse(fileContent)
+    //                 console.log(`Contenido de ${filename}:`, jsonData)
+    //             }
+    //         }
+    //     } catch (error) {
+    //         console.error('Error al leer el ZIP:', error)
+    //     }
+    // }
+
+    // loadZipFromPublic()
