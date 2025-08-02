@@ -8,9 +8,9 @@
 [Datos - 56937](https://www.ine.es/jaxiT3/Tabla.htm?t=56937)  
 Se han eliminado columnas del Excel para dejar solo las cifras de enero.
 
-data[0].data[3][3][1]
-
-3D array | 1 age, 2 year, 3 genre (0 = total, 1 = male, 2 = female)
+`data[0].data[3][3][1]`
+<br>
+`[country].[age][year][genre] (0 = total, 1 = male, 2 = female)`
 
 ---
 
@@ -22,7 +22,9 @@ data[0].data[3][3][1]
 [Datos - 56948](https://www.ine.es/jaxiT3/Tabla.htm?t=56948&L=0)  
 Se han eliminado columnas del Excel para dejar solo las cifras de enero.
 
-
+`data[0].data[3][1][5][2]`
+<br>
+`[province].[age][region][year][genre]`
 
 ---
 
@@ -33,6 +35,10 @@ Se han eliminado columnas del Excel para dejar solo las cifras de enero.
 
 [Datos - 66322](https://www.ine.es/jaxiT3/Tabla.htm?t=66322&L=0)
 
+`data[0].data[1][2][3]`
+<br>
+`[muni].[genre][region][year]`
+
 ---
 
 #### 4. PobMuniEdad
@@ -41,6 +47,10 @@ Se han eliminado columnas del Excel para dejar solo las cifras de enero.
 **Filtros secundarios:** género, edad  
 
 [Datos - 68535](https://www.ine.es/jaxiT3/Tabla.htm?t=68535&L=0)
+
+`data[0].data[1][2][3]`
+<br>
+`[muni].[genre][age][year]`
 
 ---
 
