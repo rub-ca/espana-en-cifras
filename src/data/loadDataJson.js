@@ -48,6 +48,7 @@ export async function loadDataZipJson(path, setter, setLoading) {
     let json = await db.get(BD_PATH, path)
 
     if (!json) {
+        console.log(`Cargando ZIP desde IndexedDB: ${path}`)
         // Si no está en DB, hacer fetch
         const res = await fetch("https://data.xn--espaaencifras-lkb.es" + path)
         if (!res.ok) {
@@ -60,7 +61,6 @@ export async function loadDataZipJson(path, setter, setLoading) {
         const [filename] = Object.keys(zip.files)
         const file = zip.files[filename]
 
-        console.log(`Cargando JSON desde ZIP: ${filename}`)
 
         if (!filename.endsWith('.json')) {
             throw new Error(`El archivo dentro del ZIP no es un JSON: ${filename}`)
