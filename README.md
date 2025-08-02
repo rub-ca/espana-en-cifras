@@ -5,7 +5,7 @@
 **Filtro primario:** país de nacimiento  
 **Filtros secundarios:** edad, género  
 
-[Datos](https://www.ine.es/jaxiT3/Tabla.htm?t=56937)  
+[Datos - 56937](https://www.ine.es/jaxiT3/Tabla.htm?t=56937)  
 Se han eliminado columnas del Excel para dejar solo las cifras de enero.
 
 ---
@@ -15,7 +15,7 @@ Se han eliminado columnas del Excel para dejar solo las cifras de enero.
 **Filtro primario:** provincia  
 **Filtros secundarios:** edad, país de nacimiento, género  
 
-[Datos](https://www.ine.es/jaxiT3/Tabla.htm?t=56948&L=0)  
+[Datos - 56948](https://www.ine.es/jaxiT3/Tabla.htm?t=56948&L=0)  
 Se han eliminado columnas del Excel para dejar solo las cifras de enero.
 
 ---
@@ -25,7 +25,7 @@ Se han eliminado columnas del Excel para dejar solo las cifras de enero.
 **Filtro primario:** municipios  
 **Filtros secundarios:** género, país de nacimiento  
 
-[Datos](https://www.ine.es/jaxiT3/Tabla.htm?t=66322&L=0)
+[Datos - 66322](https://www.ine.es/jaxiT3/Tabla.htm?t=66322&L=0)
 
 ---
 
@@ -34,7 +34,7 @@ Se han eliminado columnas del Excel para dejar solo las cifras de enero.
 **Filtro primario:** municipios  
 **Filtros secundarios:** género, edad  
 
-[Datos](https://www.ine.es/jaxiT3/Tabla.htm?t=68535&L=0)
+[Datos - 68535](https://www.ine.es/jaxiT3/Tabla.htm?t=68535&L=0)
 
 ---
 
@@ -60,7 +60,7 @@ Se han eliminado columnas del Excel para dejar solo las cifras de enero.
 
 - En el header de población, añadir un botón para **resetear** los filtros (volver a los valores por defecto).
 - En el header de población, añadir un botón para indicar **de dónde proviene la información** (por ejemplo, un modal).
-- En el **muni screener**, al lado del nombre del municipio, añadir dos enlaces:
+- En el **muni screener**, al lado del nombre del municipio de cada resultado, añadir dos enlaces:
   - Uno que lo abra en la página de edades.
   - Otro en la página de municipios por país de origen.
 - Se ha aplicado un **límite máximo de resultados** en el screener de municipios, pero aún no hay ninguna indicación visual que informe al usuario.
