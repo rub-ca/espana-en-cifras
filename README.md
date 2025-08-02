@@ -8,6 +8,9 @@
 [Datos - 56937](https://www.ine.es/jaxiT3/Tabla.htm?t=56937)  
 Se han eliminado columnas del Excel para dejar solo las cifras de enero.
 
+data[0].data[3][3][1]
+3D array | 1 age, 2 year, 3 genre (0 = total, 1 = male, 2 = female)
+
 ---
 
 #### 2. PobProvPais
@@ -17,6 +20,8 @@ Se han eliminado columnas del Excel para dejar solo las cifras de enero.
 
 [Datos - 56948](https://www.ine.es/jaxiT3/Tabla.htm?t=56948&L=0)  
 Se han eliminado columnas del Excel para dejar solo las cifras de enero.
+
+
 
 ---
 
