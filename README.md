@@ -63,7 +63,6 @@ Se han eliminado columnas del Excel para dejar solo las cifras de enero.
 
 Lo datos provienen de PobMuniPais y PobMuniEdad
 
----
 
 ## Páginas empleo
 
@@ -73,7 +72,9 @@ Lo datos provienen de PobMuniPais y PobMuniEdad
 - [EmpProvSector](https://www.ine.es/jaxiT3/Tabla.htm?t=65354)  
   Página que muestra las personas que trabajan por provincia y por sector (agricultura, servicios, etc).
 
----
+
+<br>
+<br>
 
 ## Bugs encontrados
 
@@ -81,7 +82,6 @@ Lo datos provienen de PobMuniPais y PobMuniEdad
 - En el dual range slider para el rango de edad, falla si se introduce un número que no coincide exactamente con un límite de rango.
 - Mientras se está cargando una tabla, se muestra el mensaje "no hay datos disponibles" en lugar de "cargando datos".
 
----
 
 ## Mejoras
 
@@ -92,7 +92,6 @@ Lo datos provienen de PobMuniPais y PobMuniEdad
   - Otro en la página de municipios por país de origen.
 - Se ha aplicado un **límite máximo de resultados** en el screener de municipios, pero aún no hay ninguna indicación visual que informe al usuario.
 
----
 
 ## UI
 
