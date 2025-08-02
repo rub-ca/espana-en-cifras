@@ -1,25 +1,37 @@
-Paginas poblacion:
+## Paginas poblacion:
 
-primario: pais de nacimiento   otros: edad, genero
-https://www.ine.es/jaxiT3/Tabla.htm?t=56937 ->  PobEdadPais  -> 56937
+##### 1. PobEdadPais
+Filtro primario: pais de nacimiento
+Filtros secundarios: edad, genero
+
+Datos: https://www.ine.es/jaxiT3/Tabla.htm?t=56937
 Se han eliminado columnas del excel para dejar solo las cifras de enero
 
+<br>
+##### 2 PobProvPais
+Filtro primario: provincia
+Filtros secundarios: edad, pais de nacimiento, genero
 
-primario: provincia   otros: edad, pais de nacimiento, genero
-https://www.ine.es/jaxiT3/Tabla.htm?t=56948&L=0 -> PobProvPais -> 56948
+Datos: https://www.ine.es/jaxiT3/Tabla.htm?t=56948&L=0 
 Se han eliminado columnas del excel para dejar solo las cifras de enero
 
+<br>
+##### 3 PobMuniPais
+Filtro primario: municipios
+Filtros secundarios: genero, pais de nacimiento
 
-primario: municipios   otros: genero, pais de nacimiento
-https://www.ine.es/jaxiT3/Tabla.htm?t=66322&L=0   -> PobMuniPais  > 66322  
+https://www.ine.es/jaxiT3/Tabla.htm?t=66322&L=0
+
+<br>
+##### 4. PobMuniEdad
+Filtro primario: municipios
+Filtros secundarios: genero, edad
+
+https://www.ine.es/jaxiT3/Tabla.htm?t=68535&L=0  
 
 
-primario: municipios   otros: genero, edad
-https://www.ine.es/jaxiT3/Tabla.htm?t=68535&L=0   -> PobMuniEdad  > 68535  
 
-
-
-Paginas empleo:
+## Paginas empleo:
 
 https://www.ine.es/jaxiT3/Tabla.htm?t=65321  -> EmpPubPri
 
