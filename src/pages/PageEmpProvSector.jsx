@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import PobResizer from "../components/poblacion/PobResizer.jsx"
-import { loadDataJson } from "../data/loadDataJson.js"
+import { loadDataJson, loadDataZipJson } from "../data/loadDataJson.js"
 import LineChartEmpProvSector from "../components/empleo/LineChartEmpProvSector.jsx"
 import TableEmpProvSector from "../components/tables/TableEmpProvSector.jsx"
 
@@ -13,7 +13,7 @@ const PageEmpProvSector = () => {
     const [provSelected, setProvSelected] = useState("Total Nacional / Total")
 
     useEffect(() => {
-        loadDataJson("/data/PobProvPais.json", setDataProv, setLoading1)
+        loadDataZipJson("/data/PobProvPais.zip", setDataProv, setLoading1)
         loadDataJson("/data/EmpProvSector.json", setDataSector, setLoading2)
     }, [])
 

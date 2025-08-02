@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import { buscarMunicipios } from '../js/buscadorMunicipios.js'
 import DualRangeSlider from "../components/filters/DualRangeSlider.jsx"
 import ItemMuniScreener from "../components/poblacion/ItemMuniScreener.jsx"
-import { loadDataJson } from "../data/loadDataJson.js"
+import { loadDataZipJson } from "../data/loadDataJson.js"
 
 const PageScreenerMuni = () => {
     const [dataMuniPais, setDataMuniPais] = useState(null)
@@ -38,8 +38,8 @@ const PageScreenerMuni = () => {
     const maxLimitGrupoEdad = 100
 
     useEffect(() => {
-        loadDataJson("/data/PobMuniPais.json", setDataMuniPais, setLoading1)
-        loadDataJson("/data/PobMuniEdad.json", setDataMuniEdad, setLoading2)
+        loadDataZipJson("/data/PobMuniPais.zip", setDataMuniPais, setLoading1)
+        loadDataZipJson("/data/PobMuniEdad.zip", setDataMuniEdad, setLoading2)
     }, [])
 
     if (loading1) return <div>Cargando datos...</div>

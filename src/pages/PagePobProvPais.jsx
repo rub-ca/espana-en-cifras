@@ -5,7 +5,7 @@ import PageHeader from "../components/core/HeaderPage.jsx"
 import TablePobProvPais from "../components//tables/TablePobProvPais.jsx"
 import PiramidePob from "../components/poblacion/PiramidePob.jsx"
 import PobResizer from "../components/poblacion/PobResizer.jsx"
-import { loadDataJson } from "../data/loadDataJson.js"
+import { loadDataZipJson } from "../data/loadDataJson.js"
 
 
 const PagePobProvPais = () => {
@@ -13,7 +13,7 @@ const PagePobProvPais = () => {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        loadDataJson("/data/PobProvPais.json", setData, setLoading)
+        loadDataZipJson("/data/PobProvPais.zip", setData, setLoading)
     }, [])
 
     // Dropdown states

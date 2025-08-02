@@ -3,7 +3,7 @@ import { genreList, ageGroups100 } from "../js/utilsPob.js"
 import PobFiltersHeader from "../components/poblacion/PobFiltersHeader.jsx"
 import TablePobMuni from "../components//tables/TablePobMuni.jsx"
 import PiramidePob from "../components/poblacion/PiramidePob.jsx"
-import { loadDataJson } from "../data/loadDataJson.js"
+import { loadDataJson, loadDataZipJson } from "../data/loadDataJson.js"
 
 const PagePobMuniPais = () => {
   const [namesPrimary, setNamesPrimary] = useState(null)
@@ -12,7 +12,7 @@ const PagePobMuniPais = () => {
   const [loading2, setLoading2] = useState(true)
 
   useEffect(() => {
-    loadDataJson("/data/PobMuniEdad.json", setData, setLoading)
+    loadDataZipJson("/data/PobMuniEdad.zip", setData, setLoading)
     loadDataJson("/data/PobMuniEdad-names.json", setNamesPrimary, setLoading2)
   }, [])
 
