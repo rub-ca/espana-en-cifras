@@ -11,7 +11,6 @@ const dbPromise = openDB('espanaencifras-es-db', 2, {
 })
 
 export async function loadDataJson(path, setter, setLoading) {
-
     if (setLoading) setLoading(true)
 
     const db = await dbPromise
@@ -43,12 +42,11 @@ export async function loadDataZipJson(path, setter, setLoading) {
     if (setLoading) setLoading(true)
 
     const db = await dbPromise
-    
+
     // Intentar obtener datos de IndexedDB
     let json = await db.get(BD_PATH, path)
 
-
-    if (!json) {        
+    if (!json) {
         console.log(`Cargando ZIP desde IndexedDB: ${path}`)
         // Si no está en DB, hacer fetch
         const res = await fetch("https://data.xn--espaaencifras-lkb.es" + path)
@@ -62,20 +60,14 @@ export async function loadDataZipJson(path, setter, setLoading) {
         const [filename] = Object.keys(zip.files)
         const file = zip.files[filename]
 
-
         if (!filename.endsWith('.json')) {
             throw new Error(`El archivo dentro del ZIP no es un JSON: ${filename}`)
         }
-
-        
-
-
 
         console.log(`Leyendo contenido de ${filename}...`)
         const fileContent = await file.async('string')
         json = JSON.parse(fileContent)
         console.log(`Contenido de ${filename} cargado correctamente`)
-
 
         // Guardar en IndexedDB
         await db.put(BD_PATH, json, path)
