@@ -43,8 +43,8 @@ export async function loadDataZipJson(path, setter, setLoading) {
     if (setLoading) setLoading(true)
 
     const db = await dbPromise
-    
 
+    
     // Intentar obtener datos de IndexedDB
     let json = await db.get(BD_PATH, path)
 
