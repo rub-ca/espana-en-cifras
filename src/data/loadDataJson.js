@@ -60,21 +60,19 @@ export async function loadDataZipJson(path, setter, setLoading) {
         const [filename] = Object.keys(zip.files)
         const file = zip.files[filename]
 
-        // console.log(`Cargando JSON desde ZIP: ${filename}`)
+        console.log(`Cargando JSON desde ZIP: ${filename}`)
 
         if (!filename.endsWith('.json')) {
             throw new Error(`El archivo dentro del ZIP no es un JSON: ${filename}`)
         }
 
-        // console.log(`Leyendo contenido de ${filename}...`)
+        console.log(`Leyendo contenido de ${filename}...`)
         const fileContent = await file.async('string')
-        // const jsonData = JSON.parse(fileContent)
         json = JSON.parse(fileContent)
-        // console.log(`Contenido de ${filename} cargado correctamente`)
+        console.log(`Contenido de ${filename} cargado correctamente`)
+
         // Guardar en IndexedDB
         await db.put(BD_PATH, json, path)
-
-        // console.log(`Datos : ${json}`)
     }
 
     // Setear los datos en React
