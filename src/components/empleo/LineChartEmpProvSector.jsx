@@ -1,14 +1,7 @@
 import React, { lazy, Suspense } from "react"
 const ReactECharts = lazy(() => import('echarts-for-react'))
 
-const LineChartEmpProvSector = ({ type, provSelected, dataProv, dataSector }) => {
-    if (type === 'provincia_sector') {
-        return getGraphProvinciaSector({ provSelected, dataProv, dataSector })
-    }
-    return null
-}
-
-function getGraphProvinciaSector({ provSelected, dataProv, dataSector }) {
+const LineChartEmpProvSector = ({ provSelected, dataProv, dataSector }) => {
     const selectedSplitted = provSelected.split("/")[0].trim().replace(/\d+/g, '').trim()
     const data = dataSector[dataProv.findIndex(d => d.name.includes(selectedSplitted))].data
 
@@ -47,7 +40,7 @@ function getGraphProvinciaSector({ provSelected, dataProv, dataSector }) {
         },
         yAxis: {
             type: 'log',
-            name: 'ratio',
+            name: 'trabajadores (m)',
             logBase: 5,
             minorSplitLine: { show: true },
         },
@@ -58,7 +51,15 @@ function getGraphProvinciaSector({ provSelected, dataProv, dataSector }) {
         })),
     }
 
-    return <ReactECharts option={option} style={{ height: "40%", width: "100%" }} />
+    return <div style={{
+        height: "100%", width: "100%",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center"
+    }}>
+        <ReactECharts option={option} style={{ height: "70%", width: "100%" }} />
+    </div>
+
 }
 
 export default LineChartEmpProvSector
