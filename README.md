@@ -9,6 +9,7 @@
 Se han eliminado columnas del Excel para dejar solo las cifras de enero.
 
 data[0].data[3][3][1]
+
 3D array | 1 age, 2 year, 3 genre (0 = total, 1 = male, 2 = female)
 
 ---
