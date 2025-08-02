@@ -63,6 +63,8 @@ export async function loadDataZipJson(path, setter, setLoading) {
         const file = zip.files[filename]
 
 
+        
+
         if (!filename.endsWith('.json')) {
             throw new Error(`El archivo dentro del ZIP no es un JSON: ${filename}`)
         }
@@ -72,7 +74,7 @@ export async function loadDataZipJson(path, setter, setLoading) {
         json = JSON.parse(fileContent)
         console.log(`Contenido de ${filename} cargado correctamente`)
 
-        
+
         // Guardar en IndexedDB
         await db.put(BD_PATH, json, path)
     }
