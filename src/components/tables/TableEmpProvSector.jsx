@@ -9,7 +9,7 @@ import { getRowClassBySectorJob } from "../../js/utilsEmp.js"
 const TableEmpProvSector = ({ data, listeners }) => {
     const numYears = data[0].data[0].length
 
-    const headers = ['Comunidad / Sector']
+    const headers = ['Provincia / Sector']
     for (let year = 0; year < numYears; year++) headers.push(`${getYear(year, 2025)}`)
 
     const rows = []
