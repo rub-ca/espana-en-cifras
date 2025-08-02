@@ -47,7 +47,7 @@ export async function loadDataZipJson(path, setter, setLoading) {
     // Intentar obtener datos de IndexedDB
     let json = await db.get(BD_PATH, path)
 
-    
+
     if (!json) {        
         console.log(`Cargando ZIP desde IndexedDB: ${path}`)
         // Si no está en DB, hacer fetch
@@ -72,6 +72,7 @@ export async function loadDataZipJson(path, setter, setLoading) {
         json = JSON.parse(fileContent)
         console.log(`Contenido de ${filename} cargado correctamente`)
 
+        
         // Guardar en IndexedDB
         await db.put(BD_PATH, json, path)
     }
