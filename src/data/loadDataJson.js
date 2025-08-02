@@ -63,6 +63,7 @@ export async function loadDataZipJson(path, setter, setLoading) {
         if (!filename.endsWith('.json')) {
             throw new Error(`El archivo dentro del ZIP no es un JSON: ${filename}`)
         }
+        
 
         console.log(`Leyendo contenido de ${filename}...`)
         const fileContent = await file.async('string')
