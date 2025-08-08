@@ -92,7 +92,6 @@ Lo datos provienen de PobMuniPais y PobMuniEdad
 
 - El dual range slider funciona mal si se introduce manualmente un número menor que el límite inferior actual.
 - En el dual range slider para el rango de edad, falla si se introduce un número que no coincide exactamente con un límite de rango.
-- Mientras se está cargando una tabla, se muestra el mensaje "no hay datos disponibles" en lugar de "cargando datos".
 
 
 ## Mejoras
@@ -107,4 +106,8 @@ Lo datos provienen de PobMuniPais y PobMuniEdad
 
 ## UI
 
-- En "EmpProvSector", hacer coincidir los **colores de los sectores en la tabla** con los **colores de los sectores en el gráfico**.
+- En "EmpProvSector" y "EmpPubPri" (primer grafico), hacer coincidir los **colores de los sectores en la tabla** con los **colores de los sectores en el gráfico**.
+
+- Los gráficos no deben tener siempre el título "evolución anual"
+
+- 
