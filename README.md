@@ -101,6 +101,7 @@ Lo datos provienen de PobMuniPais y PobMuniEdad
 - En el **muni screener**, al lado del nombre del municipio de cada resultado, añadir dos enlaces:
   - Uno que lo abra en la página de edades.
   - Otro en la página de municipios por país de origen.
+- En el **muni screener**, añadir un nuevo campo de búsqueda que sea nombre.
 - Se ha aplicado un **límite máximo de resultados** en el screener de municipios, pero aún no hay ninguna indicación visual que informe al usuario.
 
 
@@ -110,4 +111,8 @@ Lo datos provienen de PobMuniPais y PobMuniEdad
 
 - Los gráficos no deben tener siempre el título "evolución anual"
 
-- 
+- La web no debe permitir scroll, solo la tabla.
+
+- Reutilizar componentes (filtros de busqueda).
+
+- Añadir boton de descargar en todas las paginas

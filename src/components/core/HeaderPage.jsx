@@ -1,7 +1,11 @@
 import "./HeaderPage.css"
 import NavigationLink from "./NavigationLink.jsx"
+import { useLocation } from "react-router-dom"
 
 const PageHeader = () => {
+    const location = useLocation()
+    console.log("Current location:", location)
+
     return (
         <div className="page-header">
             <h2 className="main-title">España en Cifras</h2>
