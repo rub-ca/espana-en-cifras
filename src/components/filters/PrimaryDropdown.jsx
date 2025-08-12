@@ -35,9 +35,59 @@ const PrimaryDropdown = ({ options, selected, onChange }) => {
       isClearable
       menuPlacement="auto"
       menuPortalTarget={document.body}
+
+
+      // styles={{
+      //   control: (provided, state) => ({
+      //     ...provided,
+      //     borderRadius: "12px",
+      //   }),
+      //   dropdownIndicator: (provided) => ({
+      //     ...provided,
+      //     padding: "8px",
+      //     // color: "#08156b",
+      //   }),
+      //   menu: (provided) => ({
+      //     ...provided,
+      //     borderRadius: "12px",
+      //     overflow: "hidden",
+      //     minWidth: "220px", // más ancho que el input
+      //   }),
+      //   singleValue: (provided) => ({
+      //     ...provided,
+      //     fontWeight: "bold", // texto en negrita
+      //   }),
+      // }}
+
+
       styles={{
-        menuPortal: (base) => ({ ...base, zIndex: 9999 }),
+        control: (provided, state) => ({
+          ...provided,
+          borderRadius: "12px",
+          width: "250px", // ancho fijo del control
+        }),
+        dropdownIndicator: (provided) => ({
+          ...provided,
+          padding: "8px",
+          color: "#000000ff",
+        }),
+        menu: (provided) => ({
+          ...provided,
+          borderRadius: "12px",
+          overflow: "hidden",
+          width: "300px", // ancho constante del menú
+          minWidth: "300px",
+        }),
+        singleValue: (provided) => ({
+          ...provided,
+          fontWeight: "bold", // negrita para el valor seleccionado
+        }),
       }}
+
+
+
+
+
     />
   )
 }

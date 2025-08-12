@@ -31,26 +31,110 @@ const SecondaryDropdown = ({ options, selected, onChange, placeholder }) => {
 
   useOutsideClick(dropdownRef, () => setOpen(false))
 
+
+
+  // return (
+  //   <div ref={dropdownRef} className="secondary-dropdown">
+  //     <button
+  //       onClick={toggleDropdown}
+  //       className={`sd-control ${open ? "is-open" : ""}`}
+  //       aria-haspopup="listbox"
+  //       aria-expanded={open}
+  //     >
+  //       <span className="sd-value">{placeholder}</span>
+  //       <span className="sd-indicator" aria-hidden>
+  //         {/* Chevron (puedes cambiar el color en CSS) */}
+  //         <svg width="24" height="24" viewBox="0 0 24 24">
+  //           <path d="M7 10l5 5 5-5" fill="none" stroke="currentColor" strokeWidth="2" />
+  //         </svg>
+  //       </span>
+  //     </button>
+
+  //     {open && (
+  //       <ul className="sd-menu" role="listbox">
+  //         {options.map((opt, idx) => {
+  //           const isSelected = selected.includes(opt)
+  //           return (
+  //             <li
+  //               key={opt}
+  //               role="option"
+  //               aria-selected={isSelected}
+  //               onClick={(e) => handleClick(idx, e)}
+  //               className={`sd-option ${isSelected ? "is-selected" : ""}`}
+  //               tabIndex={0}
+  //             >
+  //               {opt}
+  //             </li>
+  //           )
+  //         })}
+  //       </ul>
+  //     )}
+  //   </div>
+  // )
+
+
   return (
     <div ref={dropdownRef} className="secondary-dropdown">
-      <button onClick={toggleDropdown}>
-        {placeholder}
-      </button>
-      {open && (
-        <ul>
-          {options.map((opt, idx) => (
-            <li
-              key={opt}
-              onClick={(e) => handleClick(idx, e)}
-              className={selected.includes(opt) ? "selected" : ""}
+      <button
+        onClick={toggleDropdown}
+        className={`sd-control ${open ? "is-open" : ""}`}
+        aria-haspopup="listbox"
+        aria-expanded={open}
+      >
+        <span className="sd-value">{placeholder}</span>
+
+        <span className="sd-actions">
+          {selected.length > 0 && (
+            <span
+              className="sd-reset"
+              onClick={(e) => {
+                e.stopPropagation()
+                // setSelected([])
+              }}
             >
-              {opt}
-            </li>
-          ))}
+              <svg width="18" height="18" viewBox="0 0 24 24">
+                <path
+                  d="M18 6L6 18M6 6l12 12"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </span>
+          )}
+
+          <span className="sd-indicator" aria-hidden>
+            <svg width="24" height="24" viewBox="0 0 24 24">
+              <path d="M7 10l5 5 5-5" fill="none" stroke="currentColor" strokeWidth="2" />
+            </svg>
+          </span>
+        </span>
+      </button>
+
+      {open && (
+        <ul className="sd-menu" role="listbox">
+          {options.map((opt, idx) => {
+            const isSelected = selected.includes(opt)
+            return (
+              <li
+                key={opt}
+                role="option"
+                aria-selected={isSelected}
+                onClick={(e) => handleClick(idx, e)}
+                className={`sd-option ${isSelected ? "is-selected" : ""}`}
+                tabIndex={0}
+              >
+                {opt}
+              </li>
+            )
+          })}
         </ul>
       )}
     </div>
   )
+
+
+
 }
 
 export default SecondaryDropdown
