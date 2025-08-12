@@ -1,5 +1,6 @@
 import React, { lazy, Suspense } from "react"
 import { getYear, getIndexPrimarySelected, getPais13Inverse, getPais13InverseInclude, getYearInverse, getPais13, ageGroups90, ageGroups100 } from "../../js/utilsPob.js"
+import PiramidePobHeader from "./PiramidePobHeader.jsx"
 
 const ReactECharts = lazy(() => import('echarts-for-react'))
 
@@ -161,12 +162,10 @@ const PiramidePob = ({ data, pageName, filters }) => {
 
     return (
         <>
-            {infoTitleArray.map((titulo, index) => (
-                <h5 key={index}>{titulo}</h5>
-            ))}
+            <PiramidePobHeader infoTitleArray={infoTitleArray} />
 
             <Suspense fallback={<div>Cargando gráfico...</div>}>
-                <ReactECharts option={options} style={{ height: '80%', width: '100%' }} />
+                <ReactECharts option={options} style={{ height: '87%', width: '100%' }} />
             </Suspense>
         </>
     )
