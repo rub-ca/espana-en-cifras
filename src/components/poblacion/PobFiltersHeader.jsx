@@ -11,7 +11,7 @@ const PobFiltersHeader = ({
     secondaryDropdowns,
 }) => {
     return (
-        <section className="page-data-container__8">
+        <section className="page-data-container__7">
 
             <div className="pob-filters-header-section">
                 <PrimaryDropdown

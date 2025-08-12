@@ -89,7 +89,7 @@ const SecondaryDropdown = ({ options, selected, onChange, placeholder }) => {
               className="sd-reset"
               onClick={(e) => {
                 e.stopPropagation()
-                // setSelected([])
+                onChange([])
               }}
             >
               <svg width="18" height="18" viewBox="0 0 24 24">

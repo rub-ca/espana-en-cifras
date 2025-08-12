@@ -58,21 +58,25 @@ const PagePobProvPais = () => {
     ]
 
     return (
-        <div className="page-data-container dircolumn">
-            <PobFiltersHeader
-                primaryOptions={primaryOptions}
-                primarySelected={primarySelected}
-                setPrimarySelected={setPrimarySelected}
-                secondaryDropdowns={secondaryDropdowns}
-            />
+        <div className="page-data-container">
 
-            <div className="page-data-container__92">
+            <div className="page-data-container__left-side"></div>
 
-                <div className="page-data-container__left-side"></div>
-                <div className="page-data-container__resizer"></div>
-                <div className="page-data-container__right-side"></div>
+            <div className="page-data-container__resizer"></div>
 
+            <div className="page-data-container__right-side">
+                <PobFiltersHeader
+                    primaryOptions={primaryOptions}
+                    primarySelected={primarySelected}
+                    setPrimarySelected={setPrimarySelected}
+                    secondaryDropdowns={secondaryDropdowns}
+                />
+
+                <div className="page-data-container__93">
+
+                </div>
             </div>
+
 
         </div>
     )
