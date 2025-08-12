@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { ageGroups90, genreList } from "../js/utilsPob.js"
 import PobFiltersHeader from "../components/poblacion/PobFiltersHeader.jsx"
-import PageHeader from "../components/core/HeaderPage.jsx"
 import TablePobPais from "../components/tables/TablePobPais.jsx"
 import PiramidePob from "../components/poblacion/PiramidePob.jsx"
 import PobResizer from "../components/poblacion/PobResizer.jsx"
@@ -48,36 +47,71 @@ const PagePobPais = () => {
     ]
 
     return (
-        <div className="page-pob-container">
-            <header className="page-pob-header">
+
+        <div className="page-data-container">
+
+            <div className="page-data-container__left-side">
+                <PiramidePob
+                    data={data}
+                    pageName="PobPais"
+                    filters={[primarySelected, yearSelectedPiramide]}
+                />
+            </div>
+
+            <PobResizer />
+
+            <div className="page-data-container__right-side">
                 <PobFiltersHeader
                     primaryOptions={primaryOptions}
                     primarySelected={primarySelected}
                     setPrimarySelected={setPrimarySelected}
                     secondaryDropdowns={secondaryDropdowns}
                 />
-            </header>
 
-            <main className="page-pob-main">
-                <section className="pob-left-panel">
-                    <PiramidePob
-                        data={data}
-                        pageName="PobPais"
-                        filters={[primarySelected, yearSelectedPiramide]}
-                    />
-                </section>
-
-                <section className="pob-right-panel">
-                    <PobResizer />
+                <div className="page-data-container__93">
                     <TablePobPais
                         data={data}
                         primarySelected={primarySelected}
                         secondaryDropdowns={secondaryDropdowns}
                         listeners={[setYearSelectedPiramide]}
                     />
-                </section>
-            </main>
+                </div>
+            </div>
+
+
         </div>
+
+
+        // <div className="page-pob-container">
+        //     <header className="page-pob-header">
+        //         <PobFiltersHeader
+        //             primaryOptions={primaryOptions}
+        //             primarySelected={primarySelected}
+        //             setPrimarySelected={setPrimarySelected}
+        //             secondaryDropdowns={secondaryDropdowns}
+        //         />
+        //     </header>
+
+        //     <main className="page-pob-main">
+        //         <section className="pob-left-panel">
+        //             <PiramidePob
+        //                 data={data}
+        //                 pageName="PobPais"
+        //                 filters={[primarySelected, yearSelectedPiramide]}
+        //             />
+        //         </section>
+
+        //         <section className="pob-right-panel">
+        //             <PobResizer />
+        //             <TablePobPais
+        //                 data={data}
+        //                 primarySelected={primarySelected}
+        //                 secondaryDropdowns={secondaryDropdowns}
+        //                 listeners={[setYearSelectedPiramide]}
+        //             />
+        //         </section>
+        //     </main>
+        // </div>
     )
 }
 
