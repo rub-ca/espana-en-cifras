@@ -5,10 +5,10 @@ const PobResizer = () => {
     const [isDragging, setIsDragging] = useState(false)
 
     useEffect(() => {
-        const container = document.querySelector(".page-pob-main") ? document.querySelector(".page-pob-main") : document.querySelector(".page-pob-main-100height")
+        const container = document.querySelector(".page-data-container")
 
-        const leftPanel = document.querySelector(".pob-left-panel")
-        const rightPanel = document.querySelector(".pob-right-panel")
+        const leftPanel = document.querySelector(".page-data-container__left-side")
+        const rightPanel = document.querySelector(".page-data-container__right-side")
         const resizer = document.querySelector(".pob-resizer")
 
         if (!container || !leftPanel || !rightPanel || !resizer) return
@@ -31,7 +31,7 @@ const PobResizer = () => {
             const containerRect = container.getBoundingClientRect()
             const containerWidth = containerRect.width
 
-            const minRightPercent = 7 // 10%
+            const minRightPercent = 55 // 45%
             const maxRightPercent = 100 // 100%
 
             // Calcular ancho derecho en píxeles basado en la posición del mouse
@@ -55,6 +55,7 @@ const PobResizer = () => {
             leftPanel.style.width = `${leftWidthPercent}%`
             rightPanel.style.width = `${rightWidthPercent}%`
         }
+
         resizer.addEventListener("mousedown", onMouseDown)
         window.addEventListener("mouseup", onMouseUp)
         window.addEventListener("mousemove", onMouseMove)

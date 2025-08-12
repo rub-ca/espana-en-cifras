@@ -80,6 +80,8 @@ body,
 
 .page-data-container__left-side {
     height: 100%;
+
+    /* 1% for resizer */
     width: 31%;
 
     background-color: white;
@@ -88,19 +90,10 @@ body,
     /* margin-right: var(--general-gap); */
 }
 
-.page-data-container__resizer {
-    height: 100%;
-    width: var(--general-gap);
-    /* width: 1%; */
-
-    /* background-color: rgb(77, 63, 63); */
-
-    border-radius: 15px;
-    /* margin-right: var(--general-gap); */
-}
-
 .page-data-container__right-side {
     height: 100%;
+
+    /* 1% for resizer */
     width: 68%;
 
     /* background-color: white; */

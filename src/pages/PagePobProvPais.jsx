@@ -68,7 +68,7 @@ const PagePobProvPais = () => {
                 />
             </div>
 
-            <div className="page-data-container__resizer"></div>
+            <PobResizer/>
 
             <div className="page-data-container__right-side">
                 <PobFiltersHeader
