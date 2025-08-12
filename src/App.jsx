@@ -1,7 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+
 import "./pages/css/App.css"
 import "./pages/css/Table.css"
+import "./pages/css/Menu.css"
+import "./pages/css/SecondaryDropdown.css"
 import "./pages/css/poblacion.css"
+
 import PagePobProvPais from "./pages/PagePobProvPais.jsx"
 import TitlePage from "./components/core/TitlePage.jsx"
 import Menu from "./components/core/Menu.jsx"
@@ -12,8 +16,6 @@ const App = () => {
             <div className="app-container">
                 <Menu />
                 <TitlePage />
-
-
 
                 <Routes>
                     <Route path="/" element={<PagePobProvPais />} />

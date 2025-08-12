@@ -1,6 +1,5 @@
 import React, { useState, useRef } from "react"
 import { useOutsideClick } from "../../hooks/useOutsideClick"
-import "./SecondaryDropdown.css"
 
 const SecondaryDropdown = ({ options, selected, onChange, placeholder }) => {
   const [open, setOpen] = useState(false)
@@ -30,48 +29,6 @@ const SecondaryDropdown = ({ options, selected, onChange, placeholder }) => {
   }
 
   useOutsideClick(dropdownRef, () => setOpen(false))
-
-
-
-  // return (
-  //   <div ref={dropdownRef} className="secondary-dropdown">
-  //     <button
-  //       onClick={toggleDropdown}
-  //       className={`sd-control ${open ? "is-open" : ""}`}
-  //       aria-haspopup="listbox"
-  //       aria-expanded={open}
-  //     >
-  //       <span className="sd-value">{placeholder}</span>
-  //       <span className="sd-indicator" aria-hidden>
-  //         {/* Chevron (puedes cambiar el color en CSS) */}
-  //         <svg width="24" height="24" viewBox="0 0 24 24">
-  //           <path d="M7 10l5 5 5-5" fill="none" stroke="currentColor" strokeWidth="2" />
-  //         </svg>
-  //       </span>
-  //     </button>
-
-  //     {open && (
-  //       <ul className="sd-menu" role="listbox">
-  //         {options.map((opt, idx) => {
-  //           const isSelected = selected.includes(opt)
-  //           return (
-  //             <li
-  //               key={opt}
-  //               role="option"
-  //               aria-selected={isSelected}
-  //               onClick={(e) => handleClick(idx, e)}
-  //               className={`sd-option ${isSelected ? "is-selected" : ""}`}
-  //               tabIndex={0}
-  //             >
-  //               {opt}
-  //             </li>
-  //           )
-  //         })}
-  //       </ul>
-  //     )}
-  //   </div>
-  // )
-
 
   return (
     <div ref={dropdownRef} className="secondary-dropdown">

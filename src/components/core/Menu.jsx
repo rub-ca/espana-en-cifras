@@ -1,4 +1,3 @@
-import './Menu.css'
 import { useLocation } from "react-router-dom"
 
 const Menu = () => {
