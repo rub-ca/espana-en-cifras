@@ -73,7 +73,12 @@ const PagePobProvPais = () => {
                 />
 
                 <div className="page-data-container__93">
-
+                    <TablePobProvPais
+                        data={data}
+                        primarySelected={primarySelected}
+                        secondaryDropdowns={secondaryDropdowns}
+                        listeners={[setYearSelectedPiramide, setOrigenSelectedPiramide]}
+                    />
                 </div>
             </div>
 

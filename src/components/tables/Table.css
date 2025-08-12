@@ -9,11 +9,23 @@
          padding: 6px;
      }
 
-     .pob-cabecera-tabla {
+     .table-header {
          position: sticky;
          top: 0;
          z-index: 1;
-         background-color: rgb(181, 202, 219);
+         border-radius: 15px;
+         background-color: var(--primary-blue-color);
+         color: white;
+     }
+
+     .table-header th:first-child {
+         border-top-left-radius: 15px;
+         background-clip: padding-box;
+     }
+
+     .table-header th:last-child {
+         border-top-right-radius: 15px;
+         background-clip: padding-box;
      }
 
      /* ------------------------------------------ */
@@ -74,6 +86,10 @@
      }
 
 
+
+     .mouse-cursor-pointer{
+        cursor: pointer;
+     }
 
 
  }

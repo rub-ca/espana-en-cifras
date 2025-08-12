@@ -48,6 +48,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  text-align: start;
 }
 
 /* Contenedor de iconos a la derecha */
@@ -95,8 +96,11 @@
   position: absolute;
   top: calc(100% + 4px);
   left: 0;
-  width: 300px;
-  min-width: 300px;
+  right: 0;              /* estira hasta el borde derecho del contenedor */
+  width: auto;           /* deja que lo calcule con left+right */
+  min-width: 0;          /* sin mínimo fijo */
+  box-sizing: border-box;/* incluye el borde en el ancho calculado */
+
   max-height: 260px;
   overflow: auto;
   background: var(--sd-bg);

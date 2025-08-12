@@ -46,7 +46,7 @@ const TablePobProvPais = ({ data, primarySelected, secondaryDropdowns, listeners
             <div>
                 <table>
                     <thead>
-                        <tr>
+                        <tr className="table-header">
                             {headers.map((h, i) => (
                                 <ThHeader
                                     key={i}

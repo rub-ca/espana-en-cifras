@@ -90,7 +90,8 @@ body,
 
 .page-data-container__resizer {
     height: 100%;
-    width: 1%;
+    width: var(--general-gap);
+    /* width: 1%; */
 
     /* background-color: rgb(77, 63, 63); */
 
