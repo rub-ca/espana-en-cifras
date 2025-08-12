@@ -5,6 +5,13 @@
     overflow: auto;
     margin: 0;
     white-space: nowrap;
+    border-radius: 15px;
+    border: 8px solid white;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 
 /* Celdas */
@@ -22,6 +29,17 @@
     background-color: var(--primary-blue-color);
     color: #fff;
 }
+
+/* Bordes tabla */
+.table-separator tbody tr:nth-child(1n) td {
+    border-bottom: 1px solid #999;
+}
+
+.table-separator tbody tr td {
+    border-right: 1px solid #999;
+}
+
+/* ------------------------- */
 
 .table .table-header th:first-child,
 .table .table-header th:last-child {

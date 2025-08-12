@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react"
-import "./PobResizer.css"
 
 const PobResizer = () => {
     const [isDragging, setIsDragging] = useState(false)

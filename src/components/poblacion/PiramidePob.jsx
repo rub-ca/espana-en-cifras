@@ -105,7 +105,7 @@ const PiramidePob = ({ data, pageName, filters }) => {
                 return result
             }
         },
-        grid: { left: '4%', right: '4%', bottom: '4%', containLabel: true },
+        grid: { left: '4%', right: '4%', bottom: '4%', top: '0%', containLabel: true },
 
         xAxis: {
             type: 'value',

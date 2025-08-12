@@ -36,32 +36,8 @@ const PrimaryDropdown = ({ options, selected, onChange }) => {
       menuPlacement="auto"
       menuPortalTarget={document.body}
 
-
-      // styles={{
-      //   control: (provided, state) => ({
-      //     ...provided,
-      //     borderRadius: "12px",
-      //   }),
-      //   dropdownIndicator: (provided) => ({
-      //     ...provided,
-      //     padding: "8px",
-      //     // color: "#08156b",
-      //   }),
-      //   menu: (provided) => ({
-      //     ...provided,
-      //     borderRadius: "12px",
-      //     overflow: "hidden",
-      //     minWidth: "220px", // más ancho que el input
-      //   }),
-      //   singleValue: (provided) => ({
-      //     ...provided,
-      //     fontWeight: "bold", // texto en negrita
-      //   }),
-      // }}
-
-
       styles={{
-        control: (provided, state) => ({
+        control: (provided) => ({
           ...provided,
           borderRadius: "12px",
           width: "250px", // ancho fijo del control
@@ -83,10 +59,6 @@ const PrimaryDropdown = ({ options, selected, onChange }) => {
           fontWeight: "bold", // negrita para el valor seleccionado
         }),
       }}
-
-
-
-
 
     />
   )
