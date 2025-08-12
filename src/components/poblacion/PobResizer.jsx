@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react"
 
-const PobResizer = () => {
+const PobResizer = ({ smallTable }) => {
     const [isDragging, setIsDragging] = useState(false)
+
+    const minRightPercent = 55 // 55%
+    const maxRightPercent = 100 // 100%
 
     useEffect(() => {
         const container = document.querySelector(".page-data-container")
@@ -30,8 +33,7 @@ const PobResizer = () => {
             const containerRect = container.getBoundingClientRect()
             const containerWidth = containerRect.width
 
-            const minRightPercent = 55 // 45%
-            const maxRightPercent = 100 // 100%
+
 
             // Calcular ancho derecho en píxeles basado en la posición del mouse
             const rightWidthPx = containerRect.right - e.clientX
@@ -66,6 +68,16 @@ const PobResizer = () => {
             window.removeEventListener("mousemove", onMouseMove)
         }
     }, [isDragging])
+
+    useEffect(() => {
+        if (smallTable) {
+            const leftPanel = document.querySelector(".page-data-container__left-side")
+            const rightPanel = document.querySelector(".page-data-container__right-side")
+
+            leftPanel.style.width = `${100 - minRightPercent}%`
+            rightPanel.style.width = `${minRightPercent}%`
+        }
+    }, [smallTable])
 
     return <div className="pob-resizer" />
 }

@@ -20,7 +20,7 @@ const Menu = () => {
                 <section>
                     <a href="/poblacion-por-pais">Población por país de origen</a>
                     <a href="/poblacion-provincia-pais">Población por provincia y país</a>
-                    <a href="/">Población por municipio y edad</a>
+                    <a href="/poblacion-municipio-edad">Población por municipio y edad</a>
                     <a href="/">Población por municipio y país</a>
                     <a href="/">Screener de municipios</a>
                 </section>

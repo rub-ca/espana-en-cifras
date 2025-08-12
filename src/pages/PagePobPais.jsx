@@ -47,9 +47,7 @@ const PagePobPais = () => {
     ]
 
     return (
-
         <div className="page-data-container">
-
             <div className="page-data-container__left-side">
                 <PiramidePob
                     data={data}
@@ -77,41 +75,7 @@ const PagePobPais = () => {
                     />
                 </div>
             </div>
-
-
         </div>
-
-
-        // <div className="page-pob-container">
-        //     <header className="page-pob-header">
-        //         <PobFiltersHeader
-        //             primaryOptions={primaryOptions}
-        //             primarySelected={primarySelected}
-        //             setPrimarySelected={setPrimarySelected}
-        //             secondaryDropdowns={secondaryDropdowns}
-        //         />
-        //     </header>
-
-        //     <main className="page-pob-main">
-        //         <section className="pob-left-panel">
-        //             <PiramidePob
-        //                 data={data}
-        //                 pageName="PobPais"
-        //                 filters={[primarySelected, yearSelectedPiramide]}
-        //             />
-        //         </section>
-
-        //         <section className="pob-right-panel">
-        //             <PobResizer />
-        //             <TablePobPais
-        //                 data={data}
-        //                 primarySelected={primarySelected}
-        //                 secondaryDropdowns={secondaryDropdowns}
-        //                 listeners={[setYearSelectedPiramide]}
-        //             />
-        //         </section>
-        //     </main>
-        // </div>
     )
 }
 
