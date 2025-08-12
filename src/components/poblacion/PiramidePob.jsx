@@ -96,91 +96,80 @@ const PiramidePob = ({ data, pageName, filters }) => {
         tooltip: {
             trigger: 'axis',
             axisPointer: { type: 'shadow' },
-            formatter: function (params) {
+            formatter(params) {
                 let result = params[0].name + '<br/>'
-                params.forEach(param => {
-                    result += `${param.seriesName}: ${Math.abs(param.value)}<br/>`
+                params.forEach(p => {
+                    result += `${p.seriesName}: ${p.value.toLocaleString('es-ES')}<br/>`
                 })
                 return result
             }
         },
-        legend: {
-            data: ['Hombres', 'Mujeres'],
-            top: 30,
-            left: '36%',
-            itemGap: 30,
-            textStyle: {
-                fontWeight: 'bold' // Negrita
-            },
-        },
+        grid: { left: '4%', right: '4%', bottom: '4%', containLabel: true },
 
-        grid: {
-            left: '10%',
-            right: '10%',
-            bottom: '10%',
-            containLabel: true
-        },
         xAxis: {
             type: 'value',
-            min: -maxValue,
+            min: 0,
             max: maxValue,
             axisLabel: { show: false },
             splitLine: { show: false }
         },
+
         yAxis: {
             type: 'category',
             data: labelsAge,
+            axisTick: { show: false },
+            axisLabel: {
+                fontWeight: 'bold',
+            }
         },
+
         series: [
             {
                 name: 'Hombres',
                 type: 'bar',
-                stack: 'total',
-                itemStyle: {
-                    color: 'rgb(141, 248, 252)'
-                },
+                itemStyle: { color: 'rgb(141, 248, 252)' },
+                barWidth: '35%',
+                barGap: '0%',
+                barCategoryGap: '80%',
                 label: {
                     show: true,
                     fontWeight: 'bold',
-                    position: function (params) {
-                        return Math.abs(params.value) < maxValue * 0.1 ? 'right' : 'inside'
-                    },
-                    formatter: function (params) {
-                        return Math.abs(params.value).toLocaleString('es-ES')
-                    }
+                    position: 'insideRight',
+                    formatter: ({ value }) => value.toLocaleString('es-ES')
                 },
-                data: resultadoHombres
+                data: resultadoHombres.map(v => Math.abs(v))
             },
             {
                 name: 'Mujeres',
                 type: 'bar',
-                stack: 'total',
-                itemStyle: {
-                    color: 'rgb(244, 175, 255)'
-                },
+                itemStyle: { color: 'rgb(244, 175, 255)' },
+                barWidth: '35%',
+                barGap: '0%',
+                barCategoryGap: '80%',
                 label: {
                     show: true,
-                    position: 'right',
-                    formatter: function (params) {
-                        return params.value.toLocaleString('es-ES')
-                    },
-                    fontWeight: 'bold'
+                    fontWeight: 'bold',
+                    position: 'insideRight',
+                    formatter: ({ value }) => value.toLocaleString('es-ES')
                 },
-                data: resultadosMujeres
+                data: resultadosMujeres.map(v => Math.abs(v))
             }
         ]
-
     }
 
-    return <div className="contenedor-piramide">
-        {infoTitleArray.map((titulo, index) => (
-            <h2 key={index}>{titulo}</h2>
-        ))}
 
-        <Suspense fallback={<div>Cargando gráfico...</div>}>
-            <ReactECharts option={options} style={{ height: '600px', width: '100%' }} />
-        </Suspense>
-    </div>
+
+    return (
+        <>
+            {infoTitleArray.map((titulo, index) => (
+                <h5 key={index}>{titulo}</h5>
+            ))}
+
+            <Suspense fallback={<div>Cargando gráfico...</div>}>
+                <ReactECharts option={options} style={{ height: '80%', width: '100%' }} />
+            </Suspense>
+        </>
+    )
 }
 
 export default PiramidePob

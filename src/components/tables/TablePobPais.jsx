@@ -1,4 +1,3 @@
-import "./Table.css"
 import { getYear, getAgeGroup90, getGenre, addDotsToNumbers, getRowClassByGenre, getIndexPrimarySelected } from "../../js/utilsPob.js"
 import ThHeader from './ThHeader.jsx'
 import TdFirstCell from './TdFirstCell.jsx'

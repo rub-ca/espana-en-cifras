@@ -1,0 +1,83 @@
+@import './vars.css';
+
+.table {
+    max-height: 100%;
+    overflow: auto;
+    margin: 0;
+    white-space: nowrap;
+}
+
+/* Celdas */
+.table td,
+.table th {
+    padding: 6px;
+}
+
+/* Cabecera fija */
+.table .table-header {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    border-radius: 15px;
+    background-color: var(--primary-blue-color);
+    color: #fff;
+}
+
+.table .table-header th:first-child,
+.table .table-header th:last-child {
+    background-clip: padding-box;
+}
+
+.table .table-header th:first-child {
+    border-top-left-radius: 15px;
+}
+
+.table .table-header th:last-child {
+    border-top-right-radius: 15px;
+}
+
+/* Alineaciones */
+.table .pob-align-right {
+    text-align: right;
+}
+
+.table .pob-align-center {
+    text-align: center;
+}
+
+/* Filas por género / totales */
+.table .row-genre-total {
+    background-color: #fff;
+    font-weight: bold;
+}
+
+/* Colores compartidos */
+.table .row-genre-hombre,
+.table .row-emp-privado,
+.table .row-emp-sector-construccion {
+    background-color: var(--genre-hombre-color-light);
+}
+
+.table .row-genre-mujer,
+.table .row-emp-publico,
+.table .row-emp-sector-servicios {
+    background-color: var(--genre-mujer-color-light);
+}
+
+/* Sectores específicos */
+.table .row-emp-sector-total {
+    /* background-color: rgb(192, 178, 178); */
+}
+
+.table .row-emp-sector-agricultura {
+    /* background-color: rgb(212, 255, 210); */
+}
+
+.table .row-emp-sector-industria {
+    /* background-color: rgb(235, 231, 231); */
+}
+
+/* Cursor */
+.table .mouse-cursor-pointer {
+    cursor: pointer;
+}

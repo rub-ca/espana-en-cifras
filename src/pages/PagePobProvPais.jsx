@@ -60,7 +60,13 @@ const PagePobProvPais = () => {
     return (
         <div className="page-data-container">
 
-            <div className="page-data-container__left-side"></div>
+            <div className="page-data-container__left-side">
+                <PiramidePob
+                    data={data}
+                    pageName="PobProvPais"
+                    filters={[primarySelected, yearSelectedPiramide, origenSelectedPiramide]}
+                />
+            </div>
 
             <div className="page-data-container__resizer"></div>
 

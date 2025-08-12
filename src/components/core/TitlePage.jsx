@@ -1,4 +1,3 @@
-import './TitlePage.css'
 import { useLocation } from "react-router-dom"
 
 const TitlePage = () => {

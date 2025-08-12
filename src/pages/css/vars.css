@@ -3,6 +3,10 @@
 
   --primary-blue-color: #08156b;
 
+  --genre-hombre-color-light: rgb(141, 248, 252, 0.3);
+  --genre-hombre-color: rgb(141, 248, 252);
+  --genre-mujer-color-light: rgba(244, 175, 255, 0.3);
+  --genre-mujer-color: rgb(244, 175, 255);
 
   /*Borrar en el futuro:*/
   --content-height: 87%;
