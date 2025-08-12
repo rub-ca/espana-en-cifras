@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { ageGroups90, genreList, paises13 } from "../js/utilsPob.js"
 import PobFiltersHeader from "../components/poblacion/PobFiltersHeader.jsx"
-import PageHeader from "../components/core/HeaderPage.jsx"
 import TablePobProvPais from "../components//tables/TablePobProvPais.jsx"
 import PiramidePob from "../components/poblacion/PiramidePob.jsx"
 import PobResizer from "../components/poblacion/PobResizer.jsx"
@@ -59,35 +58,22 @@ const PagePobProvPais = () => {
     ]
 
     return (
-        <div className="page-pob-container">
-            <header className="page-pob-header">
-                <PobFiltersHeader
-                    primaryOptions={primaryOptions}
-                    primarySelected={primarySelected}
-                    setPrimarySelected={setPrimarySelected}
-                    secondaryDropdowns={secondaryDropdowns}
-                />
-            </header>
+        <div className="page-data-container dircolumn">
+            <PobFiltersHeader
+                primaryOptions={primaryOptions}
+                primarySelected={primarySelected}
+                setPrimarySelected={setPrimarySelected}
+                secondaryDropdowns={secondaryDropdowns}
+            />
 
-            <main className="page-pob-main">
-                <section className="pob-left-panel">
-                    <PiramidePob
-                        data={data}
-                        pageName="PobProvPais"
-                        filters={[primarySelected, yearSelectedPiramide, origenSelectedPiramide]}
-                    />
-                </section>
+            <div className="page-data-container__92">
 
-                <section className="pob-right-panel">
-                    <PobResizer />
-                    <TablePobProvPais
-                        data={data}
-                        primarySelected={primarySelected}
-                        secondaryDropdowns={secondaryDropdowns}
-                        listeners={[setYearSelectedPiramide, setOrigenSelectedPiramide]}
-                    />
-                </section>
-            </main>
+                <div className="page-data-container__left-side"></div>
+                <div className="page-data-container__resizer"></div>
+                <div className="page-data-container__right-side"></div>
+
+            </div>
+
         </div>
     )
 }

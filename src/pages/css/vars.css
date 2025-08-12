@@ -1,6 +1,15 @@
 :root {
-  --header-height: 13%;
+  --general-gap: 14px;
+
+  --primary-blue-color: #08156b;
+
+
+  /*Borrar en el futuro:*/
   --content-height: 87%;
 
   --back-color-maybe: rgb(231, 233, 236);
+}
+
+.dircolumn {
+  flex-direction: column;
 }
