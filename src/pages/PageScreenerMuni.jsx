@@ -73,7 +73,6 @@ const PageScreenerMuni = () => {
                         maxLimit={maxLimitPorcentajeEdad}
                         activado={porcentajeEdadActivado}
                         setActivado={setPorcentajeEdadActivado}
-                        marginBot="0px"
                         shows='percentage'
                     />
 
@@ -121,19 +120,23 @@ const PageScreenerMuni = () => {
                 </div>
             </div>
 
-            <PobResizer block/>
+            <PobResizer block />
 
             <div className="page-data-container__right-side">
-                {resultados.resultados.length > 0 && resultados.resultados.map((r, index) => (
-                    <ItemMuniScreener
-                        index={index}
-                        name={r.name}
-                        pobTotal={r.poblacionTotal}
-                        pobExtranj={r.pobExtranj}
-                        porcentajeEdad={r.porcentajeEdad}
-                        maxLengthPoblacionTotal={resultados.maxLengthPoblacionTotal}
-                    />
-                ))}
+                <div className="pob-screener-results-container">
+                    <div className="pob-screener-results-container__div">
+                        {resultados.resultados.length > 0 && resultados.resultados.map((r, index) => (
+                            <ItemMuniScreener
+                                index={index}
+                                name={r.name}
+                                pobTotal={r.poblacionTotal}
+                                pobExtranj={r.pobExtranj}
+                                porcentajeEdad={r.porcentajeEdad}
+                                maxLengthPoblacionTotal={resultados.maxLengthPoblacionTotal}
+                            />
+                        ))}
+                    </div>
+                </div>
             </div>
         </div>
     )

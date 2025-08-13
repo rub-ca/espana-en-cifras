@@ -1,6 +1,8 @@
 :root {
   --general-gap: 14px;
 
+  --general-border-radius: 15px;
+
   --primary-blue-color: #08156b;
   --terciary-blue-color: rgb(204, 238, 255);
 

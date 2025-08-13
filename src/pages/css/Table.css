@@ -5,7 +5,7 @@
     overflow: auto;
     margin: 0;
     white-space: nowrap;
-    border-radius: 15px;
+    border-radius: var(--general-border-radius);
     border: 8px solid white;
 }
 
@@ -25,7 +25,7 @@ table {
     position: sticky;
     top: 0;
     z-index: 1;
-    border-radius: 15px;
+    border-radius: var(--general-border-radius);
     background-color: var(--primary-blue-color);
     color: #fff;
 }

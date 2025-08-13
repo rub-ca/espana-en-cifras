@@ -12,7 +12,6 @@ function DualRangeSlider({
   maxLimit,
   activado = true,
   setActivado = null,
-  marginBot = '20px',
   shows = 'mil'          // 'mil' | 'age100' | 'percentage'
 }) {
   const exp = 3
