@@ -21,8 +21,8 @@ export async function buscarMunicipios(
     const header = {
         name: "Municipio",
         poblacionTotal: "Cantidad de habitantes",
-        pobExtranj: poblacionExtranjeraActivado ? 'Población extranjera' : null,
-        porcentajeEdad: porcentajeEdadActivado ? 'Poblacion en rango de edad' : null,
+        pobExtranj: 'Población extranjera',
+        porcentajeEdad: 'Poblacion en rango de edad',
     }
 
     resultados.push(header)
@@ -37,27 +37,22 @@ export async function buscarMunicipios(
 
         if (poblaTotal < minPoblacionGeneral || poblaTotal > maxPoblacionGeneral) return
 
-        // Filtro poblacion extranjera activado
-        if (poblacionExtranjeraActivado) {
-            const poblaEsp = muni.data[0][4][0] // 4 es el indice de España
-            resultExtranj = 100 - (poblaEsp / poblaTotal * 100)
-            if (resultExtranj < minPoblacionExtranjera || resultExtranj > maxPoblacionExtranjera) return
-            resultExtranj = resultExtranj.toFixed(2) + "%"
-        }
+        // Filtro poblacion extranjera
+        const poblaEsp = muni.data[0][4][0] // 4 es el indice de España
+        resultExtranj = 100 - (poblaEsp / poblaTotal * 100)
+        if (poblacionExtranjeraActivado && (resultExtranj < minPoblacionExtranjera || resultExtranj > maxPoblacionExtranjera)) return
+        resultExtranj = resultExtranj.toFixed(2) + "%"
 
-        // Filtro porcentaje edad activado
-        if (porcentajeEdadActivado) {
-            const iGrupoMin = getIndexWhichContainsAgeGroup100DRG(grupoEdadMin)
-            const iGrupoMax = getIndexWhichContainsAgeGroup100DRG(grupoEdadMax)
+        // Filtro porcentaje edad
+        const iGrupoMin = getIndexWhichContainsAgeGroup100DRG(grupoEdadMin)
+        const iGrupoMax = getIndexWhichContainsAgeGroup100DRG(grupoEdadMax)
 
-            let sumaPoblaEnGrupo = 0
-            for (let x = iGrupoMin; x <= iGrupoMax; x++) { sumaPoblaEnGrupo += dataMuniEdad[muniIndex].data[0][x][0] }
+        let sumaPoblaEnGrupo = 0
+        for (let x = iGrupoMin; x <= iGrupoMax; x++) { sumaPoblaEnGrupo += dataMuniEdad[muniIndex].data[0][x][0] }
+        resultPorcentajeEdad = sumaPoblaEnGrupo / poblaTotal * 100
 
-            resultPorcentajeEdad = sumaPoblaEnGrupo / poblaTotal * 100
-
-            if (resultPorcentajeEdad < minPorcentajeEdad || resultPorcentajeEdad > maxPorcentajeEdad) return
-            resultPorcentajeEdad = resultPorcentajeEdad.toFixed(2) + "%"
-        }
+        if (porcentajeEdadActivado && (resultPorcentajeEdad < minPorcentajeEdad || resultPorcentajeEdad > maxPorcentajeEdad)) return
+        resultPorcentajeEdad = resultPorcentajeEdad.toFixed(2) + "%"
 
         const r = {
             name: muni.name,

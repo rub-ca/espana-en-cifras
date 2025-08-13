@@ -112,3 +112,5 @@ Lo datos provienen de PobMuniPais y PobMuniEdad
 - En muniscreener no mostrar en el resizer un mouse especial, tampoco mostrar las indicaciones de que es un resizer.
 
 - En muni screener permitir activar un filtro pulsando en su barra pero no desactivarlo
+
+- En muni screener permitir ordenar los resultados

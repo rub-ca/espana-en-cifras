@@ -1,5 +1,3 @@
-import './ItemMuniScreener.css'
-
 const ItemMuniScreener = ({ index, name, pobTotal, pobExtranj, porcentajeEdad, maxLengthPoblacionTotal }) => {
     let classIndex = 'screener-muni-result'
 

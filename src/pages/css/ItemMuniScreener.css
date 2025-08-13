@@ -1,0 +1,36 @@
+@import './vars.css';
+
+.screener-muni-result {
+    display: flex;
+    width: 100%;
+    border-radius: 15px;
+}
+
+.screener-muni-result div {
+    flex: 1;
+    height: 40px;
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 25%;
+}
+
+.screener-muni-result-a {
+    border-bottom: 1px solid #999;
+}
+
+.screener-muni-result-b {
+    background-color: var(--terciary-blue-color);
+    border-bottom: 1px solid #999;
+}
+
+.screener-muni-result-header {
+    background-color: var(--primary-blue-color);
+    color: white;
+    font-size: large;
+    font-weight: bold;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
