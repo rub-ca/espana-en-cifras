@@ -77,6 +77,7 @@ const PagePobMuniPais = () => {
             primarySelected={primarySelected}
             secondaryDropdowns={secondaryDropdowns}
             listeners={[setYearSelectedPiramide]}
+            page="PagePobMuniEdad"
           />
         </div>
       </div>

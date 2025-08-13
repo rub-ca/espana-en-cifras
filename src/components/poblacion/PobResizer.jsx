@@ -78,7 +78,8 @@ const PobResizer = ({ smallTable, block }) => {
         }
     }, [smallTable])
 
-    return <div className="pob-resizer" />
+    if (block) return <div className="pob-resizer" />
+    return <div className="pob-resizer pob-resizer__marks" />
 }
 
 export default PobResizer

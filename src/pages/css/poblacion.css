@@ -78,13 +78,16 @@
 .pob-resizer {
     height: 100%;
     width: var(--general-gap);
-    cursor: e-resize;
     position: relative;
     user-select: none;
 }
 
-.pob-resizer::before,
-.pob-resizer::after {
+.pob-resizer__marks {
+    cursor: e-resize;
+}
+
+.pob-resizer__marks::before,
+.pob-resizer__marks::after {
     content: "";
     position: absolute;
     left: 50%;
@@ -95,10 +98,10 @@
     border-radius: 1px;
 }
 
-.pob-resizer::before {
+.pob-resizer__marks::before {
     top: 25%;
 }
 
-.pob-resizer::after {
+.pob-resizer__marks::after {
     top: 55%;
 }
