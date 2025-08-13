@@ -6,6 +6,7 @@ const LineChartEmpProvSector = ({ provSelected, dataProv, dataSector }) => {
     const data = dataSector[dataProv.findIndex(d => d.name.includes(selectedSplitted))].data
 
     const headerSector = ['Total', 'Agricultura', 'Industria', 'Construcción', 'Servicios']
+    const headerColors = ['black', 'rgba(55, 196, 47)', 'rgba(243, 175, 72)', 'rgba(243, 72, 72)', 'rgba(75, 72, 243)']
     const numYears = data[0].length
 
     const reversedYearsLegend = Array.from({ length: numYears }, (_, i) => (2025 - i).toString()).reverse()
@@ -24,7 +25,7 @@ const LineChartEmpProvSector = ({ provSelected, dataProv, dataSector }) => {
 
     const option = {
         title: {
-            text: 'Evolución anual',
+            text: `Empleo ${selectedSplitted}`,
             left: 'center',
         },
         tooltip: {
@@ -32,7 +33,7 @@ const LineChartEmpProvSector = ({ provSelected, dataProv, dataSector }) => {
         },
         legend: {
             data: headerSector,
-            top: 40,
+            bottom: -2,
         },
         xAxis: {
             type: 'category',
@@ -45,7 +46,8 @@ const LineChartEmpProvSector = ({ provSelected, dataProv, dataSector }) => {
             minorSplitLine: { show: true },
         },
         series: newArray.map((serie, i) => ({
-            name: `Serie ${i + 1}`,
+            name: headerSector[i],
+            color: headerColors[i],
             type: 'line',
             data: serie,
         })),

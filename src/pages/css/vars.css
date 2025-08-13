@@ -12,6 +12,16 @@
   --genre-mujer-color-light: rgba(244, 175, 255, 0.3);
   --genre-mujer-color: rgb(244, 175, 255);
 
+  --sector-agricultura-light: rgba(55, 196, 47, 0.1);
+  --sector-industria-light: rgba(243, 175, 72, 0.1);
+  --sector-servicios-light: rgba(75, 72, 243, 0.1);
+  --sector-construccion-light: rgba(243, 72, 72, 0.1);
+  --sector-agricultura: rgba(55, 196, 47);
+  --sector-industria: rgba(243, 175, 72);
+  --sector-servicios: rgba(75, 72, 243);
+  --sector-construccion: rgba(243, 72, 72);
+
+
   /*Borrar en el futuro:*/
   --content-height: 87%;
 
