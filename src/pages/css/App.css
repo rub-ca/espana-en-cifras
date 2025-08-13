@@ -46,6 +46,7 @@ body,
     border-radius: var(--general-border-radius);
 
     background: var(--primary-blue-color);
+
     color: white;
 
     margin-bottom: var(--general-gap);

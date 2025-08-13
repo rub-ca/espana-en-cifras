@@ -47,6 +47,24 @@
 }
 
 
+.pob-screener-button-container {
+    width: 100%;
+}
+
+.pob-screener-button-container button {
+    width: 30%;
+    margin-left: 20px;
+    padding: 10px 16px;
+    border-radius: var(--general-border-radius);
+    background: linear-gradient(135deg, var(--primary-blue-color), var(--secondary-blue-color));
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
 /* Resizer */
 .pob-resizer {
     height: 100%;

@@ -103,20 +103,22 @@ const PageScreenerMuni = () => {
                         shows='percentage'
                     />
 
-                    <button
-                        className='screener-buscar-button'
-                        disabled={dataMuniPais === null}
-                        children={dataMuniPais === null ? "Cargando..." : "Buscar!"}
-                        onClick={() =>
-                            buscarMunicipios(
-                                dataMuniPais, dataMuniEdad, setResultados,
-                                minPoblacionGeneral, maxPoblacionGeneral,
-                                poblacionExtranjeraActivado, minPoblacionExtranjera, maxPoblacionExtranjera,
-                                porcentajeEdadActivado, minPorcentajeEdad, maxPorcentajeEdad,
-                                grupoEdadMin, grupoEdadMax,
-                            )
-                        }>
-                    </button>
+                    <div className="pob-screener-button-container">
+                        <button
+                            className='screener-buscar-button'
+                            disabled={dataMuniPais === null}
+                            children={dataMuniPais === null ? "Cargando..." : "Buscar!"}
+                            onClick={() =>
+                                buscarMunicipios(
+                                    dataMuniPais, dataMuniEdad, setResultados,
+                                    minPoblacionGeneral, maxPoblacionGeneral,
+                                    poblacionExtranjeraActivado, minPoblacionExtranjera, maxPoblacionExtranjera,
+                                    porcentajeEdadActivado, minPorcentajeEdad, maxPorcentajeEdad,
+                                    grupoEdadMin, grupoEdadMax,
+                                )
+                            }>
+                        </button>
+                    </div>
                 </div>
             </div>
 

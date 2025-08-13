@@ -3,7 +3,8 @@
 
   --general-border-radius: 15px;
 
-  --primary-blue-color: #08156b;
+  --primary-blue-color: rgb(22, 64, 99);
+  --secondary-blue-color: rgb(54, 101, 139);
   --terciary-blue-color: rgb(204, 238, 255);
 
   --genre-hombre-color-light: rgb(141, 248, 252, 0.3);

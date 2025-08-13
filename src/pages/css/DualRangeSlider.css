@@ -3,7 +3,7 @@
 .drs {
     width: 90%;
     user-select: none;
-    --track-height: 6px;
+    --track-height: 8px;
     --thumb-size: 16px;
 }
 
