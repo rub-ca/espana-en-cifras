@@ -62,7 +62,7 @@ const TablePobMuniPais = ({ data, primarySelected, secondaryDropdowns, page, lis
     const reorderedRows = order.flatMap(key => grouped[key])
 
     return (
-        <div className="table">
+        <div className="table table-separator">
             <div>
                 <table>
                     <thead>

@@ -33,8 +33,6 @@ const PobResizer = ({ smallTable }) => {
             const containerRect = container.getBoundingClientRect()
             const containerWidth = containerRect.width
 
-
-
             // Calcular ancho derecho en píxeles basado en la posición del mouse
             const rightWidthPx = containerRect.right - e.clientX
 

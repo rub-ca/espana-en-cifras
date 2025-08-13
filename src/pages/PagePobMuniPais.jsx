@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react"
 import { genreList, paises59 } from "../js/utilsPob.js"
 import PobFiltersHeader from "../components/poblacion/PobFiltersHeader.jsx"
-import PageHeader from "../components/core/HeaderPage.jsx"
+import PobResizer from "../components/poblacion/PobResizer.jsx"
+
 import TablePobMuni from "../components//tables/TablePobMuni.jsx"
 import { loadDataJson, loadDataZipJson } from "../data/loadDataJson.js"
 
@@ -47,28 +48,34 @@ const PagePobMuniPais = () => {
     ]
 
     return (
-        <div className="page-pob-container">
-            <header className="page-pob-header">
+        <div className="page-data-container">
+            <div className="page-data-container__left-side">
+                {/* <PiramidePob
+                    data={data}
+                    pageName="PobMuniEdad"
+                    filters={[primarySelected, yearSelectedPiramide]}
+                /> */}
+            </div>
+
+            <PobResizer smallTable={true} />
+
+            <div className="page-data-container__right-side">
                 <PobFiltersHeader
                     primaryOptions={primaryOptions}
                     primarySelected={primarySelected}
                     setPrimarySelected={setPrimarySelected}
                     secondaryDropdowns={secondaryDropdowns}
                 />
-            </header>
 
-            <main className="page-pob-main">
-                <section className="pob-left-panel"></section>
-
-                <section className="pob-right-panel">
+                <div className="page-data-container__93">
                     <TablePobMuni
                         data={data}
                         primarySelected={primarySelected}
                         secondaryDropdowns={secondaryDropdowns}
                         page="PagePobMuniPais"
                     />
-                </section>
-            </main>
+                </div>
+            </div>
         </div>
     )
 }
