@@ -49,74 +49,76 @@ const PageScreenerMuni = () => {
     return (
         <div className="page-data-container">
             <div className="page-data-container__left-side">
-                <h2>Buscador de municipios</h2>
+                <div className="pob-screener-filters-container">
+                    <h2>Buscador de municipios</h2>
 
-                <DualRangeSlider
-                    title={'Cantidad de habitantes'}
-                    isExponential={true}
-                    minValue={minPoblacionGeneral}
-                    setMinValue={setMinPoblacionGeneral}
-                    maxValue={maxPoblacionGeneral}
-                    setMaxValue={setMaxPoblacionGeneral}
-                    minLimit={minLimitPoblacionGeneral}
-                    maxLimit={maxLimitPoblacionGeneral}
-                />
+                    <DualRangeSlider
+                        title={'Cantidad de habitantes'}
+                        isExponential={true}
+                        minValue={minPoblacionGeneral}
+                        setMinValue={setMinPoblacionGeneral}
+                        maxValue={maxPoblacionGeneral}
+                        setMaxValue={setMaxPoblacionGeneral}
+                        minLimit={minLimitPoblacionGeneral}
+                        maxLimit={maxLimitPoblacionGeneral}
+                    />
 
-                <DualRangeSlider
-                    title={'Porcentaje de población en el rango'}
-                    minValue={minPorcentajeEdad}
-                    setMinValue={setMinPorcentajeEdad}
-                    maxValue={maxPorcentajeEdad}
-                    setMaxValue={setMaxPorcentajeEdad}
-                    minLimit={minLimitPorcentajeEdad}
-                    maxLimit={maxLimitPorcentajeEdad}
-                    activado={porcentajeEdadActivado}
-                    setActivado={setPorcentajeEdadActivado}
-                    marginBot="0px"
-                    shows='percentage'
-                />
+                    <DualRangeSlider
+                        title={'Porcentaje de población en el rango'}
+                        minValue={minPorcentajeEdad}
+                        setMinValue={setMinPorcentajeEdad}
+                        maxValue={maxPorcentajeEdad}
+                        setMaxValue={setMaxPorcentajeEdad}
+                        minLimit={minLimitPorcentajeEdad}
+                        maxLimit={maxLimitPorcentajeEdad}
+                        activado={porcentajeEdadActivado}
+                        setActivado={setPorcentajeEdadActivado}
+                        marginBot="0px"
+                        shows='percentage'
+                    />
 
-                <DualRangeSlider
-                    title={'Rango de edad'}
-                    minValue={grupoEdadMin}
-                    setMinValue={setGrupoEdadMin}
-                    maxValue={grupoEdadMax}
-                    setMaxValue={setGrupoEdadMax}
-                    minLimit={minLimitGrupoEdad}
-                    maxLimit={maxLimitGrupoEdad}
-                    activado={porcentajeEdadActivado}
-                    setActivado={setPorcentajeEdadActivado}
-                    shows='age100'
-                    compact
-                />
+                    <DualRangeSlider
+                        title={'Rango de edad'}
+                        minValue={grupoEdadMin}
+                        setMinValue={setGrupoEdadMin}
+                        maxValue={grupoEdadMax}
+                        setMaxValue={setGrupoEdadMax}
+                        minLimit={minLimitGrupoEdad}
+                        maxLimit={maxLimitGrupoEdad}
+                        activado={porcentajeEdadActivado}
+                        setActivado={setPorcentajeEdadActivado}
+                        shows='age100'
+                        compact
+                    />
 
-                <DualRangeSlider
-                    title={'Porcentaje población extranjera'}
-                    minValue={minPoblacionExtranjera}
-                    setMinValue={setMinPoblacionExtranjera}
-                    maxValue={maxPoblacionExtranjera}
-                    setMaxValue={setMaxPoblacionExtranjera}
-                    minLimit={minLimitPoblacionExtranjera}
-                    maxLimit={maxLimitPoblacionExtranjera}
-                    activado={poblacionExtranjeraActivado}
-                    setActivado={setPoblacionExtranjeraActivado}
-                    shows='percentage'
-                />
+                    <DualRangeSlider
+                        title={'Porcentaje población extranjera'}
+                        minValue={minPoblacionExtranjera}
+                        setMinValue={setMinPoblacionExtranjera}
+                        maxValue={maxPoblacionExtranjera}
+                        setMaxValue={setMaxPoblacionExtranjera}
+                        minLimit={minLimitPoblacionExtranjera}
+                        maxLimit={maxLimitPoblacionExtranjera}
+                        activado={poblacionExtranjeraActivado}
+                        setActivado={setPoblacionExtranjeraActivado}
+                        shows='percentage'
+                    />
 
-                <button
-                    className='screener-buscar-button'
-                    disabled={dataMuniPais === null}
-                    children={dataMuniPais === null ? "Cargando..." : "Buscar!"}
-                    onClick={() =>
-                        buscarMunicipios(
-                            dataMuniPais, dataMuniEdad, setResultados,
-                            minPoblacionGeneral, maxPoblacionGeneral,
-                            poblacionExtranjeraActivado, minPoblacionExtranjera, maxPoblacionExtranjera,
-                            porcentajeEdadActivado, minPorcentajeEdad, maxPorcentajeEdad,
-                            grupoEdadMin, grupoEdadMax,
-                        )
-                    }>
-                </button>
+                    <button
+                        className='screener-buscar-button'
+                        disabled={dataMuniPais === null}
+                        children={dataMuniPais === null ? "Cargando..." : "Buscar!"}
+                        onClick={() =>
+                            buscarMunicipios(
+                                dataMuniPais, dataMuniEdad, setResultados,
+                                minPoblacionGeneral, maxPoblacionGeneral,
+                                poblacionExtranjeraActivado, minPoblacionExtranjera, maxPoblacionExtranjera,
+                                porcentajeEdadActivado, minPorcentajeEdad, maxPorcentajeEdad,
+                                grupoEdadMin, grupoEdadMax,
+                            )
+                        }>
+                    </button>
+                </div>
             </div>
 
             <PobResizer />

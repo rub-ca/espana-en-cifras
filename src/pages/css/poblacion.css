@@ -9,6 +9,14 @@
     margin: 0px;
 }
 
+.pob-screener-filters-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .pob-resizer {
     height: 100%;
     width: var(--general-gap);

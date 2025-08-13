@@ -2,6 +2,7 @@
   --general-gap: 14px;
 
   --primary-blue-color: #08156b;
+  --terciary-blue-color: rgb(204, 238, 255);
 
   --genre-hombre-color-light: rgb(141, 248, 252, 0.3);
   --genre-hombre-color: rgb(141, 248, 252);
@@ -12,6 +13,7 @@
   --content-height: 87%;
 
   --back-color-maybe: rgb(231, 233, 236);
+  /*Borrar en el futuro:*/
 }
 
 .dircolumn {

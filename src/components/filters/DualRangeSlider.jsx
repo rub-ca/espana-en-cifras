@@ -1,9 +1,5 @@
 import React from 'react'
-import {
-  addDots, removeDots,
-  getAgeGroup100ByNumberDRG, getNumberByAgeGroup100DRG,
-  addPercentage, removePercentage
-} from '../../js/utilsPob.js'
+import { addDots, getAgeGroup100ByNumberDRG, addPercentage, } from '../../js/utilsPob.js'
 
 function DualRangeSlider({
   title,
@@ -17,20 +13,16 @@ function DualRangeSlider({
   activado = true,
   setActivado = null,
   marginBot = '20px',
-  shows = 'mil',          // 'mil' | 'age100' | 'percentage'
-  compact = false         // modo compacto como en la foto
+  shows = 'mil'          // 'mil' | 'age100' | 'percentage'
 }) {
   const exp = 3
 
   // formateadores
   let modifyValue = addDots
-  let deModifyValue = removeDots
   if (shows === 'age100') {
     modifyValue = getAgeGroup100ByNumberDRG
-    deModifyValue = getNumberByAgeGroup100DRG
   } else if (shows === 'percentage') {
     modifyValue = addPercentage
-    deModifyValue = removePercentage
   }
 
   // conversión lineal/exponencial
@@ -64,36 +56,12 @@ function DualRangeSlider({
     setMaxValue(Math.round(linearToExpo(linearVal)))
   }
 
-  // handlers de los inputs numéricos
-  const handleMinInputChange = (e) => {
-    let value = Number(deModifyValue(e.target.value, false))
-    if (isNaN(value)) return
-    if (value < minLimit) value = minLimit
-    if (value >= maxValue) value = maxValue - 1
-    setMinValue(value)
-  }
-  const handleMaxInputChange = (e) => {
-    let value = Number(deModifyValue(e.target.value, true))
-    if (isNaN(value)) return
-    if (value > maxLimit) value = maxLimit
-    if (value <= minValue) value = minValue + 1
-    setMaxValue(value)
-  }
-
   // posiciones del tramo seleccionado (en %)
-  const leftPct  = ((expoToLinear(minValue) - minLimit) / (maxLimit - minLimit)) * 100
+  const leftPct = ((expoToLinear(minValue) - minLimit) / (maxLimit - minLimit)) * 100
   const rightPct = 100 - ((expoToLinear(maxValue) - minLimit) / (maxLimit - minLimit)) * 100
 
   return (
-    <div
-      className="drs"
-      style={{
-        marginBottom: marginBot,
-        // variables de estilo (puedes ajustar si lo necesitas)
-        ['--track-height']: '6px',
-        ['--thumb-size']: '16px',
-      }}
-    >
+    <div className="drs">
       <h4
         className={`drs-title ${activado ? '' : 'is-disabled'}`}
         onClick={() => setActivado && setActivado(!activado)}
@@ -103,18 +71,6 @@ function DualRangeSlider({
       </h4>
 
       <div className="drs-row">
-        {!compact && (
-          <input
-            type="text"
-            className="drs-hiddenInput"
-            min={minLimit}
-            max={maxLimit}
-            value={modifyValue(minValue, false)}
-            onChange={handleMinInputChange}
-            disabled={!activado}
-          />
-        )}
-
         <div className="drs-sliderWrap">
           <div className="drs-base" />
           <div
@@ -125,6 +81,7 @@ function DualRangeSlider({
             type="range"
             min={minLimit}
             max={maxLimit}
+            step={1}
             value={minLinear}
             onChange={handleMinChange}
             className={`drs-input ${activado ? '' : 'hidden'}`}
@@ -133,33 +90,23 @@ function DualRangeSlider({
             type="range"
             min={minLimit}
             max={maxLimit}
+            step={1}
             value={maxLinear}
             onChange={handleMaxChange}
             className={`drs-input ${activado ? '' : 'hidden'}`}
           />
-        </div>
 
-        {!compact && (
-          <input
-            type="text"
-            className="drs-hiddenInput"
-            min={minLimit}
-            max={maxLimit}
-            value={modifyValue(maxValue, true)}
-            onChange={handleMaxInputChange}
-            disabled={!activado}
-          />
-        )}
+          {/* Labels dentro del slider con padding lateral para separarlas de los extremos */}
+          <div className="drs-labels" aria-hidden style={{ padding: '0 12px' }}>
+            <span>{modifyValue(minValue, false)}</span>
+            <span>{modifyValue(maxValue, true)}</span>
+          </div>
+        </div>
       </div>
-
-      {compact && (
-        <div className="drs-labels" aria-hidden>
-          <span>{modifyValue(minValue, false)}</span>
-          <span>{modifyValue(maxValue, true)}</span>
-        </div>
-      )}
     </div>
   )
+
+
 }
 
 export default DualRangeSlider
