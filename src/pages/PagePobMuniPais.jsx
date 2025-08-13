@@ -50,6 +50,8 @@ const PagePobMuniPais = () => {
     return (
         <div className="page-data-container">
             <div className="page-data-container__left-side">
+                QUESITO CON PAISES
+                O BARRAS COMO GENERO
                 {/* <PiramidePob
                     data={data}
                     pageName="PobMuniEdad"
