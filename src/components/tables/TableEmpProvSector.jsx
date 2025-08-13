@@ -1,6 +1,6 @@
-import ThHeader from './ThHeader.jsx'
-import TdFirstCell from './TdFirstCell.jsx'
-import TdAlignRight from './TdAlignRight.jsx'
+import ThHeader from './core/ThHeader.jsx'
+import TdFirstCell from './core/TdFirstCell.jsx'
+import TdAlignRight from './core/TdAlignRight.jsx'
 import { getYear } from "../../js/utilsPob.js"
 import { getRowClassBySectorJob } from "../../js/utilsEmp.js"
 

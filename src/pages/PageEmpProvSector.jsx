@@ -31,7 +31,7 @@ const PageEmpProvSector = () => {
                 />
             </div>
 
-            <PobResizer block />
+            <PobResizer />
 
             <div className="page-data-container__right-side">
                 <div className="page-data-container__100">

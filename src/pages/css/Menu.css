@@ -25,6 +25,7 @@
 .menu-container__links a {
     text-decoration: none;
     color: black;
+    margin-bottom: 4px;
 }
 
 .menu-container__links a:hover {

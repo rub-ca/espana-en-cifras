@@ -1,7 +1,7 @@
 import { getYear, getAgeGroup90, getGenre, addDotsToNumbers, getRowClassByGenre, getIndexPrimarySelected } from "../../js/utilsPob.js"
-import ThHeader from './ThHeader.jsx'
-import TdFirstCell from './TdFirstCell.jsx'
-import TdAlignRight from './TdAlignRight.jsx'
+import ThHeader from './core/ThHeader.jsx'
+import TdFirstCell from './core/TdFirstCell.jsx'
+import TdAlignRight from './core/TdAlignRight.jsx'
 
 const TablePobPais = ({ data, primarySelected, secondaryDropdowns, listeners }) => {
     if (!primarySelected) return <div>No hay datos disponibles</div>
