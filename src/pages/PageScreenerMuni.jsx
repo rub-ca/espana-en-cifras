@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import { buscarMunicipios } from '../js/buscadorMunicipios.js'
 import DualRangeSlider from "../components/filters/DualRangeSlider.jsx"
 import ItemMuniScreener from "../components/poblacion/ItemMuniScreener.jsx"
+import PobResizer from "../components/poblacion/PobResizer.jsx"
 import { loadDataZipJson } from "../data/loadDataJson.js"
 
 const PageScreenerMuni = () => {
@@ -46,8 +47,8 @@ const PageScreenerMuni = () => {
     if (loading2) return <div>Cargando datos...</div>
 
     return (
-        <div className="page-screener-container">
-            <div className="screener-left-panel">
+        <div className="page-data-container">
+            <div className="page-data-container__left-side">
                 <h2>Buscador de municipios</h2>
 
                 <DualRangeSlider
@@ -86,6 +87,7 @@ const PageScreenerMuni = () => {
                     activado={porcentajeEdadActivado}
                     setActivado={setPorcentajeEdadActivado}
                     shows='age100'
+                    compact
                 />
 
                 <DualRangeSlider
@@ -117,8 +119,10 @@ const PageScreenerMuni = () => {
                 </button>
             </div>
 
-            <div className="screener-right-panel">
-                {resultados.resultados.length > 0 && resultados.resultados.map((r, index) => (
+            <PobResizer />
+
+            <div className="page-data-container__right-side">
+                {/* {resultados.resultados.length > 0 && resultados.resultados.map((r, index) => (
                     <ItemMuniScreener
                         index={index}
                         name={r.name}
@@ -127,7 +131,7 @@ const PageScreenerMuni = () => {
                         porcentajeEdad={r.porcentajeEdad}
                         maxLengthPoblacionTotal={resultados.maxLengthPoblacionTotal}
                     />
-                ))}
+                ))} */}
             </div>
         </div>
     )

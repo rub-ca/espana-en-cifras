@@ -5,6 +5,7 @@ import "./pages/css/Table.css"
 import "./pages/css/Menu.css"
 import "./pages/css/SecondaryDropdown.css"
 import "./pages/css/poblacion.css"
+import "./pages/css/DualRangeSlider.css"
 
 import PagePobProvPais from "./pages/PagePobProvPais.jsx"
 import PagePobPais from "./pages/PagePobPais.jsx"

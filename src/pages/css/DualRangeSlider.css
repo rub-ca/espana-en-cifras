@@ -1,0 +1,137 @@
+.drs {
+  width: 360px;
+  user-select: none;
+  /* variables con valores por defecto */
+  --track-height: 6px;
+  --thumb-size: 16px;
+}
+
+@media (max-width: 420px) {
+  .drs { width: 100%; }
+}
+
+.drs-title {
+  margin: 0 0 6px 0;
+  font-size: 14px;
+  color: #111;
+}
+
+.drs-title.is-disabled { color: #777; }
+
+.drs-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.drs-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-top: 6px;
+  color: #333;
+}
+
+.drs-sliderWrap {
+  position: relative;
+  height: calc(max(var(--thumb-size), 28px));
+  flex-grow: 1;
+}
+
+.drs-base {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc((var(--thumb-size) - var(--track-height)) / 2);
+  height: var(--track-height);
+  background: #e5e7eb;
+  border-radius: 999px;
+}
+
+.drs-selected {
+  position: absolute;
+  height: var(--track-height);
+  top: calc((var(--thumb-size) - var(--track-height)) / 2);
+  background: #c7c7ff;
+  border-radius: 999px;
+  z-index: 1;
+}
+
+/* Inputs de rango superpuestos */
+.drs-input {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  height: var(--thumb-size);
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  pointer-events: none; /* los thumbs siguen siendo clicables */
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+
+/* Track nativo: sin padding/márgenes */
+.drs-input::-webkit-slider-runnable-track {
+  height: var(--track-height);
+  background: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+.drs-input::-moz-range-track {
+  height: var(--track-height);
+  background: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+.drs-input::-ms-track {
+  height: var(--track-height);
+  background: transparent;
+  border: none;
+  color: transparent;
+  margin: 0;
+  padding: 0;
+}
+
+/* Thumb */
+.drs-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: var(--thumb-size);
+  width: var(--thumb-size);
+  border-radius: 50%;
+  background: #b7b7f8;
+  border: 2px solid #fff;
+  box-shadow: 0 1px 2px rgba(0,0,0,.15);
+  pointer-events: auto;
+  cursor: pointer;
+  margin-top: 0;
+  position: relative;
+  z-index: 3;
+}
+.drs-input::-moz-range-thumb {
+  height: var(--thumb-size);
+  width: var(--thumb-size);
+  border-radius: 50%;
+  background: #b7b7f8;
+  border: 2px solid #fff;
+  box-shadow: 0 1px 2px rgba(0,0,0,.15);
+  pointer-events: auto;
+  cursor: pointer;
+  position: relative;
+  z-index: 3;
+}
+
+/* Inputs laterales (cuando no es compacto) */
+.drs-hiddenInput {
+  width: 80px;
+  height: 28px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 12px;
+}
+
