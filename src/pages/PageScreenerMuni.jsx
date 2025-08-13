@@ -74,6 +74,7 @@ const PageScreenerMuni = () => {
                         activado={porcentajeEdadActivado}
                         setActivado={setPorcentajeEdadActivado}
                         shows='percentage'
+                        marginBottom="10px"
                     />
 
                     <DualRangeSlider
@@ -87,7 +88,6 @@ const PageScreenerMuni = () => {
                         activado={porcentajeEdadActivado}
                         setActivado={setPorcentajeEdadActivado}
                         shows='age100'
-                        compact
                     />
 
                     <DualRangeSlider
