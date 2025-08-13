@@ -8,7 +8,7 @@ body,
     padding: 0;
     box-sizing: border-box;
     overflow: hidden;
-    font-family: monospace, sans-serif;
+    font-family: 'Inter', sans-serif;
     background-color: rgb(178, 183, 190);
 }
 

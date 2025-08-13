@@ -7,6 +7,7 @@
     white-space: nowrap;
     border-radius: var(--general-border-radius);
     border: 8px solid white;
+    font-size: 14px;
 }
 
 table {
@@ -17,7 +18,7 @@ table {
 /* Celdas */
 .table td,
 .table th {
-    padding: 6px;
+    padding: 9px;
 }
 
 /* Cabecera fija */
