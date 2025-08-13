@@ -1,0 +1,31 @@
+/* Scroll base */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #333; /* Fondo gris oscuro */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ccc; /* Barra gris claro */
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #bbb;
+}
+
+/* 🔹 Eliminar flechas (botones) */
+::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+/* Firefox: no tiene flechas, pero ajustamos estilos */
+* {
+  scrollbar-width: thin;
+  scrollbar-color:  rgb(178, 183, 190) #ececec;
+}

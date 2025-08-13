@@ -1,11 +1,22 @@
 import { addDots, getIndexWhichContainsAgeGroup100DRG } from './utilsPob.js'
 
+const header = {
+    name: "Municipio",
+    poblacionTotal: "Cantidad de habitantes",
+    pobExtranj: 'Población extranjera',
+    porcentajeEdad: 'Poblacion en rango de edad',
+}
+
+export function getHeaderScreener() {
+    return header
+}
+
 export async function buscarMunicipios(
-    dataMuniPais, dataMuniEdad, setResultados,
+    setResultados, dataMuniPais, dataMuniEdad,
     minPoblacionGeneral, maxPoblacionGeneral,
     poblacionExtranjeraActivado, minPoblacionExtranjera, maxPoblacionExtranjera,
     porcentajeEdadActivado, minPorcentajeEdad, maxPorcentajeEdad,
-    grupoEdadMin, grupoEdadMax,
+    grupoEdadMin, grupoEdadMax
 ) {
     // muni [0] | data -> genre [1] male | region [2] | year [3]
     // muni [0] | data -> genre [1] male | age [2] | year [3]
@@ -18,12 +29,6 @@ export async function buscarMunicipios(
         maxLengthPoblacionTotal: maxLengthPoblacionTotal
     })
 
-    const header = {
-        name: "Municipio",
-        poblacionTotal: "Cantidad de habitantes",
-        pobExtranj: 'Población extranjera',
-        porcentajeEdad: 'Poblacion en rango de edad',
-    }
 
     resultados.push(header)
 

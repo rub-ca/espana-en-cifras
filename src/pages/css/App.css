@@ -9,7 +9,7 @@ body,
     box-sizing: border-box;
     overflow: hidden;
     font-family: 'Inter', sans-serif;
-    background-color: rgb(178, 183, 190);
+    background-color: var(--general-background-color);
 }
 
 .app-container {

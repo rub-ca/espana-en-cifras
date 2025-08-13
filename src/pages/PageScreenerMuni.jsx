@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { buscarMunicipios } from '../js/buscadorMunicipios.js'
+import { buscarMunicipios, getHeaderScreener } from '../js/buscadorMunicipios.js'
 import DualRangeSlider from "../components/filters/DualRangeSlider.jsx"
 import ItemMuniScreener from "../components/poblacion/ItemMuniScreener.jsx"
 import PobResizer from "../components/poblacion/PobResizer.jsx"
@@ -13,7 +13,7 @@ const PageScreenerMuni = () => {
     const [loading2, setLoading2] = useState(true)
 
     const [resultados, setResultados] = useState({
-        resultados: []
+        resultados: [getHeaderScreener()]
     })
 
     const [minPoblacionGeneral, setMinPoblacionGeneral] = useState(100)
@@ -110,11 +110,11 @@ const PageScreenerMuni = () => {
                             children={dataMuniPais === null ? "Cargando..." : "Buscar!"}
                             onClick={() =>
                                 buscarMunicipios(
-                                    dataMuniPais, dataMuniEdad, setResultados,
+                                    setResultados, dataMuniPais, dataMuniEdad,
                                     minPoblacionGeneral, maxPoblacionGeneral,
                                     poblacionExtranjeraActivado, minPoblacionExtranjera, maxPoblacionExtranjera,
                                     porcentajeEdadActivado, minPorcentajeEdad, maxPorcentajeEdad,
-                                    grupoEdadMin, grupoEdadMax,
+                                    grupoEdadMin, grupoEdadMax
                                 )
                             }>
                         </button>
