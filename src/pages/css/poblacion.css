@@ -17,6 +17,10 @@
     align-items: center;
 }
 
+.pob-screener-filters-container h2{
+    width: 90%;
+}
+
 .pob-resizer {
     height: 100%;
     width: var(--general-gap);

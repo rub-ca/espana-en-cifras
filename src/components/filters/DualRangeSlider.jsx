@@ -71,6 +71,9 @@ function DualRangeSlider({
       </h4>
 
       <div className="drs-row">
+        <div className="drs-labels">
+          <span>{modifyValue(minValue)}</span>
+        </div>
         <div className="drs-sliderWrap">
           <div className="drs-base" />
           <div
@@ -95,12 +98,9 @@ function DualRangeSlider({
             onChange={handleMaxChange}
             className={`drs-input ${activado ? '' : 'hidden'}`}
           />
-
-          {/* Labels dentro del slider con padding lateral para separarlas de los extremos */}
-          <div className="drs-labels" aria-hidden style={{ padding: '0 12px' }}>
-            <span>{modifyValue(minValue, false)}</span>
-            <span>{modifyValue(maxValue, true)}</span>
-          </div>
+        </div>
+        <div className="drs-labels">
+          <span>{modifyValue(maxValue)}</span>
         </div>
       </div>
     </div>

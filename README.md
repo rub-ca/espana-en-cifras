@@ -109,10 +109,6 @@ Lo datos provienen de PobMuniPais y PobMuniEdad
 
 - En "EmpProvSector" y "EmpPubPri" (primer grafico), hacer coincidir los **colores de los sectores en la tabla** con los **colores de los sectores en el gráfico**.
 
-- Los gráficos no deben tener siempre el título "evolución anual"
+- En muniscreener no mostrar en el resizer un mouse especial, tampoco mostrar las indicaciones de que es un resizer.
 
-- La web no debe permitir scroll, solo la tabla.
-
-- Reutilizar componentes (filtros de busqueda).
-
-- Añadir boton de descargar en todas las paginas
+- En muni screener permitir activar un filtro pulsando en su barra pero no desactivarlo

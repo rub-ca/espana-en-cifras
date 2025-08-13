@@ -121,10 +121,10 @@ const PageScreenerMuni = () => {
                 </div>
             </div>
 
-            <PobResizer />
+            <PobResizer block/>
 
             <div className="page-data-container__right-side">
-                {/* {resultados.resultados.length > 0 && resultados.resultados.map((r, index) => (
+                {resultados.resultados.length > 0 && resultados.resultados.map((r, index) => (
                     <ItemMuniScreener
                         index={index}
                         name={r.name}
@@ -133,7 +133,7 @@ const PageScreenerMuni = () => {
                         porcentajeEdad={r.porcentajeEdad}
                         maxLengthPoblacionTotal={resultados.maxLengthPoblacionTotal}
                     />
-                ))} */}
+                ))}
             </div>
         </div>
     )

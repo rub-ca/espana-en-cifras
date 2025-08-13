@@ -1,7 +1,7 @@
 @import './vars.css';
 
 .drs {
-    width: 360px;
+    width: 90%;
     user-select: none;
     --track-height: 6px;
     --thumb-size: 16px;
@@ -24,17 +24,23 @@
 }
 
 .drs-labels {
+    width: 15%;
+    height: calc(max(var(--thumb-size), 28px));
     display: flex;
     justify-content: space-between;
     font-size: 12px;
     margin-top: 6px;
     color: #333;
+    justify-content: center;
+    /* background-color: antiquewhite; */
 }
 
 .drs-sliderWrap {
+    width: 70%;
     position: relative;
     height: calc(max(var(--thumb-size), 28px));
     flex-grow: 1;
+    /* background-color: rgb(174, 224, 141); */
 }
 
 .drs-base {

@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react"
 
-const PobResizer = ({ smallTable }) => {
+const PobResizer = ({ smallTable, block }) => {
     const [isDragging, setIsDragging] = useState(false)
 
     const minRightPercent = 55 // 55%
     const maxRightPercent = 100 // 100%
 
     useEffect(() => {
+        if (block) return
         const container = document.querySelector(".page-data-container")
 
         const leftPanel = document.querySelector(".page-data-container__left-side")
