@@ -30,11 +30,11 @@ const TableEmpProvSector = ({ data, listeners }) => {
 
 
     return (
-        <div className="table">
+        <div className="table table-separator">
             <div>
                 <table>
                     <thead>
-                        <tr>
+                        <tr className="table-header">
                             {headers.map((h, i) => (
                                 <ThHeader
                                     key={i}

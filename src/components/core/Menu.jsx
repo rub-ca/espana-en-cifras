@@ -13,7 +13,7 @@ const Menu = () => {
 
             <div className="menu-container__links">
                 <section>
-                    <a href="/">Empleo por provincia y sector</a>
+                    <a href="/empleo-provincia-sector">Empleo por provincia y sector</a>
                     <a href="/">Empleo público y privado</a>
                 </section>
 

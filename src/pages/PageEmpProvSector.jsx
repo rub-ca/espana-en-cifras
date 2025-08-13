@@ -22,25 +22,27 @@ const PageEmpProvSector = () => {
     if (loading2) return <div>Cargando datos...</div>
 
     return (
-        <div className="page-pob-container">
-            <main className="page-pob-main-100height">
-                <section className="pob-left-panel">
-                    <LineChartEmpProvSector
-                        provSelected={provSelected}
-                        dataProv={dataProv}
-                        dataSector={dataSector}
-                    />
-                </section>
+        <div className="page-data-container">
+            <div className="page-data-container__left-side">
+                <LineChartEmpProvSector
+                    provSelected={provSelected}
+                    dataProv={dataProv}
+                    dataSector={dataSector}
+                />
+            </div>
 
-                <section className="pob-right-panel">
-                    <PobResizer />
+            <PobResizer block />
 
+            <div className="page-data-container__right-side">
+                <div className="page-data-container__100">
                     <TableEmpProvSector
                         data={dataSector}
                         listeners={[setProvSelected]}
                     />
-                </section>
-            </main>
+
+                </div>
+
+            </div>
         </div>
     )
 }
