@@ -14,7 +14,6 @@
 .secondary-dropdown {
   position: relative;
   width: 250px;
-  font-family: inherit;
 }
 
 /* Botón = control */
@@ -23,7 +22,8 @@
   height: 38px;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* value a la izq, acciones a la der */
+  justify-content: space-between;
+  /* value a la izq, acciones a la der */
   gap: 8px;
   padding: 10px 12px;
   background: var(--sd-bg);
@@ -42,8 +42,10 @@
 
 /* Valor seleccionado en negrita */
 .sd-value {
-  flex: 1 1 auto;             /* que ocupe el espacio disponible */
-  min-width: 0;               /* necesario para que el ellipsis funcione en flex */
+  flex: 1 1 auto;
+  /* que ocupe el espacio disponible */
+  min-width: 0;
+  /* necesario para que el ellipsis funcione en flex */
   font-weight: bold;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -55,7 +57,8 @@
 .sd-actions {
   display: flex;
   align-items: center;
-  gap: 4px;                   /* separación entre reset y flecha */
+  gap: 4px;
+  /* separación entre reset y flecha */
 }
 
 /* Icono de reset */
@@ -96,10 +99,14 @@
   position: absolute;
   top: calc(100% + 4px);
   left: 0;
-  right: 0;              /* estira hasta el borde derecho del contenedor */
-  width: auto;           /* deja que lo calcule con left+right */
-  min-width: 0;          /* sin mínimo fijo */
-  box-sizing: border-box;/* incluye el borde en el ancho calculado */
+  right: 0;
+  /* estira hasta el borde derecho del contenedor */
+  width: auto;
+  /* deja que lo calcule con left+right */
+  min-width: 0;
+  /* sin mínimo fijo */
+  box-sizing: border-box;
+  /* incluye el borde en el ancho calculado */
 
   max-height: 260px;
   overflow: auto;
@@ -116,17 +123,27 @@
   user-select: none;
 }
 
-.sd-menu ::selection { background: transparent; color: inherit; }
+.sd-menu ::selection {
+  background: transparent;
+  color: inherit;
+}
 
 /* Opción */
 .sd-option {
   padding: 10px 12px;
   cursor: pointer;
-  list-style: none;        /* por si acaso */
+  list-style: none;
+  /* por si acaso */
 }
 
-.sd-option::marker { content: ""; }  /* quita cualquier marcador */
-.sd-option:hover { background: var(--sd-item-hover); }
+.sd-option::marker {
+  content: "";
+}
+
+/* quita cualquier marcador */
+.sd-option:hover {
+  background: var(--sd-item-hover);
+}
 
 /* Opción seleccionada en negrita */
 .sd-option.is-selected {

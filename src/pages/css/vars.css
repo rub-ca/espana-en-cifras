@@ -38,3 +38,7 @@
 .hidden {
   display: none;
 }
+
+button {
+  font-family: 'Inter', sans-serif;
+}
