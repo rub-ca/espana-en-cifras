@@ -1,13 +1,15 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 
-import "./pages/css/App.css"
-import "./pages/css/Table.css"
-import "./pages/css/Menu.css"
-import "./pages/css/SecondaryDropdown.css"
+import "./pages/css/app.css"
 import "./pages/css/poblacion.css"
-import "./pages/css/DualRangeSlider.css"
-import "./pages/css/ItemMuniScreener.css"
-import "./pages/css/Scroll.css"
+import "./pages/css/empleo.css"
+
+import "./pages/css/components/Menu.css"
+import "./pages/css/components/SecondaryDropdown.css"
+import "./pages/css/components/DualRangeSlider.css"
+import "./pages/css/components/ItemMuniScreener.css"
+import "./pages/css/components/Scroll.css"
+import "./pages/css/components/Table.css"
 
 import PagePobProvPais from "./pages/PagePobProvPais.jsx"
 import PagePobPais from "./pages/PagePobPais.jsx"
@@ -15,6 +17,7 @@ import PagePobMuniEdad from "./pages/PagePobMuniEdad.jsx"
 import PagePobMuniPais from "./pages/PagePobMuniPais.jsx"
 import PageScreenerMuni from "./pages/PageScreenerMuni.jsx"
 import PageEmpProvSector from "./pages/PageEmpProvSector.jsx"
+import PageEmpPubPri from "./pages/PageEmpPubPri.jsx"
 
 import TitlePage from "./components/core/TitlePage.jsx"
 import Menu from "./components/core/Menu.jsx"
@@ -35,6 +38,7 @@ const App = () => {
                     <Route path="/screener-municipios" element={<PageScreenerMuni />} />
 
                     <Route path="/empleo-provincia-sector" element={<PageEmpProvSector />} />
+                    <Route path="/empleo-publico-y-privado" element={<PageEmpPubPri />} />
                 </Routes>
             </div>
         </Router>

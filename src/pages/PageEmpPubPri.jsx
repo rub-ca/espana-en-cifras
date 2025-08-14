@@ -17,9 +17,10 @@ const PageEmpPubPri = () => {
     if (loading) return <div>Cargando datos...</div>
 
     return (
-        <div className="page-pob-container">
-            <main className="page-pob-main-100height">
-                <section className="pob-left-panel">
+        <div className="page-data-container">
+
+            <div className="page-data-container__left-side flex-center-center dircolumn">
+                <section className="empleo-pub-pri-charts">
                     <LineChartEmpPubPri
                         type="comunidad"
                         comunidadSelected={comunidadSelected}
@@ -32,16 +33,19 @@ const PageEmpPubPri = () => {
                         seriesData={data}
                     />
                 </section>
+            </div>
 
-                <section className="pob-right-panel">
-                    <PobResizer />
+            <PobResizer />
 
+            <div className="page-data-container__right-side">
+                <div className="page-data-container__100">
                     <TableEmpPubPri
                         data={data}
                         listeners={[setComunidadSelected]}
                     />
-                </section>
-            </main>
+                </div>
+            </div>
+
         </div>
     )
 }
