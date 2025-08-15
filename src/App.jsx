@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import React, { useState } from "react"
 
 import "./pages/css/app.css"
 import "./pages/css/poblacion.css"
@@ -23,10 +24,12 @@ import TitlePage from "./components/core/TitlePage.jsx"
 import Menu from "./components/core/Menu.jsx"
 
 const App = () => {
+    const [showMenu, setShowMenu] = useState(false)
+
     return (
         <Router>
             <div className="app-container">
-                <Menu />
+                <Menu showMenu={showMenu} setShowMenu={setShowMenu} />
                 <TitlePage />
 
                 <Routes>

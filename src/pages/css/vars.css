@@ -43,3 +43,7 @@
 button {
   font-family: 'Inter', sans-serif;
 }
+
+.bottom-margin-general {
+  margin-bottom: var(--general-gap);
+}
