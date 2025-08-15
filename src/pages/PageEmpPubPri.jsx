@@ -25,7 +25,7 @@ const PageEmpPubPri = () => {
                         type="comunidad"
                         comunidadSelected={comunidadSelected}
                         seriesData={data}
-                        seriesNames={["Público", "Privado"]}
+                        seriesNames={["Público (m)", "Privado (m)"]}
                     />
                     <LineChartEmpPubPri
                         type="all"

@@ -63,6 +63,11 @@ function getOptionsAll({ seriesData }) {
 function getOptionsComunidad({ comunidadSelected, seriesData, seriesNames }) {
     const selectedSplitted = comunidadSelected.split("/")[0].trim()
 
+    let titleChart = selectedSplitted
+    if (selectedSplitted.toLowerCase() != "total nacional") {
+        titleChart = selectedSplitted.slice(3)
+    }
+
     const data = seriesData[getIndexComunidad19WithInclude(selectedSplitted)].data
     const numYears = data[0].length
 
@@ -73,9 +78,14 @@ function getOptionsComunidad({ comunidadSelected, seriesData, seriesNames }) {
     const maximoPrivadoDivided = Math.round(maximoPrivado / 3)
     const maximoPublico = Math.max(Math.max(...reversedSeriesData[0]), maximoPrivadoDivided)
 
+    const colors = [
+        'rgba(184, 60, 60, 0.8)',
+        'rgba(52, 81, 134, 0.8)',
+    ]
+
     const option = {
         title: {
-            text: 'Evolución anual',
+            text: titleChart,
             left: 'center',
         },
         tooltip: {
@@ -95,7 +105,7 @@ function getOptionsComunidad({ comunidadSelected, seriesData, seriesNames }) {
                 name: seriesNames[0],
                 position: 'left',
                 axisLabel: {
-                    color: '#1a6ebdff',
+                    color: colors[0],
                 },
                 max: maximoPublico
             },
@@ -104,13 +114,14 @@ function getOptionsComunidad({ comunidadSelected, seriesData, seriesNames }) {
                 name: seriesNames[1],
                 position: 'right',
                 axisLabel: {
-                    color: '#79bd1aff',
+                    color: colors[1],
                 },
                 max: maximoPrivado
             },
         ],
         series: reversedSeriesData.map((data, index) => ({
             name: seriesNames[index],
+            color: colors[index],
             type: 'line',
             data: data,
             yAxisIndex: index === 1 ? 1 : 0,

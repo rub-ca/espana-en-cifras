@@ -40,6 +40,24 @@ table {
     border-right: 1px solid #999;
 }
 
+/* Table spacing for pub priv table*/
+.table-spacing-bottom {
+    border-collapse: separate;
+    border-spacing: 0 8px;
+}
+
+.table-spacing-bottom tr:nth-child(2n) td {
+    padding: 8px 12px;
+}
+.table-spacing-bottom tbody tr:nth-child(1n) td {
+    border-bottom: 0px solid #99999900;
+}
+.table-spacing-bottom tbody tr:nth-child(2n) td {
+    border-bottom: 1px solid #999;
+}
+
+
+
 /* ------------------------- */
 
 .table .table-header th:first-child,
@@ -64,20 +82,17 @@ table {
     text-align: center;
 }
 
-/* Filas por género / totales */
+/* Colores genero */
 .table .row-genre-total {
     background-color: #fff;
     font-weight: bold;
 }
 
-/* Colores compartidos */
-.table .row-genre-hombre,
-.table .row-emp-privado {
+.table .row-genre-hombre {
     background-color: var(--genre-hombre-color-light);
 }
 
-.table .row-genre-mujer,
-.table .row-emp-publico {
+.table .row-genre-mujer {
     background-color: var(--genre-mujer-color-light);
 }
 
@@ -100,6 +115,16 @@ table {
 }
 
 .table .row-emp-sector-construccion {
+    background-color: var(--sector-construccion-light);
+}
+
+
+/* Publico privado colors */
+.table .row-emp-privado {
+    background-color: var(--sector-servicios-light);
+}
+
+.table .row-emp-publico {
     background-color: var(--sector-construccion-light);
 }
 

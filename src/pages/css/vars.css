@@ -20,15 +20,8 @@
   --sector-construccion-light: rgba(243, 72, 72, 0.1);
   --sector-agricultura: rgba(55, 196, 47);
   --sector-industria: rgba(243, 175, 72);
-  --sector-servicios: rgba(75, 72, 243);
+  --sector-servicios: rgb(52, 81, 134);
   --sector-construccion: rgba(243, 72, 72);
-
-
-  /*Borrar en el futuro:*/
-  --content-height: 87%;
-
-  --back-color-maybe: rgb(231, 233, 236);
-  /*Borrar en el futuro:*/
 }
 
 .flex-center-center {
