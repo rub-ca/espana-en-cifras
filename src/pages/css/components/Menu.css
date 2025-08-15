@@ -1,7 +1,32 @@
 @import '../vars.css';
 
+.menu-container-otrascifras {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    border-radius: var(--general-border-radius);
+    cursor: pointer;
+}
+
+.menu-container-otrascifras h3 {
+    margin-left: 20px;
+    margin-top: 24px;
+    margin-right: 0px;
+}
+
+.menu-container-otrascifras-img-uno {
+    padding: 10px;
+}
+
+.menu-container-otrascifras-img-dos {
+    padding: 24px;
+    margin-top: 5px;
+}
+
+
 .menu-container__img {
     padding: 20px;
+    cursor: pointer;
 }
 
 .menu-container__main-title {

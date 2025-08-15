@@ -5,7 +5,6 @@ const Menu = ({ showMenu, setShowMenu }) => {
     const location = useLocation()
 
     const container = document.querySelector('.app-container')
-    const containerMenu = document.querySelector('.menu-container')
 
     if (container) {
         if (showMenu) {
@@ -13,28 +12,34 @@ const Menu = ({ showMenu, setShowMenu }) => {
             "menu title"
             "menu data"
             `
-            containerMenu.classList.remove('bottom-margin-general')
 
         } else {
             container.style.gridTemplateAreas = `
             "menu title"
             "data data"
             `
-            containerMenu.classList.add('bottom-margin-general')
         }
 
-        console.log("$container ", container)
-        console.log("$containerMenu ", containerMenu)
     }
 
+    if (!showMenu) {
+        return (
+            <div className="menu-container bottom-margin-general">
+                <div className="menu-container-otrascifras" onClick={() => setShowMenu(true)}>
+                    <img src="/spain-flag-icon.svg" alt="" className="menu-container-otrascifras-img-uno" />
 
+                    <h3>Otras cifras</h3>
+
+                    <img src="/arrow-down-sign-to-navigate.png" alt="" className="menu-container-otrascifras-img-dos" />
+                </div>
+            </div>
+        )
+    }
 
     return (
-      
         <div className="menu-container">
-            <button onClick={() => setShowMenu(!showMenu)}>Toggle Menu</button>
 
-            <img src="/spain-flag-icon.svg" alt="" width={"25%"} className="menu-container__img" />
+            <img src="/spain-flag-icon.svg" alt="" width={"25%"} className="menu-container__img"  onClick={() => setShowMenu(false)}/>
 
             <h1 className="menu-container__main-title">España en</h1>
             <h1 className="menu-container__main-title">cifras</h1>
