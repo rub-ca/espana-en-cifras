@@ -35,7 +35,7 @@ const PageEmpPubPri = () => {
                 </section>
             </div>
 
-            <PobResizer />
+            <PobResizer displayMode="flex" />
 
             <div className="page-data-container__right-side">
                 <div className="page-data-container__100">

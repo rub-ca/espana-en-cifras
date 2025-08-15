@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 
-const PobResizer = ({ smallTable, block }) => {
+const PobResizer = ({ smallTable, block, displayMode = 'block' }) => {
     const [isDragging, setIsDragging] = useState(false)
 
     const minRightPercent = 55 // 55%
@@ -48,7 +48,7 @@ const PobResizer = ({ smallTable, block }) => {
             if (rightWidthPercent == 100) {
                 leftPanel.style.display = 'none'
             } else {
-                leftPanel.style.display = 'block'
+                leftPanel.style.display = displayMode
             }
 
             // Aplicar los anchos en porcentaje
