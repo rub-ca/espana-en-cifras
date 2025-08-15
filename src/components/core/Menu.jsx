@@ -1,24 +1,26 @@
 import { useLocation } from "react-router-dom"
+import { motion } from "framer-motion"
 import { titlesByPath } from "../../js/core.js"
 
 const Menu = ({ showMenu, setShowMenu }) => {
     const location = useLocation()
 
-    const container = document.querySelector('.app-container')
+    const $container = document.querySelector('.app-container')
 
-    if (container) {
+    if ($container) {
         if (showMenu) {
-            container.style.gridTemplateAreas = `
+            $container.style.gridTemplateAreas = `
             "menu title"
             "menu data"
             `
 
         } else {
-            container.style.gridTemplateAreas = `
+            $container.style.gridTemplateAreas = `
             "menu title"
             "data data"
             `
         }
+        console.log("showMenu: ", showMenu)
 
     }
 
@@ -36,50 +38,66 @@ const Menu = ({ showMenu, setShowMenu }) => {
         )
     }
 
+    const itemMotion = {
+        hidden: { opacity: 0, y: -20 }, 
+        visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: "easeOut" } }
+    }
+
+    const containerMotion = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: { staggerChildren: 0.05 } // retraso entre hijos (top → bottom)
+        }
+    }
     return (
-        <div className="menu-container">
+        <motion.div
+            className="menu-container"
+            variants={containerMotion}
+            initial="hidden"
+            animate="visible"
+        >
+            <motion.img
+                src="/spain-flag-icon.svg"
+                alt=""
+                width="25%"
+                className="menu-container__img"
+                variants={itemMotion}
+                onClick={() => setShowMenu(false)}
+            />
 
-            <img src="/spain-flag-icon.svg" alt="" width={"25%"} className="menu-container__img"  onClick={() => setShowMenu(false)}/>
+            <motion.h1 className="menu-container__main-title" variants={itemMotion}>
+                España en
+            </motion.h1>
+            <motion.h1 className="menu-container__main-title" variants={itemMotion}>
+                cifras
+            </motion.h1>
 
-            <h1 className="menu-container__main-title">España en</h1>
-            <h1 className="menu-container__main-title">cifras</h1>
-
-            <div className="menu-container__links">
-                <section className="menu-container__links__empleo">
-                    <a className="menu-link-empleo" href="/empleo-provincia-sector">
+            <motion.div className="menu-container__links" variants={containerMotion}>
+                <motion.section className="menu-container__links__empleo" variants={containerMotion}>
+                    <motion.a className="menu-link-empleo" href="/empleo-provincia-sector" variants={itemMotion}>
                         {titlesByPath["/empleo-provincia-sector"]}
-                    </a>
-
-                    <a className="menu-link-empleo" href="/empleo-publico-y-privado">
+                    </motion.a>
+                    <motion.a className="menu-link-empleo" href="/empleo-publico-y-privado" variants={itemMotion}>
                         {titlesByPath["/empleo-publico-y-privado"]}
-                    </a>
-                </section>
+                    </motion.a>
+                </motion.section>
 
-                <section className="menu-container__links__poblacion">
-                    <a className="menu-link-poblacion" href="/poblacion-por-pais">
-                        {titlesByPath["/poblacion-por-pais"]}
-                    </a>
-
-                    <a className="menu-link-poblacion" href="/poblacion-provincia-pais">
-                        {titlesByPath["/poblacion-provincia-pais"]}
-                    </a>
-
-                    <a className="menu-link-poblacion" href="/poblacion-municipio-edad">
-                        {titlesByPath["/poblacion-municipio-edad"]}
-                    </a>
-
-                    <a className="menu-link-poblacion" href="/poblacion-municipio-pais">
-                        {titlesByPath["/poblacion-municipio-pais"]}
-                    </a>
-
-                    <a className="menu-link-poblacion" href="/screener-municipios">
-                        {titlesByPath["/screener-municipios"]}
-                    </a>
-                </section>
-
-
-            </div>
-        </div>
+                <motion.section className="menu-container__links__poblacion" variants={containerMotion}>
+                    {[
+                        "/poblacion-por-pais",
+                        "/poblacion-provincia-pais",
+                        "/poblacion-municipio-edad",
+                        "/poblacion-municipio-pais",
+                        "/screener-municipios",
+                    ].map((path) => (
+                        <motion.a key={path} className="menu-link-poblacion" href={path} variants={itemMotion}>
+                            {titlesByPath[path]}
+                        </motion.a>
+                    ))}
+                </motion.section>
+            </motion.div>
+        </motion.div>
     )
 }
 
