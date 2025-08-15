@@ -12,17 +12,17 @@ const Menu = () => {
             <h1 className="menu-container__main-title">cifras</h1>
 
             <div className="menu-container__links">
-                <section>
-                    <a href="/empleo-provincia-sector">Empleo por provincia y sector</a>
-                    <a href="/empleo-publico-y-privado">Empleo público y privado</a>
+                <section className="menu-container__links__empleo">
+                    <a className="menu-link-empleo" href="/empleo-provincia-sector">Empleo por provincia y sector</a>
+                    <a className="menu-link-empleo" href="/empleo-publico-y-privado">Empleo público y privado</a>
                 </section>
 
-                <section>
-                    <a href="/poblacion-por-pais">Población por país de origen</a>
-                    <a href="/poblacion-provincia-pais">Población por provincia y país</a>
-                    <a href="/poblacion-municipio-edad">Población por municipio y edad</a>
-                    <a href="/poblacion-municipio-pais">Población por municipio y país</a>
-                    <a href="/screener-municipios">Screener de municipios</a>
+                <section className="menu-container__links__poblacion">
+                    <a className="menu-link-poblacion" href="/poblacion-por-pais">Población por país de origen</a>
+                    <a className="menu-link-poblacion" href="/poblacion-provincia-pais">Población por provincia y país</a>
+                    <a className="menu-link-poblacion" href="/poblacion-municipio-edad">Población por municipio y edad</a>
+                    <a className="menu-link-poblacion" href="/poblacion-municipio-pais">Población por municipio y país</a>
+                    <a className="menu-link-poblacion" href="/screener-municipios">Screener de municipios</a>
                 </section>
 
             </div>

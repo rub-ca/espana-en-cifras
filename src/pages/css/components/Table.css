@@ -27,15 +27,16 @@ table {
     top: 0;
     z-index: 1;
     border-radius: var(--general-border-radius);
-    color: #fff;
 }
 
 .table-header-poblacion {
     background-color: var(--secondary-blue-color);
+    color: white;
 }
 
 .table-header-empleo {
     background-color: var(--secondary-yellow-color);
+    color: black;
 }
 
 

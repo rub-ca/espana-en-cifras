@@ -26,11 +26,18 @@
 
 .menu-container__links a {
     text-decoration: none;
-    /* color: var(--primary-blue-color); */
-    color: black;
     margin-bottom: 4px;
+    color: black;
 }
 
-.menu-container__links a:hover {
+.menu-container__links__empleo a:hover {
     text-decoration: underline;
+    text-decoration-color: rgb(250, 204, 1);
+    text-decoration-thickness: 2px;
+}
+
+.menu-container__links__poblacion a:hover {
+    text-decoration: underline;
+    text-decoration-color: var(--secondary-blue-color);
+    text-decoration-thickness: 2px;
 }
