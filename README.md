@@ -88,11 +88,6 @@ Lo datos provienen de PobMuniPais y PobMuniEdad
 <br>
 <br>
 
-## Bugs encontrados
-
-- Cuando en empleo publico y privado muevo un poco el resizer, el margen superior se pierde
-
-
 ## Bugs y mejoras
 
 - En el header de población, añadir un botón para indicar **de dónde proviene la información** (por ejemplo, un modal).
