@@ -1,9 +1,9 @@
 import React, { lazy, Suspense } from "react"
 const ReactECharts = lazy(() => import('echarts-for-react'))
 
-const LineChartEmpProvSector = ({ provSelected, dataProv, dataSector }) => {
+const LineChartEmpProvSector = ({ provSelected, listaProvinciaOrdenIne, dataSector }) => {
     const selectedSplitted = provSelected.split("/")[0].trim().replace(/\d+/g, '').trim()
-    const data = dataSector[dataProv.findIndex(d => d.name.includes(selectedSplitted))].data
+    const data = dataSector[listaProvinciaOrdenIne.findIndex(d => d.includes(selectedSplitted))].data
 
     const headerSector = ['Total', 'Agricultura', 'Industria', 'Construcción', 'Servicios']
     const headerColors = ['black', 'rgba(55, 196, 47)', 'rgba(243, 175, 72)', 'rgba(243, 72, 72)', 'rgba(75, 72, 243)']
