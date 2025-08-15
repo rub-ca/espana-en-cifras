@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from "react"
-import { getYear, getIndexPrimarySelected, getPais13Inverse, getPais13InverseInclude, getPais59, getYearInverse, getPais13, ageGroups90, ageGroups100 } from "../../js/utilsPob.js"
+import { getYear, getIndexPrimarySelected, getPais59, getYearInverse } from "../../js/utilsPob.js"
 import PiramidePobHeader from "./PiramidePobHeader.jsx"
 
 const ReactECharts = lazy(() => import('echarts-for-react'))
@@ -15,7 +15,7 @@ const PiramidePobPais = ({ data, filters }) => {
     let infoTitleArray = []
 
     const yearIndexSelected = getYear(filters[1]) || 0
-    
+
     infoTitleArray.push("")
     infoTitleArray.push("Año: " + getYearInverse(yearIndexSelected))
 
