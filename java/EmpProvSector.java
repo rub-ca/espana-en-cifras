@@ -41,8 +41,8 @@ public class EmpProvSector {
     }
 
     private static void start() {
-        String excelFilePath = "EmpProvSector.xlsx";
-        String jsonFilePath = "EmpProvSector.json";
+        String excelFilePath = "data\\EmpProvSector.xlsx";
+        String jsonFilePath = "data\\EmpProvSector.json";
 
         List<ProvinciaEmpData> allData = new ArrayList<>();
 

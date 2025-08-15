@@ -102,6 +102,8 @@ Lo datos provienen de PobMuniPais y PobMuniEdad
 
 - Mejorar la UI del loading data
 
+- Que en la pagina empleo provincia sector no sea necesario cargar los datos de prov
+
 
 ## POST
 

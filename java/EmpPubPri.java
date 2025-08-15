@@ -42,8 +42,8 @@ public class EmpPubPri {
     }
 
     private static void start() {
-        String excelFilePath = fileName + ".xlsx";
-        String jsonFilePath = fileName + ".json";
+        String excelFilePath = "data\\" + fileName + ".xlsx";
+        String jsonFilePath = "data\\" + fileName + ".json";
 
         List<ComunidadData> allData = new ArrayList<>();
 
@@ -91,7 +91,7 @@ public class EmpPubPri {
                 String val = getCellValueAsString(row.getCell(finalRowIndex));
                 dataYear.add(val);
             }
-            
+
             data.add(dataYear);
         }
 

@@ -38,8 +38,8 @@ public class PobMuniPais {
     }
 
     private static void start() {
-        String excelFilePath = fileName + ".xlsx";
-        String jsonFilePath = fileName + ".json";
+        String excelFilePath = "data\\" + fileName + ".xlsx";
+        String jsonFilePath = "data\\" + fileName + ".json";
 
         List<MunicipioData> allData = new ArrayList<>();
         List<String> allNames = new ArrayList<>();

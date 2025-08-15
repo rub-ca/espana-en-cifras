@@ -35,8 +35,8 @@ public class PobProvPais {
     }
 
     private static void start() {
-        String excelFilePath = fileName + ".xlsx";
-        String jsonFilePath = fileName + ".json";
+        String excelFilePath = "data\\" + fileName + ".xlsx";
+        String jsonFilePath = "data\\" + fileName + ".json";
 
         List<ProvinciaData> allData = new ArrayList<>();
 

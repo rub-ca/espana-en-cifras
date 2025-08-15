@@ -40,8 +40,8 @@ public class PobMuniEdad {
     }
 
     private static void start() throws IOException {
-        String excelFilePath = fileName + ".xlsx";
-        String jsonFilePath = fileName + ".json";
+        String excelFilePath = "data\\" + fileName + ".xlsx";
+        String jsonFilePath = "data\\" + fileName + ".json";
 
         List<MunicipioData> allData = new ArrayList<>();
         List<String> allNames = new ArrayList<>();
@@ -109,7 +109,7 @@ public class PobMuniEdad {
                 for (int yearColIndex = 0; yearColIndex < MAX_YEARS; yearColIndex++) {
                     final int finalRowIndex = (columnaGeneroIndex * COLUMS_PER_GENRE) + (edadColIndex * MAX_YEARS)
                             + yearColIndex + FIRST_GENRE_INDEX_COL + (edadColIndex * SHIFT_EXTRANJERO)
-                            +(columnaGeneroIndex*SHIFT_EXTRANJERO*AMOUNT_AGE_GROUPS);
+                            + (columnaGeneroIndex * SHIFT_EXTRANJERO * AMOUNT_AGE_GROUPS);
                     String val = getCellValueAsString(row.getCell(finalRowIndex));
 
                     long total = 0;
