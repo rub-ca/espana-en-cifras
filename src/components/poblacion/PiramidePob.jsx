@@ -12,7 +12,7 @@ const PiramidePob = ({ data, pageName, filters }) => {
 
     let infoTitleArray = []
 
-    const yearIndexSelected = getYear(filters[1])
+    const yearIndexSelected = getYear(filters[1]) || 0
 
     infoTitleArray.push("")
     infoTitleArray.push("Año: " + getYearInverse(yearIndexSelected))

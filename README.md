@@ -93,7 +93,7 @@ Lo datos provienen de PobMuniPais y PobMuniEdad
 - Cuando en empleo publico y privado muevo un poco el resizer, el margen superior se pierde
 
 
-## Mejoras
+## Bugs y mejoras
 
 - En el header de población, añadir un botón para indicar **de dónde proviene la información** (por ejemplo, un modal).
 
@@ -102,8 +102,6 @@ Lo datos provienen de PobMuniPais y PobMuniEdad
 - Se ha aplicado un **límite máximo de resultados** en el screener de municipios, pero aún no hay ninguna indicación visual que informe al usuario.
 
 - Poner en algún sitio funcionamiento, por ejemplo (m) son miles
-
-- En muni screener permitir activar un filtro pulsando en su barra pero no desactivarlo
 
 - En muni screener permitir ordenar los resultados
 
