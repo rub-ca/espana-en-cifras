@@ -39,7 +39,7 @@ const Menu = ({ showMenu, setShowMenu }) => {
     }
 
     const itemMotion = {
-        hidden: { opacity: 0, y: -20 }, 
+        hidden: { opacity: 0, y: -20 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: "easeOut" } }
     }
 
@@ -74,13 +74,17 @@ const Menu = ({ showMenu, setShowMenu }) => {
             </motion.h1>
 
             <motion.div className="menu-container__links" variants={containerMotion}>
+
                 <motion.section className="menu-container__links__empleo" variants={containerMotion}>
-                    <motion.a className="menu-link-empleo" href="/empleo-provincia-sector" variants={itemMotion}>
-                        {titlesByPath["/empleo-provincia-sector"]}
-                    </motion.a>
-                    <motion.a className="menu-link-empleo" href="/empleo-publico-y-privado" variants={itemMotion}>
-                        {titlesByPath["/empleo-publico-y-privado"]}
-                    </motion.a>
+                    {[
+                        "/empleo-provincia-sector",
+                        "/empleo-publico-y-privado",
+                        "/empleo-balance-pagos"
+                    ].map((path) => (
+                        <motion.a key={path} className="menu-link-empleo" href={path} variants={itemMotion}>
+                            {titlesByPath[path]}
+                        </motion.a>
+                    ))}
                 </motion.section>
 
                 <motion.section className="menu-container__links__poblacion" variants={containerMotion}>
@@ -96,6 +100,8 @@ const Menu = ({ showMenu, setShowMenu }) => {
                         </motion.a>
                     ))}
                 </motion.section>
+
+
             </motion.div>
         </motion.div>
     )

@@ -5,5 +5,6 @@ export const titlesByPath = {
   "/poblacion-municipio-pais": "Población por municipio y país",
   "/screener-municipios": "Screener de municipios",
   "/empleo-provincia-sector": "Empleo por provincia y sector",
-  "/empleo-publico-y-privado": "Empleo público y privado"
+  "/empleo-publico-y-privado": "Empleo público y privado",
+  "/empleo-balance-pagos": "Balance de pagos"
 }

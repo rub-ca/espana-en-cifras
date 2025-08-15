@@ -17,8 +17,10 @@ import PagePobPais from "./pages/PagePobPais.jsx"
 import PagePobMuniEdad from "./pages/PagePobMuniEdad.jsx"
 import PagePobMuniPais from "./pages/PagePobMuniPais.jsx"
 import PageScreenerMuni from "./pages/PageScreenerMuni.jsx"
+
 import PageEmpProvSector from "./pages/PageEmpProvSector.jsx"
 import PageEmpPubPri from "./pages/PageEmpPubPri.jsx"
+import PageEmpBalancePagos from "./pages/PageEmpBalancePagos.jsx"
 
 import TitlePage from "./components/core/TitlePage.jsx"
 import Menu from "./components/core/Menu.jsx"
@@ -42,6 +44,7 @@ const App = () => {
 
                     <Route path="/empleo-provincia-sector" element={<PageEmpProvSector />} />
                     <Route path="/empleo-publico-y-privado" element={<PageEmpPubPri />} />
+                    <Route path="/empleo-balance-pagos" element={<PageEmpBalancePagos />} />
                 </Routes>
             </div>
         </Router>
