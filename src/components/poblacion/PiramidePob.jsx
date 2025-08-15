@@ -10,6 +10,7 @@ const PiramidePob = ({ data, pageName, filters }) => {
     let resultadosMujeres = null
     let resultadoHombres = null
 
+    // Titulo del grafico
     let infoTitleArray = []
 
     const yearIndexSelected = getYear(filters[1]) || 0

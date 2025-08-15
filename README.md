@@ -100,6 +100,8 @@ Lo datos provienen de PobMuniPais y PobMuniEdad
 
 - En muni screener permitir ordenar los resultados
 
+- Mejorar la UI del loading data
+
 
 ## POST
 
