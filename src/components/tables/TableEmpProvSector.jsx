@@ -34,7 +34,7 @@ const TableEmpProvSector = ({ data, listeners }) => {
             <div>
                 <table>
                     <thead>
-                        <tr className="table-header">
+                        <tr className="table-header table-header-empleo">
                             {headers.map((h, i) => (
                                 <ThHeader
                                     key={i}

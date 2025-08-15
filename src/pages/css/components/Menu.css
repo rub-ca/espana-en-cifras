@@ -26,7 +26,8 @@
 
 .menu-container__links a {
     text-decoration: none;
-    color: var(--primary-blue-color);
+    /* color: var(--primary-blue-color); */
+    color: black;
     margin-bottom: 4px;
 }
 

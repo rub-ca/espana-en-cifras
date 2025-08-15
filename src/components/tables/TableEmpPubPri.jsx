@@ -33,7 +33,7 @@ const TableEmpPubPri = ({ data, listeners }) => {
             <div>
                 <table className="table-spacing-bottom">
                     <thead>
-                        <tr className="table-header">
+                        <tr className="table-header table-header-empleo">
                             {headers.map((h, i) => (
                                 <ThHeader
                                     key={i}

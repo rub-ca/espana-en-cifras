@@ -66,7 +66,7 @@ const TablePobMuniPais = ({ data, primarySelected, secondaryDropdowns, page, lis
             <div>
                 <table>
                     <thead>
-                        <tr className="table-header">
+                        <tr className="table-header table-header-poblacion">
                             {headers.map((h, i) => (
                                 <ThHeader
                                     key={i}

@@ -27,9 +27,17 @@ table {
     top: 0;
     z-index: 1;
     border-radius: var(--general-border-radius);
-    background-color: var(--secondary-blue-color);
     color: #fff;
 }
+
+.table-header-poblacion {
+    background-color: var(--secondary-blue-color);
+}
+
+.table-header-empleo {
+    background-color: var(--secondary-yellow-color);
+}
+
 
 /* Bordes tabla */
 .table-separator tbody tr:nth-child(1n) td {
@@ -49,9 +57,11 @@ table {
 .table-spacing-bottom tr:nth-child(2n) td {
     padding: 8px 12px;
 }
+
 .table-spacing-bottom tbody tr:nth-child(1n) td {
     border-bottom: 0px solid #99999900;
 }
+
 .table-spacing-bottom tbody tr:nth-child(2n) td {
     border-bottom: 1px solid #999;
 }

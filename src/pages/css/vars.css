@@ -1,6 +1,5 @@
 :root {
   --general-gap: 14px;
-
   --general-border-radius: 15px;
 
   --general-background-color: rgb(178, 183, 190);
@@ -9,11 +8,13 @@
   --secondary-blue-color: rgb(54, 101, 139);
   --terciary-blue-color: rgb(204, 238, 255);
 
+  --primary-yellow-color: rgb(128, 129, 30);
+  --secondary-yellow-color: rgb(172, 173, 62);
+
   --genre-hombre-color-light: rgb(141, 248, 252, 0.3);
   --genre-hombre-color: rgb(141, 248, 252);
   --genre-mujer-color-light: rgba(244, 175, 255, 0.3);
   --genre-mujer-color: rgb(244, 175, 255);
-
   --sector-agricultura-light: rgba(55, 196, 47, 0.1);
   --sector-industria-light: rgba(243, 175, 72, 0.1);
   --sector-servicios-light: rgba(75, 72, 243, 0.1);

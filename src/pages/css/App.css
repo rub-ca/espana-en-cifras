@@ -44,13 +44,20 @@ body,
 .title-page-container {
     grid-area: title;
     border-radius: var(--general-border-radius);
-
-    background: var(--primary-blue-color);
-
-    color: white;
-
+    padding-left: var(--general-gap);
     margin-bottom: var(--general-gap);
 }
+
+.title-page-container-poblacion {
+    background: var(--primary-blue-color);
+    color: white;
+}
+
+.title-page-container-empleo {
+    background: var(--primary-yellow-color);
+    color: white;
+}
+
 
 .page-data-container {
     grid-area: data;
