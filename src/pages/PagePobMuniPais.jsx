@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import { genreList, paises59 } from "../js/utilsPob.js"
 import PobFiltersHeader from "../components/poblacion/PobFiltersHeader.jsx"
 import PobResizer from "../components/poblacion/PobResizer.jsx"
+import PiramidePobPais from "../components/poblacion/PiramidePobPais.jsx"
 
 import TablePobMuni from "../components//tables/TablePobMuni.jsx"
 import { loadDataJson, loadDataZipJson } from "../data/loadDataJson.js"
@@ -21,6 +22,8 @@ const PagePobMuniPais = () => {
     const [primarySelected, setPrimarySelected] = useState("")
     const [secondarySelected, setSecondarySelected] = useState([])
     const [terciarySelected, setTerciarySelected] = useState([])
+
+    const [yearSelectedPiramide, setYearSelectedPiramide] = useState(2024)
 
     if (loading) return <div>Cargando datos...</div>
     if (loading2) return <div>Cargando datos...</div>
@@ -50,8 +53,10 @@ const PagePobMuniPais = () => {
     return (
         <div className="page-data-container">
             <div className="page-data-container__left-side">
-                QUESITO CON PAISES
-                O BARRAS COMO GENERO
+                <PiramidePobPais
+                    data={data}
+                    filters={[primarySelected, yearSelectedPiramide]}
+                />
             </div>
 
             <PobResizer smallTable={true} />
@@ -69,6 +74,7 @@ const PagePobMuniPais = () => {
                         data={data}
                         primarySelected={primarySelected}
                         secondaryDropdowns={secondaryDropdowns}
+                        listeners={[setYearSelectedPiramide]}
                         page="PagePobMuniPais"
                     />
                 </div>
