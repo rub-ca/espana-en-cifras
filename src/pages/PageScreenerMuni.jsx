@@ -16,8 +16,8 @@ const PageScreenerMuni = () => {
         resultados: [getHeaderScreener()]
     })
 
-    const [minPoblacionGeneral, setMinPoblacionGeneral] = useState(100)
-    const [maxPoblacionGeneral, setMaxPoblacionGeneral] = useState(500000)
+    const [minPoblacionGeneral, setMinPoblacionGeneral] = useState(0)
+    const [maxPoblacionGeneral, setMaxPoblacionGeneral] = useState(15000)
     const minLimitPoblacionGeneral = 0
     const maxLimitPoblacionGeneral = 5000000
 

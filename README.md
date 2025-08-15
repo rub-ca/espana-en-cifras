@@ -90,24 +90,30 @@ Lo datos provienen de PobMuniPais y PobMuniEdad
 
 ## Bugs encontrados
 
-- El dual range slider funciona mal si se introduce manualmente un número menor que el límite inferior actual.
-- En el dual range slider para el rango de edad, falla si se introduce un número que no coincide exactamente con un límite de rango.
 - Cuando en empleo publico y privado muevo un poco el resizer, el margen superior se pierde
 
 
 ## Mejoras
 
 - En el header de población, añadir un botón para indicar **de dónde proviene la información** (por ejemplo, un modal).
-- En el **muni screener**, al lado del nombre del municipio de cada resultado, añadir dos enlaces:
-  - Uno que lo abra en la página de edades.
-  - Otro en la página de municipios por país de origen.
+
 - En el **muni screener**, añadir un nuevo campo de búsqueda que sea nombre.
+
 - Se ha aplicado un **límite máximo de resultados** en el screener de municipios, pero aún no hay ninguna indicación visual que informe al usuario.
+
 - Poner en algún sitio funcionamiento, por ejemplo (m) son miles
-
-
-## UI
 
 - En muni screener permitir activar un filtro pulsando en su barra pero no desactivarlo
 
 - En muni screener permitir ordenar los resultados
+
+
+## POST
+
+- Añadir botón descargar datos
+
+- Añadir botón gráfico pantalla completa
+
+- En el **muni screener**, al lado del nombre del municipio de cada resultado, añadir dos enlaces:
+  - Uno que lo abra en la página de edades.
+  - Otro en la página de municipios por país de origen.

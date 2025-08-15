@@ -61,7 +61,8 @@ function DualRangeSlider({
   const rightPct = 100 - ((expoToLinear(maxValue) - minLimit) / (maxLimit - minLimit)) * 100
 
   return (
-    <div className="drs" style={{ marginBottom: marginBottom }}>
+    <div className="drs" style={{ marginBottom: marginBottom }}
+    onClick={() => !activado && setActivado(true)}>
       <h4
         className={`drs-title ${activado ? '' : 'is-disabled'}`}
         onClick={() => setActivado && setActivado(!activado)}

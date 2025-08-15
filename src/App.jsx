@@ -33,7 +33,7 @@ const App = () => {
                 <TitlePage />
 
                 <Routes>
-                    <Route path="/" element={<PagePobProvPais />} />
+                    {/* <Route path="/" element={<PagePobProvPais />} /> */}
                     <Route path="/poblacion-provincia-pais" element={<PagePobProvPais />} />
                     <Route path="/poblacion-por-pais" element={<PagePobPais />} />
                     <Route path="/poblacion-municipio-edad" element={<PagePobMuniEdad />} />
