@@ -47,14 +47,14 @@ const PiramidePobPais = ({ data, filters }) => {
     // Array con [1][][0] eliminando el primer año (índice)
     resultadosHombres = datosFiltrados[1].map(regionAnios => {
         const anios = regionAnios.slice(1) // quita el índice
-        return anios[yearIndexSelected]                    // año 0 original
+        return anios[yearIndexSelected]
     })
     resultadosHombres = resultadosHombres.slice(1)
 
     // Array con [2][][0] eliminando el primer año (índice)
     resultadosMujeres = datosFiltrados[2].map(regionAnios => {
         const anios = regionAnios.slice(1) // quita el índice
-        return anios[yearIndexSelected]                    // año 0 original
+        return anios[yearIndexSelected]
     })
     resultadosMujeres = resultadosMujeres.slice(1)
 
@@ -63,6 +63,15 @@ const PiramidePobPais = ({ data, filters }) => {
     })
     labelsCountries = labelsCountries.slice(1)
 
+
+    let maxValueForChart = 25000000
+    let typeValueForChart = 'log'
+    if (data[primarySelected].data[0][0][0] < 6000000) {
+        maxValueForChart = null
+    }
+    if (data[primarySelected].data[0][0][0] < 10000) {
+        typeValueForChart = 'value'
+    }
 
     const options = {
         tooltip: {
@@ -79,9 +88,9 @@ const PiramidePobPais = ({ data, filters }) => {
         grid: { left: '4%', right: '4%', bottom: '4%', top: '0%', containLabel: true },
 
         xAxis: {
-            type: 'log',
+            type: typeValueForChart,
             logBase: 10,
-            max: 25000000,
+            max: maxValueForChart,
             splitLine: {
                 show: true,
                 lineStyle: {
