@@ -6,7 +6,7 @@ export function getRowClassByTypeOfWork(row) {
     return "row-emp-publico"
 }
 
-export function getRowClassBySectorJob (row) {
+export function getRowClassBySectorJob(row) {
     const splited = row[0].split('/')
     const str = splited[splited.length - 1].trim().toLowerCase()
 
@@ -32,3 +32,4 @@ const comunidades19 = [
 export function getIndexComunidad19WithInclude(str) {
     return comunidades19.findIndex(c => c.toLowerCase() === (str.toLowerCase()))
 }
+

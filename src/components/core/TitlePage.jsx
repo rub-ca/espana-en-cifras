@@ -1,4 +1,5 @@
 import { useLocation } from "react-router-dom"
+import { titlesByPath } from "../../js/core.js"
 
 const TitlePage = () => {
     const location = useLocation()
@@ -12,7 +13,7 @@ const TitlePage = () => {
 
     return (
         <div className={`title-page-container ${classTitle}`}>
-            <h2 className="main-title">Titulo de pagina</h2>
+            <h2 className="main-title">{titlesByPath[location.pathname]}</h2>
         </div>
     )
 }

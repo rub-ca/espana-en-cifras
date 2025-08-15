@@ -92,6 +92,7 @@ Lo datos provienen de PobMuniPais y PobMuniEdad
 
 - El dual range slider funciona mal si se introduce manualmente un número menor que el límite inferior actual.
 - En el dual range slider para el rango de edad, falla si se introduce un número que no coincide exactamente con un límite de rango.
+- Cuando en empleo publico y privado muevo un poco el resizer, el margen superior se pierde
 
 
 ## Mejoras
