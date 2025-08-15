@@ -4,33 +4,36 @@ import { titlesByPath } from "../../js/core.js"
 const Menu = ({ showMenu, setShowMenu }) => {
     const location = useLocation()
 
-    const $container = document.querySelector('.app-container')
-    const $containerMenu = document.querySelector('.menu-container')
+    const container = document.querySelector('.app-container')
+    const containerMenu = document.querySelector('.menu-container')
 
-    if ($container) {
+    if (container) {
         if (showMenu) {
-            $container.style.gridTemplateAreas = `
+            container.style.gridTemplateAreas = `
             "menu title"
             "menu data"
             `
-            $containerMenu.classList.remove('.bottom-margin-general')
+            containerMenu.classList.remove('bottom-margin-general')
 
         } else {
-            $container.style.gridTemplateAreas = `
+            container.style.gridTemplateAreas = `
             "menu title"
             "data data"
             `
-            $containerMenu.classList.add('.bottom-margin-general')
+            containerMenu.classList.add('bottom-margin-general')
         }
 
-        console.log("$container ", $container)
-        console.log("$containerMenu ", $containerMenu)
+        console.log("$container ", container)
+        console.log("$containerMenu ", containerMenu)
     }
 
 
 
     return (
+      
         <div className="menu-container">
+            <button onClick={() => setShowMenu(!showMenu)}>Toggle Menu</button>
+
             <img src="/spain-flag-icon.svg" alt="" width={"25%"} className="menu-container__img" />
 
             <h1 className="menu-container__main-title">España en</h1>
@@ -68,6 +71,7 @@ const Menu = ({ showMenu, setShowMenu }) => {
                         {titlesByPath["/screener-municipios"]}
                     </a>
                 </section>
+
 
             </div>
         </div>
