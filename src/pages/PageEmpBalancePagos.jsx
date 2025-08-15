@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import PobResizer from "../components/poblacion/PobResizer.jsx"
 import { loadDataJson, loadDataZipJson } from "../data/loadDataJson.js"
 import LineChartEmpProvSector from "../components/empleo/LineChartEmpProvSector.jsx"
-import TableEmpProvSector from "../components/tables/TableEmpProvSector.jsx"
+import TableBalancePagos from "../components/tables/TableBalancePagos.jsx"
 
 const PageEmpBalancePagos = () => {
     const [dataEmpPubPriv, setDataEmpPubPriv] = useState(null)
@@ -40,14 +40,19 @@ const PageEmpBalancePagos = () => {
     return (
         <div className="page-data-container">
             <div className="page-data-container__left-side">
-              
+
             </div>
 
             <PobResizer />
 
             <div className="page-data-container__right-side">
                 <div className="page-data-container__100">
-                  
+                    <TableBalancePagos
+                        dataEmpPubPriv={dataEmpPubPriv}
+                        dataBalanceDesempleo={dataBalanceDesempleo}
+                        dataBalancePensiones={dataBalancePensiones}
+                        dataBalanceIMV={dataBalanceIMV}
+                    />
                 </div>
 
             </div>
