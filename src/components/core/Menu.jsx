@@ -23,8 +23,11 @@ const Menu = ({ showMenu, setShowMenu }) => {
             $containerMenu.classList.add('.bottom-margin-general')
         }
 
-        // console.log("$container ", $container)
+        console.log("$container ", $container)
+        console.log("$containerMenu ", $containerMenu)
     }
+
+
 
     return (
         <div className="menu-container">

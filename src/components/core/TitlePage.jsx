@@ -3,7 +3,6 @@ import { titlesByPath } from "../../js/core.js"
 
 const TitlePage = () => {
     const location = useLocation()
-    console.log("Current location:", location)
 
     let classTitle = 'title-page-container-poblacion'
 
