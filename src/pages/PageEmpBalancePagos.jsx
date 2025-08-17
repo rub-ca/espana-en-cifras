@@ -10,6 +10,8 @@ const PageEmpBalancePagos = () => {
     const [dataBalancePensiones, setDataBalancePensiones] = useState(null)
     const [dataBalanceIMV, setDataBalanceIMV] = useState(null)
 
+    const [indexToShow, setIndexToShow] = useState(getStandarIndexToShow())
+
     const [loading1, setLoading1] = useState(true)
     const [loading2, setLoading2] = useState(true)
     const [loading3, setLoading3] = useState(true)
@@ -47,12 +49,16 @@ const PageEmpBalancePagos = () => {
 
             <div className="page-data-container__right-side">
                 <div className="page-data-container__100">
-                    <TableBalancePagos
-                        dataEmpPubPriv={dataEmpPubPriv}
-                        dataBalanceDesempleo={dataBalanceDesempleo}
-                        dataBalancePensiones={dataBalancePensiones}
-                        dataBalanceIMV={dataBalanceIMV}
-                    />
+                    <div className="empleo-balance-container">
+                        <TableBalancePagos
+                            dataEmpPubPriv={dataEmpPubPriv}
+                            dataBalanceDesempleo={dataBalanceDesempleo}
+                            dataBalancePensiones={dataBalancePensiones}
+                            dataBalanceIMV={dataBalanceIMV}
+                            indexToShow={indexToShow}
+                            setIndexToShow={setIndexToShow}
+                        />
+                    </div>
                 </div>
 
             </div>
@@ -60,3 +66,25 @@ const PageEmpBalancePagos = () => {
     )
 }
 export default PageEmpBalancePagos
+
+
+function getStandarIndexToShow() {
+    const val = []
+    val.push(0)
+    val.push(0)
+
+    val.push(1)
+    val.push(1)
+    val.push(1)
+    val.push(1)
+    val.push(1)
+
+    val.push(1)
+    val.push(1)
+    val.push(1)
+    val.push(1)
+    val.push(1)
+
+    val.push(1)
+    return val
+}
