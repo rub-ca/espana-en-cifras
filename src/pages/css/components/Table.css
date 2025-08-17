@@ -49,25 +49,6 @@ table {
     border-right: 1px solid #999;
 }
 
-/* Table spacing for pub priv table*/
-.table-spacing-bottom {
-    border-collapse: separate;
-    border-spacing: 0 8px;
-}
-
-.table-spacing-bottom tr:nth-child(2n) td {
-    padding: 8px 12px;
-}
-
-.table-spacing-bottom tbody tr:nth-child(1n) td {
-    border-bottom: 0px solid #99999900;
-}
-
-.table-spacing-bottom tbody tr:nth-child(2n) td {
-    border-bottom: 1px solid #999;
-}
-
-
 
 /* ------------------------- */
 
@@ -123,6 +104,7 @@ table {
 
 .table .row-emp-sector-servicios {
     background-color: var(--sector-servicios-light);
+    border-bottom: 4px solid var(--general-background-color);
 }
 
 .table .row-emp-sector-construccion {
@@ -133,6 +115,8 @@ table {
 /* Publico privado colors */
 .table .row-emp-privado {
     background-color: var(--sector-servicios-light);
+    border-bottom: 4px solid var(--general-background-color);
+
 }
 
 .table .row-emp-publico {

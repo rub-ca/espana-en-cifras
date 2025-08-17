@@ -31,7 +31,7 @@ const TableEmpPubPri = ({ data, listeners }) => {
     return (
         <div className="table table-separator">
             <div>
-                <table className="table-spacing-bottom">
+                <table>
                     <thead>
                         <tr className="table-header table-header-empleo">
                             {headers.map((h, i) => (

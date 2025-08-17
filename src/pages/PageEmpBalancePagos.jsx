@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import PobResizer from "../components/poblacion/PobResizer.jsx"
-import { loadDataJson, loadDataZipJson } from "../data/loadDataJson.js"
+import { loadDataJson } from "../data/loadDataJson.js"
 import LineChartEmpProvSector from "../components/empleo/LineChartEmpProvSector.jsx"
 import TableBalancePagos from "../components/tables/TableBalancePagos.jsx"
 
