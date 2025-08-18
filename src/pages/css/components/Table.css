@@ -123,6 +123,18 @@ table {
     background-color: var(--sector-construccion-light);
 }
 
+
+/* Balance pagos table */
+.table .row-emp-type-suma {
+    border-top: 4px solid var(--general-background-color);
+    border-bottom: 40px solid transparent;
+    font-weight: bold;
+}
+
+.table .row-emp-type-pension {
+    background-color: var(--sector-industria-light);
+}
+
 /* Cursor */
 .table .mouse-cursor-pointer {
     cursor: pointer;

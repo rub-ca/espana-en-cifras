@@ -49,16 +49,14 @@ const PageEmpBalancePagos = () => {
 
             <div className="page-data-container__right-side">
                 <div className="page-data-container__100">
-                    <div className="empleo-balance-container">
-                        <TableBalancePagos
-                            dataEmpPubPriv={dataEmpPubPriv}
-                            dataBalanceDesempleo={dataBalanceDesempleo}
-                            dataBalancePensiones={dataBalancePensiones}
-                            dataBalanceIMV={dataBalanceIMV}
-                            indexToShow={indexToShow}
-                            setIndexToShow={setIndexToShow}
-                        />
-                    </div>
+                    <TableBalancePagos
+                        dataEmpPubPriv={dataEmpPubPriv}
+                        dataBalanceDesempleo={dataBalanceDesempleo}
+                        dataBalancePensiones={dataBalancePensiones}
+                        dataBalanceIMV={dataBalanceIMV}
+                        indexToShow={indexToShow}
+                        setIndexToShow={setIndexToShow}
+                    />
                 </div>
 
             </div>

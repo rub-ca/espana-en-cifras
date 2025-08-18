@@ -2,7 +2,7 @@ import ThHeader from './core/ThHeader.jsx'
 import TdFirstCell from './core/TdFirstCell.jsx'
 import TdAlignRight from './core/TdAlignRight.jsx'
 import { getYear } from "../../js/utilsPob.js"
-import { getRowClassByTypeOfWork } from "../../js/utilsEmp.js"
+import { getRowClassByTypeOrSuma } from "../../js/utilsEmp.js"
 
 const TableBalancePagos = ({ dataEmpPubPriv, dataBalanceDesempleo, dataBalancePensiones, dataBalanceIMV,
     indexToShow, setIndexToShow }) => {
@@ -14,8 +14,10 @@ const TableBalancePagos = ({ dataEmpPubPriv, dataBalanceDesempleo, dataBalancePe
 
     const rows0 = getRows(dataEmpPubPriv, dataBalanceDesempleo, dataBalancePensiones, dataBalanceIMV, indexToShow, 0)
     const rows1 = getRows(dataEmpPubPriv, dataBalanceDesempleo, dataBalancePensiones, dataBalanceIMV, indexToShow, 1)
+    const rows2 = getRows(dataEmpPubPriv, dataBalanceDesempleo, dataBalancePensiones, dataBalanceIMV, indexToShow, 2)
 
-    const rows = [...rows0, ...rows1]
+    const rows = [...rows0, ...rows1, ...rows2]
+
     return (
         <div className="table table-separator">
             <div>
@@ -34,13 +36,27 @@ const TableBalancePagos = ({ dataEmpPubPriv, dataBalanceDesempleo, dataBalancePe
                     <tbody>
 
                         {rows.map((r, rowIndex) => (
-                            <tr key={rowIndex}>
+                            <tr key={rowIndex} className={getRowClassByTypeOrSuma(r, rowIndex, rows)}>
                                 {r.map((cell, cellIndex) =>
                                     cellIndex === 0 ? (
                                         <TdFirstCell
                                             key={cellIndex}
                                             children={cell}
                                             cursorPointer={true}
+                                            onClick={() => {
+                                                const idx = getIndexByType(cell)
+
+                                                if (idx == -1) return
+
+                                                let val = { ...indexToShow }
+                                                let num = val[idx]
+                                                num++
+                                                if (num == 3) num = 0
+
+                                                val[idx] = num
+
+                                                setIndexToShow(val)
+                                            }}
                                         />
                                     ) : (
                                         <TdAlignRight key={cellIndex}>{cell}</TdAlignRight>
@@ -83,7 +99,7 @@ function getRows(dataEmpPubPriv, dataBalanceDesempleo, dataBalancePensiones, dat
 
 
     const pensiones = [
-        ['Pensiones Incapacidad', 1],
+        ['Pensión Incapacidad', 1],
         ['Pensión Jubilación', 2],
         ['Pensión Viudedad', 3],
         ['Pensión Orfandad', 4],
@@ -95,7 +111,7 @@ function getRows(dataEmpPubPriv, dataBalanceDesempleo, dataBalancePensiones, dat
             const value = dataBalancePensiones[year][idx]
             row.push(value.toLocaleString('es-ES'))
         }
-        const indexT = 2 + idx
+        const indexT = 1 + idx
         if (indexToShow[indexT] === tableShow) rows.push(row)
     })
 
@@ -113,7 +129,7 @@ function getRows(dataEmpPubPriv, dataBalanceDesempleo, dataBalancePensiones, dat
             const value = dataBalanceDesempleo.data[year][idx]
             row.push(value.toLocaleString('es-ES'))
         }
-        const indexT = 7 + idx
+        const indexT = 6 + idx
         if (indexToShow[indexT] === tableShow) rows.push(row)
     })
 
@@ -125,16 +141,37 @@ function getRows(dataEmpPubPriv, dataBalanceDesempleo, dataBalancePensiones, dat
     })
     if (indexToShow[12] === tableShow) rows.push(rowImg)
 
-    const rowSuma = [tableShow == 0 ? 'Suma A' : 'Suma B']
-    for (let y = 1; y <= numYears; y++) {
-        let suma = 0
-        for (let i = 0; i < rows.length; i++) {
-            if (rows[i][y]) suma += parseInt(rows[i][y].replace(/\./g, '').replace(',', ''))
-            else suma += 0
+    if (tableShow != 2) {
+        const rowSuma = [tableShow == 0 ? 'Suma A' : 'Suma B']
+        for (let y = 1; y <= numYears; y++) {
+            let suma = 0
+            for (let i = 0; i < rows.length; i++) {
+                if (rows[i][y]) suma += parseInt(rows[i][y].replace(/\./g, '').replace(',', ''))
+                else suma += 0
+            }
+            rowSuma.push(suma.toLocaleString('es-ES'))
         }
-        rowSuma.push(suma.toLocaleString('es-ES'))
+        rows.push(rowSuma)
     }
-    rows.push(rowSuma)
 
     return rows
+}
+
+function getIndexByType(str) {
+    const types = [
+        'Empleo Público',
+        'Empleo Privado',
+        'Pensión Incapacidad',
+        'Pensión Jubilación',
+        'Pensión Viudedad',
+        'Pensión Orfandad',
+        'Pensión Favor Familiar',
+        'Prestación contributiva',
+        'Prestación desempleo',
+        'Prestación renta agraria',
+        'Prestación subsidio agrario',
+        'Prestación renta inserción',
+        'Ingreso Mínimo Vital'
+    ]
+    return types.indexOf(str)
 }

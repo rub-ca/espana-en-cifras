@@ -33,3 +33,13 @@ export function getIndexComunidad19WithInclude(str) {
     return comunidades19.findIndex(c => c.toLowerCase() === (str.toLowerCase()))
 }
 
+export function getRowClassByTypeOrSuma(row, rowIndex, rows) {
+    const splited = row[0]
+    const str = splited.trim().toLowerCase()
+
+    if (str.includes('suma')) {
+        return "row-emp-type-suma"
+    }
+
+    return ""
+}
