@@ -1,8 +1,13 @@
 import { useLocation } from "react-router-dom"
 import { titlesByPath } from "../../js/core.js"
+import { useState } from "react"
+import CustomModal from "./CustomModal.jsx"
+
 
 const TitlePage = () => {
     const location = useLocation()
+
+    const [modalIsOpen, setModalIsOpen] = useState(false)
 
     let classTitle = 'title-page-container-poblacion'
 
@@ -14,9 +19,11 @@ const TitlePage = () => {
         <div className={`title-page-container ${classTitle}`}>
             <h2>{titlesByPath[location.pathname]}</h2>
 
-            <div className="title-page-info-button">
+            <div className="title-page-info-button" onClick={() => setModalIsOpen(true)}>
                 <img src="source-icon.png" alt="" />
             </div>
+
+            <CustomModal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)} />
         </div>
     )
 }

@@ -47,3 +47,7 @@ button {
 .bottom-margin-general {
   margin-bottom: var(--general-gap);
 }
+
+.cursor-pointer {
+  cursor: pointer;
+}

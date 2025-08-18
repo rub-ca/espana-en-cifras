@@ -11,6 +11,7 @@ import "./pages/css/components/DualRangeSlider.css"
 import "./pages/css/components/ItemMuniScreener.css"
 import "./pages/css/components/Scroll.css"
 import "./pages/css/components/Table.css"
+import "./pages/css/components/Modal.css"
 
 import PagePobProvPais from "./pages/PagePobProvPais.jsx"
 import PagePobPais from "./pages/PagePobPais.jsx"
