@@ -46,6 +46,27 @@ body,
     border-radius: var(--general-border-radius);
     padding-left: var(--general-gap);
     margin-bottom: var(--general-gap);
+    display: flex;
+    align-items: center;
+}
+
+.title-page-info-button {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: var(--general-gap);
+    border-radius: var(--general-border-radius);
+
+    height: 70%;
+    width: 100px;
+    background-color: white;
+
+    cursor: pointer;
+}
+
+.title-page-info-button img {
+    height: 80%;
 }
 
 .title-page-container-poblacion {

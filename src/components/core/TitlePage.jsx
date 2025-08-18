@@ -12,7 +12,11 @@ const TitlePage = () => {
 
     return (
         <div className={`title-page-container ${classTitle}`}>
-            <h2 className="main-title">{titlesByPath[location.pathname]}</h2>
+            <h2>{titlesByPath[location.pathname]}</h2>
+
+            <div className="title-page-info-button">
+                <img src="source-icon.png" alt="" />
+            </div>
         </div>
     )
 }
