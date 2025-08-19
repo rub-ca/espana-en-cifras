@@ -90,8 +90,6 @@ Lo datos provienen de PobMuniPais y PobMuniEdad
 
 ## Bugs y mejoras
 
-- Add explicaciones en screener y balance
-
 - Mejorar la UI del loading data
 
 
@@ -114,3 +112,31 @@ Lo datos provienen de PobMuniPais y PobMuniEdad
 - Se ha aplicado un **límite máximo de resultados** en el screener de municipios, pero aún no hay ninguna indicación visual que informe al usuario.
 
 - En balance pagos añadir a la derecha otra serie de ratio
+
+
+
+Notas:  
+https://www.ine.es/jaxiT3/Tabla.htm?t=65321  -> EmpPubPri
+
+https://www.ine.es/jaxiT3/Tabla.htm?t=65354 -> EmpProvSector
+Pagina que muestra las personas que trabajan por provincia
+y sector agricultura/servicios/etc 
+
+
+PaisBalance /pais-balance
+
+	- datos de EmpPubPri
+
+	- datos de cantidad de pensionistas por tipo
+	https://econet.carm.es/web/crem/inicio/-/crem/sicrem/PU136/pdf/sec8_c2.pdf   Sec8_c2    sec8_2.pdf
+	es un pdf que se trasnforma en excel sin OCR
+
+
+	- datos de personas que cobran algun tipo de prestación por desempleo DesempleoPrest
+	https://www.sepe.es/HomeSepe/que-es-el-sepe/estadisticas/estadisticas-prestaciones/informe-prestaciones.html
+	Hay que descargar los pdf de cada año, se han descargado algunos de enero y otros de febrero porque algunos están corruptos
+	Se ha normalizado el nombre de todos los exceles tras la descarga
+	
+	- datos de personas que cobran el imv, para cada año se usa una fuente diferente, se ha generado un json 
+	siguiendo el patron: data [{"url":"url fuente informacion", "year":2021, "data":260000},{...}]
+
