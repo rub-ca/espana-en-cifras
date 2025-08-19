@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import PobResizer from "../components/poblacion/PobResizer.jsx"
 import { loadDataJson } from "../data/loadDataJson.js"
-import LineChartEmpProvSector from "../components/empleo/LineChartEmpProvSector.jsx"
+import LineChartBalancePagos from "../components/empleo/LineChartBalancePagos.jsx"
 import TableBalancePagos from "../components/tables/TableBalancePagos.jsx"
 
 const PageEmpBalancePagos = () => {
@@ -11,6 +11,9 @@ const PageEmpBalancePagos = () => {
     const [dataBalanceIMV, setDataBalanceIMV] = useState(null)
 
     const [indexToShow, setIndexToShow] = useState(getStandarIndexToShow())
+
+    const [sumaA, setSumaA] = useState([])
+    const [sumaB, setSumaB] = useState([])
 
     const [loading1, setLoading1] = useState(true)
     const [loading2, setLoading2] = useState(true)
@@ -42,6 +45,10 @@ const PageEmpBalancePagos = () => {
     return (
         <div className="page-data-container">
             <div className="page-data-container__left-side">
+                <LineChartBalancePagos
+                    dataSumaA={sumaA}
+                    dataSumaB={sumaB}
+                />
 
             </div>
 
@@ -56,6 +63,8 @@ const PageEmpBalancePagos = () => {
                         dataBalanceIMV={dataBalanceIMV}
                         indexToShow={indexToShow}
                         setIndexToShow={setIndexToShow}
+                        setSumaA={setSumaA}
+                        setSumaB={setSumaB}
                     />
                 </div>
 

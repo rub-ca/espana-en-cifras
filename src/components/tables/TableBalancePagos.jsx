@@ -1,3 +1,4 @@
+import React, { useState, useEffect, useMemo } from "react"
 import ThHeader from './core/ThHeader.jsx'
 import TdFirstCell from './core/TdFirstCell.jsx'
 import TdAlignRight from './core/TdAlignRight.jsx'
@@ -5,18 +6,36 @@ import { getYear } from "../../js/utilsPob.js"
 import { getRowClassByTypeOrSuma } from "../../js/utilsEmp.js"
 
 const TableBalancePagos = ({ dataEmpPubPriv, dataBalanceDesempleo, dataBalancePensiones, dataBalanceIMV,
-    indexToShow, setIndexToShow }) => {
+    indexToShow, setIndexToShow, setSumaA, setSumaB }) => {
 
     const numYears = dataEmpPubPriv[0].data[0].length
 
     const headers = ['Tipo']
     for (let year = 0; year < numYears; year++) headers.push(`${getYear(year, 2025)}`)
 
-    const rows0 = getRows(dataEmpPubPriv, dataBalanceDesempleo, dataBalancePensiones, dataBalanceIMV, indexToShow, 0)
-    const rows1 = getRows(dataEmpPubPriv, dataBalanceDesempleo, dataBalancePensiones, dataBalanceIMV, indexToShow, 1)
-    const rows2 = getRows(dataEmpPubPriv, dataBalanceDesempleo, dataBalancePensiones, dataBalanceIMV, indexToShow, 2)
+    const rows0 = useMemo(() =>
+        getRows(dataEmpPubPriv, dataBalanceDesempleo, dataBalancePensiones, dataBalanceIMV, indexToShow, 0),
+        [dataEmpPubPriv, dataBalanceDesempleo, dataBalancePensiones, dataBalanceIMV, indexToShow]
+    )
 
-    const rows = [...rows0, ...rows1, ...rows2]
+    const rows1 = useMemo(() =>
+        getRows(dataEmpPubPriv, dataBalanceDesempleo, dataBalancePensiones, dataBalanceIMV, indexToShow, 1),
+        [dataEmpPubPriv, dataBalanceDesempleo, dataBalancePensiones, dataBalanceIMV, indexToShow]
+    )
+
+    const rows2 = useMemo(() =>
+        getRows(dataEmpPubPriv, dataBalanceDesempleo, dataBalancePensiones, dataBalanceIMV, indexToShow, 2),
+        [dataEmpPubPriv, dataBalanceDesempleo, dataBalancePensiones, dataBalanceIMV, indexToShow]
+    )
+
+    useEffect(() => {
+        if (rows0.length > 0 && rows1.length > 0) {
+            setSumaA(rows0[rows0.length - 1].slice(1))
+            setSumaB(rows1[rows1.length - 1].slice(1))
+        }
+    }, [rows0, rows1, setSumaA, setSumaB])
+
+    const rows = useMemo(() => [...rows0, ...rows1, ...rows2], [rows0, rows1, rows2])
 
     return (
         <div className="table table-separator">

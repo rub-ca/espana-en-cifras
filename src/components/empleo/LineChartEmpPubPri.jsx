@@ -133,29 +133,3 @@ function getOptionsComunidad({ comunidadSelected, seriesData, seriesNames }) {
 
 
 export default LineChartEmpPubPri
-
-
-
-/**
- * 
- * get options all()
-    para mostrar porcentaje
-
-    // const newArray = seriesData.map(({ name, data }) => ({
-    //     name,
-    //     yearsArray:
-    //         data[1].map((val, i) => Math.round((100 / (val / data[0][i])) * 100) / 100)
-    //             .reverse()
-    // }))
-
-
-    leyenda en el grafico
-    // legend: {
-    //     data: newArray.map(s => s.name),
-    //     bottom: 10, // ⬅️ aquí pones la leyenda abajo
-    // },
-
-
-
-
- */
