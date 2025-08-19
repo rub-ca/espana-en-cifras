@@ -90,9 +90,7 @@ Lo datos provienen de PobMuniPais y PobMuniEdad
 
 ## Bugs y mejoras
 
-- En el header de población, añadir un botón para indicar **de dónde proviene la información** (por ejemplo, un modal).
-
-- Poner en algún sitio funcionamiento, por ejemplo (m) son miles
+- Add explicaciones en screener y balance
 
 - Mejorar la UI del loading data
 

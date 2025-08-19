@@ -39,6 +39,11 @@
     padding-bottom: 6%;
 }
 
+.modal-body h4 {
+    margin: 0px;
+    margin-top: 40px;
+}
+
 .modal-body {
     margin: 12px 0;
 }
