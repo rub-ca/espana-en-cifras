@@ -112,3 +112,5 @@ Lo datos provienen de PobMuniPais y PobMuniEdad
 - En el **muni screener**, añadir un nuevo campo de búsqueda que sea nombre.
 
 - Se ha aplicado un **límite máximo de resultados** en el screener de municipios, pero aún no hay ninguna indicación visual que informe al usuario.
+
+- En balance pagos añadir a la derecha otra serie de ratio

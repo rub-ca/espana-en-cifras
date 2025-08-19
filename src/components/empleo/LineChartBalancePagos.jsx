@@ -1,4 +1,3 @@
-import { color } from "echarts"
 import React, { lazy, Suspense } from "react"
 const ReactECharts = lazy(() => import('echarts-for-react'))
 
@@ -29,9 +28,11 @@ const LineChartBalancePagos = ({ dataSumaA, dataSumaB }) => {
         tooltip: {
             trigger: 'axis',
         },
-        legend: {
-            // data: reversedYearsLegend,
-            bottom: -2,
+        grid: {
+            left: 80,
+            right: 30,
+            top: 60,
+            bottom: 40
         },
         xAxis: {
             type: 'category',
@@ -40,8 +41,6 @@ const LineChartBalancePagos = ({ dataSumaA, dataSumaB }) => {
         yAxis: {
             type: 'value',
             name: 'Sumas',
-            // logBase: 3,
-            // minorSplitLine: { show: true },
         },
         series: [
             {
@@ -65,7 +64,7 @@ const LineChartBalancePagos = ({ dataSumaA, dataSumaB }) => {
         alignItems: "center",
         justifyContent: "center"
     }}>
-        <ReactECharts option={option} style={{ height: "70%", width: "100%" }} />
+        <ReactECharts option={option} style={{ height: "85%", width: "100%" }} />
     </div>
 
 }
