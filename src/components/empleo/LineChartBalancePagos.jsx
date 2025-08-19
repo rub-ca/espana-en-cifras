@@ -1,3 +1,4 @@
+import { color } from "echarts"
 import React, { lazy, Suspense } from "react"
 const ReactECharts = lazy(() => import('echarts-for-react'))
 
@@ -14,6 +15,12 @@ const LineChartBalancePagos = ({ dataSumaA, dataSumaB }) => {
 
     console.log('re', reversedSumaA)
     console.log('re', reversedSumaB)
+
+    const colors = [
+        'rgba(95, 184, 60, 0.8)',
+        'rgba(52, 81, 134, 0.8)',
+    ]
+
     const option = {
         title: {
             text: `Balance pagos`,
@@ -41,11 +48,13 @@ const LineChartBalancePagos = ({ dataSumaA, dataSumaB }) => {
                 name: 'Suma A',
                 type: 'line',
                 data: reversedSumaA,
+                color: colors[0]
             },
             {
                 name: 'Suma B',
                 type: 'line',
                 data: reversedSumaB,
+                color: colors[1]
             }
         ]
     }

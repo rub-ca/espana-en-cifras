@@ -37,8 +37,10 @@ export function getRowClassByTypeOrSuma(row, rowIndex, rows) {
     const splited = row[0]
     const str = splited.trim().toLowerCase()
 
-    if (str.includes('suma')) {
-        return "row-emp-type-suma"
+    if (str.includes('suma a')) {
+        return "row-emp-type-suma-a"
+    } else if (str.includes('suma b')) {
+        return "row-emp-type-suma-b"
     }
 
     return ""

@@ -125,8 +125,14 @@ table {
 
 
 /* Balance pagos table */
-.table .row-emp-type-suma {
-    border-top: 4px solid var(--general-background-color);
+.table .row-emp-type-suma-a {
+    border-top: 4px solid rgba(95, 184, 60, 0.8);
+    border-bottom: 40px solid transparent;
+    font-weight: bold;
+}
+
+.table .row-emp-type-suma-b {
+    border-top: 4px solid rgba(52, 81, 134, 0.8);
     border-bottom: 40px solid transparent;
     font-weight: bold;
 }
