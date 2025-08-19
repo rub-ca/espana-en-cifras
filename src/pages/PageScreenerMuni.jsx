@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import { buscarMunicipios, getHeaderScreener } from '../js/buscadorMunicipios.js'
 import DualRangeSlider from "../components/filters/DualRangeSlider.jsx"
 import ItemMuniScreener from "../components/poblacion/ItemMuniScreener.jsx"
+import LoadingData from "../components/core/LoadingData.jsx"
 import PobResizer from "../components/poblacion/PobResizer.jsx"
 import { loadDataZipJson } from "../data/loadDataJson.js"
 
@@ -43,8 +44,8 @@ const PageScreenerMuni = () => {
         loadDataZipJson("/data/PobMuniEdad.zip", setDataMuniEdad, setLoading2)
     }, [])
 
-    if (loading1) return <div>Cargando datos...</div>
-    if (loading2) return <div>Cargando datos...</div>
+    if (loading1) return <LoadingData />
+    if (loading2) return <LoadingData />
 
     return (
         <div className="page-data-container">

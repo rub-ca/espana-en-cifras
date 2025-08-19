@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import PobResizer from "../components/poblacion/PobResizer.jsx"
 import { loadDataJson } from "../data/loadDataJson.js"
 import LineChartEmpPubPri from "../components/empleo/LineChartEmpPubPri.jsx"
+import LoadingData from "../components/core/LoadingData.jsx"
 import TableEmpPubPri from "../components/tables/TableEmpPubPri.jsx"
 
 const PageEmpPubPri = () => {
@@ -14,7 +15,7 @@ const PageEmpPubPri = () => {
 
     const [comunidadSelected, setComunidadSelected] = useState("Total Nacional / Público")
 
-    if (loading) return <div>Cargando datos...</div>
+    if (loading) return <LoadingData />
 
     return (
         <div className="page-data-container">

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import PobResizer from "../components/poblacion/PobResizer.jsx"
 import { loadDataJson } from "../data/loadDataJson.js"
 import LineChartBalancePagos from "../components/empleo/LineChartBalancePagos.jsx"
+import LoadingData from "../components/core/LoadingData.jsx"
 import TableBalancePagos from "../components/tables/TableBalancePagos.jsx"
 
 const PageEmpBalancePagos = () => {
@@ -37,10 +38,10 @@ const PageEmpBalancePagos = () => {
     }, [])
 
 
-    if (loading1) return <div>Cargando datos...</div>
-    if (loading2) return <div>Cargando datos...</div>
-    if (loading3) return <div>Cargando datos...</div>
-    if (loading4) return <div>Cargando datos...</div>
+    if (loading1) return <LoadingData />
+    if (loading2) return <LoadingData />
+    if (loading3) return <LoadingData />
+    if (loading4) return <LoadingData />
 
     return (
         <div className="page-data-container">

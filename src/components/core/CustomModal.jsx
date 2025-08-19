@@ -172,7 +172,10 @@ function getPoblacionScreenerPais(returnData) {
     if (returnData) {
         r.push("- Datos población -> www.ine.es")
     } else {
-        r.push("")
+        r.push("Herramienta para filtrar municipios por diferentes criterios: ")
+        r.push("- Cantidad de habitantes")
+        r.push("- Porcentaje de personas que están en un rango de edad específico")
+        r.push("- Porcentaje de población extranjera")
     }
 
     return r

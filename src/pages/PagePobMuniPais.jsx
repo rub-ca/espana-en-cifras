@@ -3,7 +3,7 @@ import { genreList, paises59 } from "../js/utilsPob.js"
 import PobFiltersHeader from "../components/poblacion/PobFiltersHeader.jsx"
 import PobResizer from "../components/poblacion/PobResizer.jsx"
 import PiramidePobPais from "../components/poblacion/PiramidePobPais.jsx"
-
+import LoadingData from "../components/core/LoadingData.jsx"
 import TablePobMuni from "../components//tables/TablePobMuni.jsx"
 import { loadDataJson, loadDataZipJson } from "../data/loadDataJson.js"
 
@@ -25,8 +25,8 @@ const PagePobMuniPais = () => {
 
     const [yearSelectedPiramide, setYearSelectedPiramide] = useState(2024)
 
-    if (loading) return <div>Cargando datos...</div>
-    if (loading2) return <div>Cargando datos...</div>
+    if (loading) return <LoadingData />
+    if (loading2) return <LoadingData />
 
     // Dropdown options
     const primaryOptions = namesPrimary

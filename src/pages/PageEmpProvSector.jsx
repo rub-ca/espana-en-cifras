@@ -3,6 +3,7 @@ import PobResizer from "../components/poblacion/PobResizer.jsx"
 import { loadDataJson } from "../data/loadDataJson.js"
 import LineChartEmpProvSector from "../components/empleo/LineChartEmpProvSector.jsx"
 import TableEmpProvSector from "../components/tables/TableEmpProvSector.jsx"
+import LoadingData from "../components/core/LoadingData.jsx"
 import { listaProvinciaOrdenIne } from "../js/utilsPob.js"
 
 const PageEmpProvSector = () => {
@@ -16,7 +17,7 @@ const PageEmpProvSector = () => {
     }, [])
 
 
-    if (loading1) return <div>Cargando datos...</div>
+    if (loading1) return <LoadingData />
 
     return (
         <div className="page-data-container">

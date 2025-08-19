@@ -4,6 +4,8 @@ import PobFiltersHeader from "../components/poblacion/PobFiltersHeader.jsx"
 import TablePobProvPais from "../components//tables/TablePobProvPais.jsx"
 import PiramidePob from "../components/poblacion/PiramidePob.jsx"
 import PobResizer from "../components/poblacion/PobResizer.jsx"
+import LoadingData from "../components/core/LoadingData.jsx"
+
 import { loadDataZipJson } from "../data/loadDataJson.js"
 
 
@@ -25,7 +27,7 @@ const PagePobProvPais = () => {
     const [yearSelectedPiramide, setYearSelectedPiramide] = useState(2024)
     const [origenSelectedPiramide, setOrigenSelectedPiramide] = useState("total")
 
-    if (loading) return <div>Cargando datos...</div>
+    if (loading) return <LoadingData />
 
     // Dropdown options
     const primaryOptions = data.map(item => item.name.trim())
