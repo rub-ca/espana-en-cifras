@@ -130,6 +130,7 @@ const PageScreenerMuni = () => {
                     <div className="pob-screener-results-container__div">
                         {resultados.resultados.length > 0 && resultados.resultados.map((r, index) => (
                             <ItemMuniScreener
+                                key={r.name + index}
                                 index={index}
                                 name={r.name}
                                 pobTotal={r.poblacionTotal}
