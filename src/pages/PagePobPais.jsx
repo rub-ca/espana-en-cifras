@@ -5,7 +5,7 @@ import TablePobPais from "../components/tables/TablePobPais.jsx"
 import PiramidePob from "../components/poblacion/PiramidePob.jsx"
 import LoadingData from "../components/core/LoadingData.jsx"
 import PobResizer from "../components/poblacion/PobResizer.jsx"
-import { loadDataJson } from "../data/loadDataJson.js"
+import { loadDataJson } from "../js/loadDataJson.js"
 
 const PagePobPais = () => {
     const [data, setData] = useState(null)

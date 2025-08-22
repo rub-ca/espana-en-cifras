@@ -6,7 +6,7 @@ import PiramidePob from "../components/poblacion/PiramidePob.jsx"
 import PobResizer from "../components/poblacion/PobResizer.jsx"
 import LoadingData from "../components/core/LoadingData.jsx"
 
-import { loadDataZipJson } from "../data/loadDataJson.js"
+import { loadDataZipJson } from "../js/loadDataJson.js"
 
 
 const PagePobProvPais = () => {
