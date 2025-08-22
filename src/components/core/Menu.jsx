@@ -20,8 +20,6 @@ const Menu = ({ showMenu, setShowMenu }) => {
             "data data"
             `
         }
-        console.log("showMenu: ", showMenu)
-
     }
 
     if (!showMenu) {
