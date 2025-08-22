@@ -2,18 +2,12 @@ import React, { lazy, Suspense } from "react"
 const ReactECharts = lazy(() => import('echarts-for-react'))
 
 const LineChartBalancePagos = ({ dataSumaA, dataSumaB }) => {
-    console.log(dataSumaA)
-    console.log(dataSumaB)
     const numYears = dataSumaA.length
     const reversedYearsLegend = Array.from({ length: numYears }, (_, i) => (2025 - i).toString()).reverse()
-
-    console.log('t', typeof (dataSumaA[0]))
 
     const reversedSumaA = dataSumaA.map(v => parseInt(v.replaceAll(".", ""))).reverse()
     const reversedSumaB = dataSumaB.map(v => parseInt(v.replaceAll(".", ""))).reverse()
 
-    console.log('re', reversedSumaA)
-    console.log('re', reversedSumaB)
 
     const colors = [
         'rgba(95, 184, 60, 0.8)',

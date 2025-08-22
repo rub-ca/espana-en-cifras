@@ -4,7 +4,7 @@ import DualRangeSlider from "../components/filters/DualRangeSlider.jsx"
 import ItemMuniScreener from "../components/poblacion/ItemMuniScreener.jsx"
 import LoadingData from "../components/core/LoadingData.jsx"
 import PobResizer from "../components/poblacion/PobResizer.jsx"
-import { loadDataZipJson } from "../data/loadDataJson.js"
+import { loadDataZipJson } from "../js/loadDataJson.js"
 
 const PageScreenerMuni = () => {
     const [dataMuniPais, setDataMuniPais] = useState(null)
@@ -130,6 +130,7 @@ const PageScreenerMuni = () => {
                     <div className="pob-screener-results-container__div">
                         {resultados.resultados.length > 0 && resultados.resultados.map((r, index) => (
                             <ItemMuniScreener
+                                key={r.name + index}
                                 index={index}
                                 name={r.name}
                                 pobTotal={r.poblacionTotal}

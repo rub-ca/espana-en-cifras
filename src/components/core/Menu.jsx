@@ -1,6 +1,10 @@
 import { useLocation } from "react-router-dom"
 import { motion } from "framer-motion"
 import { titlesByPath } from "../../js/core.js"
+import { Link } from "react-router-dom"
+
+// crea componentes animados a partir de Link
+const MotionLink = motion(Link)
 
 const Menu = ({ showMenu, setShowMenu }) => {
     const location = useLocation()
@@ -20,8 +24,6 @@ const Menu = ({ showMenu, setShowMenu }) => {
             "data data"
             `
         }
-        console.log("showMenu: ", showMenu)
-
     }
 
     if (!showMenu) {
@@ -41,7 +43,7 @@ const Menu = ({ showMenu, setShowMenu }) => {
         )
     }
 
-    
+
     const itemMotion = {
         hidden: { opacity: 0, y: -20 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: "easeOut" } }
@@ -85,9 +87,14 @@ const Menu = ({ showMenu, setShowMenu }) => {
                         "/empleo-publico-y-privado",
                         "/empleo-balance-pagos"
                     ].map((path) => (
-                        <motion.a key={path} className="menu-link-empleo" href={path} variants={itemMotion}>
+                        <MotionLink
+                            key={path}
+                            className="menu-link-empleo"
+                            to={path}
+                            variants={itemMotion}
+                        >
                             {titlesByPath[path]}
-                        </motion.a>
+                        </MotionLink>
                     ))}
                 </motion.section>
 
@@ -99,9 +106,14 @@ const Menu = ({ showMenu, setShowMenu }) => {
                         "/poblacion-municipio-pais",
                         "/screener-municipios",
                     ].map((path) => (
-                        <motion.a key={path} className="menu-link-poblacion" href={path} variants={itemMotion}>
+                        <MotionLink
+                            key={path}
+                            className="menu-link-poblacion"
+                            to={path}
+                            variants={itemMotion}
+                        >
                             {titlesByPath[path]}
-                        </motion.a>
+                        </MotionLink>
                     ))}
                 </motion.section>
 

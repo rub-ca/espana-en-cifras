@@ -1,5 +1,5 @@
+import React, { useState, useEffect } from "react"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import React, { useState } from "react"
 
 import "./pages/css/app.css"
 import "./pages/css/poblacion.css"
@@ -13,7 +13,6 @@ import "./pages/css/components/Scroll.css"
 import "./pages/css/components/Table.css"
 import "./pages/css/components/Modal.css"
 import "./pages/css/components/NotFound.css"
-
 
 import "./pages/css/portatil-media.css"
 
@@ -31,7 +30,16 @@ import TitlePage from "./components/core/TitlePage.jsx"
 import NotFound from "./components/core/NotFound.jsx"
 import Menu from "./components/core/Menu.jsx"
 
+import { sendFirstAnalytics } from "./js/analytics.js"
+
+let ID_SESSION_ANALYTICS = null
+
 const App = () => {
+    useEffect(() => {
+        ID_SESSION_ANALYTICS = crypto.randomUUID()
+        sendFirstAnalytics(ID_SESSION_ANALYTICS)
+    }, [])
+
     const [showMenu, setShowMenu] = useState(false)
 
     return (
@@ -86,3 +94,4 @@ const App = () => {
     )
 }
 export default App
+
