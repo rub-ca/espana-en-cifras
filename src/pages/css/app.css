@@ -50,6 +50,10 @@ body,
     align-items: center;
 }
 
+.title-page-container h1 {
+    font-size: 28px;
+}
+
 .title-page-info-button {
     margin-left: auto;
     display: flex;
