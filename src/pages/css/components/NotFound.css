@@ -1,0 +1,90 @@
+.not-found-container {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    background: var(--general-background-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--general-gap);
+    box-sizing: border-box;
+    z-index: 9999;
+}
+
+.not-found-card {
+    background: #fff;
+    border-radius: var(--general-border-radius);
+    padding: calc(var(--general-gap) * 2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    max-width: 640px;
+    width: 100%;
+    text-align: center;
+}
+
+.not-found-flag {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto var(--general-gap);
+}
+
+.not-found-flag img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.2));
+}
+
+.not-found-number {
+    font-size: 5rem;
+    font-weight: 900;
+    color: var(--primary-blue-color);
+    line-height: 1;
+    margin: 0 0 calc(var(--general-gap) / 2);
+}
+
+.not-found-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--secondary-blue-color);
+    margin: 0 0 var(--general-gap);
+}
+
+.not-found-description {
+    color: var(--secondary-blue-color);
+    opacity: 0.85;
+    margin-bottom: calc(var(--general-gap) * 1.5);
+}
+
+.not-found-button {
+    display: inline-block;
+    background: var(--primary-blue-color);
+    color: #fff;
+    text-decoration: none;
+    padding: 0.85rem 1.5rem;
+    border-radius: var(--general-border-radius);
+    font-weight: 600;
+    /* transition: transform .2s ease, box-shadow .2s ease, background .2s ease; */
+    box-shadow: 0 8px 18px rgba(22, 64, 99, 0.25);
+}
+
+.not-found-button:hover {
+    background: var(--secondary-blue-color);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(22, 64, 99, 0.35);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .not-found-number {
+        font-size: 3.8rem;
+    }
+
+    .not-found-title {
+        font-size: 1.4rem;
+    }
+
+    .not-found-card {
+        padding: calc(var(--general-gap) * 1.5);
+    }
+}

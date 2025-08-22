@@ -21,7 +21,7 @@ const CustomModal = ({ isOpen, onRequestClose }) => {
             style={{ content: { inset: "auto" } }}
         >
             <div className="modal-header">
-                <img className="cursor-pointer" src="source-icon.png" alt="" onClick={onRequestClose} />
+                <img className="cursor-pointer" src="source-icon.png" alt="source icon" onClick={onRequestClose} />
 
                 <h2>{titlesByPath[location.pathname]}</h2>
 

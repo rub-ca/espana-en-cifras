@@ -12,6 +12,7 @@ import "./pages/css/components/ItemMuniScreener.css"
 import "./pages/css/components/Scroll.css"
 import "./pages/css/components/Table.css"
 import "./pages/css/components/Modal.css"
+import "./pages/css/components/NotFound.css"
 
 
 import "./pages/css/portatil-media.css"
@@ -27,6 +28,7 @@ import PageEmpPubPri from "./pages/PageEmpPubPri.jsx"
 import PageEmpBalancePagos from "./pages/PageEmpBalancePagos.jsx"
 
 import TitlePage from "./components/core/TitlePage.jsx"
+import NotFound from "./components/core/NotFound.jsx"
 import Menu from "./components/core/Menu.jsx"
 
 const App = () => {
@@ -49,6 +51,10 @@ const App = () => {
                     <Route path="/empleo-provincia-sector" element={<PageEmpProvSector />} />
                     <Route path="/empleo-publico-y-privado" element={<PageEmpPubPri />} />
                     <Route path="/empleo-balance-pagos" element={<PageEmpBalancePagos />} />
+
+
+                    {/* 404 */}
+                    <Route path="*" element={<NotFound />} />
                 </Routes>
             </div>
         </Router>

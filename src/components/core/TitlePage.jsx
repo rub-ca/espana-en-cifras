@@ -20,7 +20,7 @@ const TitlePage = () => {
             <h1>{titlesByPath[location.pathname]}</h1>
 
             <div className="title-page-info-button" onClick={() => setModalIsOpen(true)}>
-                <img src="source-icon.png" alt="" />
+                <img src="source-icon.png" alt="source icon" />
             </div>
 
             <CustomModal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)} />

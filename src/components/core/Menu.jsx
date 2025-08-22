@@ -28,12 +28,12 @@ const Menu = ({ showMenu, setShowMenu }) => {
         return (
             <div className="menu-container bottom-margin-general">
                 <div className="menu-container-otrascifras" onClick={() => setShowMenu(true)}>
-                    <img src="/spain-flag-icon.svg" alt="" className="menu-container-otrascifras-img-spain" />
+                    <img src="/spain-flag-icon.svg" alt="spain flag" className="menu-container-otrascifras-img-spain" />
 
                     <div className="menu-container-otrascifras-text">
                         <h3>Otras cifras</h3>
 
-                        <img src="/arrow-down-sign-to-navigate.png" alt="" className="menu-container-otrascifras-img-arrow" />
+                        <img src="/arrow-down-sign-to-navigate.png" alt="arrow down" className="menu-container-otrascifras-img-arrow" />
                     </div>
 
                 </div>
