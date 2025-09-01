@@ -51,3 +51,12 @@ button {
 .cursor-pointer {
   cursor: pointer;
 }
+
+.overflow-auto {
+  overflow: auto;
+}
+
+.flex-grap {
+  flex-wrap: wrap;
+}
+

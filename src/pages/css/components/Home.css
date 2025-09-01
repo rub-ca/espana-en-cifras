@@ -1,0 +1,82 @@
+@import '../vars.css';
+
+.home-item-container {
+  flex: 0 0 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 65%;
+  margin-bottom: 3%;
+  border-radius: var(--general-border-radius);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.home-item-container-poblacion:hover {
+  background-color: rgba(122, 186, 238, 0.308);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); 
+}
+
+.home-item-container-empleo:hover {
+  background-color: rgba(255, 234, 131, 0.308);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+.home-item-data {
+    width: 85%;
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.home-item-data-content {
+    width: 100%;
+    /* 10 + 15 + 75*/
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.home-item-data-image {
+    width: 100%;
+    /* 10 + 15 + 75*/
+    height: 75%;
+    display: flex;
+    justify-content: center;
+}
+
+
+.home-item-data h4 {
+    margin: 0px;
+}
+
+.home-item-data img {
+    margin-top: 20px;
+    height: 100%;
+}
+
+.home-item-data-title {
+    width: 66%;
+    /* 10 + 15 + 75*/
+    height: 15%;
+    border-radius: var(--general-border-radius);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px;
+    font-size: x-large;
+}
+
+.home-item-title-poblacion {
+    background-color: var(--secondary-blue-color);
+    color: white;
+}
+
+.home-item-title-empleo {
+    background-color: var(--secondary-yellow-color);
+    color: black;
+}
