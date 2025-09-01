@@ -28,15 +28,23 @@
 }
 
 .home-item-title {
-    background-color: var(--secondary-blue-color);
     width: 66%;
     height: 15%;
     border-radius: var(--general-border-radius);
     text-align: center;
-    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 4px;
     font-size: x-large;
+}
+
+.home-item-title-poblacion {
+    background-color: var(--secondary-blue-color);
+    color: white;
+}
+
+.home-item-title-empleo {
+    background-color: var(--secondary-yellow-color);
+    color: black;
 }
