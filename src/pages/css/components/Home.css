@@ -1,13 +1,26 @@
 @import '../vars.css';
 
 .home-item-container {
-    flex: 0 0 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 65%;
-    margin-bottom: 3%;
+  flex: 0 0 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 65%;
+  margin-bottom: 3%;
+  border-radius: var(--general-border-radius);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
+
+.home-item-container-poblacion:hover {
+  background-color: rgba(122, 186, 238, 0.308);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); 
+}
+
+.home-item-container-empleo:hover {
+  background-color: rgba(255, 234, 131, 0.308);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
 
 .home-item-data {
     width: 85%;
