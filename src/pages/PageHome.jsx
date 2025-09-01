@@ -59,9 +59,13 @@ const HomePageItem = ({ title, classItem, image, content }) => {
     return (
         <div className="home-item-container">
             <div className="home-item-data">
-                <h1 className={`home-item-title ${classItem}`}>{title}</h1>
-                {content}
-                <img src={image} alt="" />
+                <h1 className={`home-item-data-title ${classItem}`}>{title}</h1>
+
+                <div className="home-item-data-content">{content}</div>
+                
+                <div className="home-item-data-image">
+                    <img src={image} alt="" />
+                </div>
             </div>
         </div>
     )
