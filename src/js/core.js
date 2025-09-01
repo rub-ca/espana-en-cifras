@@ -1,5 +1,5 @@
 export const titlesByPath = {
-  "/": "Población por provincia y país",
+  "/": "Españaencifras.es",
   "/poblacion-provincia-pais": "Población por provincia y país",
   "/poblacion-por-pais": "Población por país de origen",
   "/poblacion-municipio-edad": "Población por municipio y edad",

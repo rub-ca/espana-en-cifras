@@ -1,0 +1,14 @@
+.home-item-container {
+    flex: 0 0 50%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 55%;
+}
+
+.home-item-data {
+    background-color: red;
+    width: 85%;
+    height: 85%;
+}

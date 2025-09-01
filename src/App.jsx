@@ -13,8 +13,11 @@ import "./pages/css/components/Scroll.css"
 import "./pages/css/components/Table.css"
 import "./pages/css/components/Modal.css"
 import "./pages/css/components/NotFound.css"
+import "./pages/css/components/Home.css"
 
 import "./pages/css/portatil-media.css"
+
+import PageHome from "./pages/PageHome.jsx"
 
 import PagePobProvPais from "./pages/PagePobProvPais.jsx"
 import PagePobPais from "./pages/PagePobPais.jsx"
@@ -60,7 +63,7 @@ const App = () => {
                 {/* SEO OPTIMIZATION */}
 
                 <Routes>
-                    <Route path="/" element={<PagePobProvPais />} />
+                    <Route path="/" element={<PageHome />} />
                     <Route path="/poblacion-provincia-pais" element={<PagePobProvPais />} />
                     <Route path="/poblacion-por-pais" element={<PagePobPais />} />
                     <Route path="/poblacion-municipio-edad" element={<PagePobMuniEdad />} />
