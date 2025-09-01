@@ -63,7 +63,7 @@ export default PageHome
 
 const HomePageItem = ({ title, classItem, classContainer, image, content }) => {
     return (
-        <div className={`home-item-container ${classContainer}`}>
+        <div className={`home-item-container cursor-pointer ${classContainer}`}>
             <div className="home-item-data">
                 <h1 className={`home-item-data-title ${classItem}`}>{title}</h1>
 
