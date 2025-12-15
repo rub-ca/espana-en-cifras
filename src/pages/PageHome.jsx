@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 
 const PageHome = () => {
 
@@ -8,6 +9,7 @@ const PageHome = () => {
             classItem: "home-item-title-poblacion",
             classContainer: "home-item-container-poblacion",
             image: "prov-pais.webp",
+            url: "/poblacion-provincia-pais",
             content: <h4>Datos de población España, segmentación por provincias.</h4>
         },
         {
@@ -15,6 +17,7 @@ const PageHome = () => {
             classItem: "home-item-title-poblacion",
             classContainer: "home-item-container-poblacion",
             image: "muni-screener.webp",
+            url: "/screener-municipios",
             content: <h4>Screener que permite buscar municipios filtrando por ciertos parámetros.</h4>
         },
         {
@@ -22,6 +25,7 @@ const PageHome = () => {
             classItem: "home-item-title-poblacion",
             classContainer: "home-item-container-poblacion",
             image: "muni-edad.webp",
+            url: "/poblacion-municipio-edad",
             content: <h4>Información demográfica por edad a nivel municipal en España.</h4>
         },
         {
@@ -29,6 +33,7 @@ const PageHome = () => {
             classItem: "home-item-title-poblacion",
             classContainer: "home-item-container-poblacion",
             image: "muni-pais.webp",
+            url: "/poblacion-municipio-pais",
             content: <h4>Distribución de la población por país de origen en los municipios españoles.</h4>
         },
         {
@@ -36,6 +41,7 @@ const PageHome = () => {
             classItem: "home-item-title-empleo",
             classContainer: "home-item-container-empleo",
             image: "empleo-pubpri.webp",
+            url: "/empleo-publico-y-privado",
             content: <h4>Distribución de la población por tipo de empleo (público / privado).</h4>
         },
         {
@@ -43,6 +49,7 @@ const PageHome = () => {
             classItem: "home-item-title-empleo",
             classContainer: "home-item-container-empleo",
             image: "balance-pagos.webp",
+            url: "/empleo-balance-pagos",
             content: <h4>Tabla interactiva que muestra el balance de pagos y trabajo de España.</h4>
         }
     ]
@@ -61,9 +68,14 @@ const PageHome = () => {
 export default PageHome
 
 
-const HomePageItem = ({ title, classItem, classContainer, image, content }) => {
+
+const HomePageItem = ({ title, classItem, classContainer, url, image, content }) => {
     return (
-        <div className={`home-item-container cursor-pointer ${classContainer}`}>
+        <a
+            className={`home-item-container cursor-pointer ${classContainer}`}
+            href={url}
+            style={{ textDecoration: "none", color: "inherit" }}
+        >
             <div className="home-item-data">
                 <h1 className={`home-item-data-title ${classItem}`}>{title}</h1>
 
@@ -73,6 +85,6 @@ const HomePageItem = ({ title, classItem, classContainer, image, content }) => {
                     <img src={image} alt="" />
                 </div>
             </div>
-        </div>
+        </a>
     )
 }
