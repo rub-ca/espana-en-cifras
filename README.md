@@ -92,6 +92,7 @@ Lo datos provienen de PobMuniPais y PobMuniEdad
 
 - Mejorar la UI del loading data
 
+- Mirar cuando está el menu desplegado por defecto y cuando no
 
 
 ## POST
