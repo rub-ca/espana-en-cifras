@@ -24,7 +24,7 @@ const PagePobProvPais = () => {
     const [fourthSelected, setFourthSelected] = useState([])
 
     // Piramide states
-    const [yearSelectedPiramide, setYearSelectedPiramide] = useState(2024)
+    const [yearSelectedPiramide, setYearSelectedPiramide] = useState(2025)
     const [origenSelectedPiramide, setOrigenSelectedPiramide] = useState("total")
 
     if (loading) return <LoadingData />
@@ -67,10 +67,11 @@ const PagePobProvPais = () => {
                     data={data}
                     pageName="PobProvPais"
                     filters={[primarySelected, yearSelectedPiramide, origenSelectedPiramide]}
+                    yearStart={2025}
                 />
             </div>
 
-            <PobResizer/>
+            <PobResizer />
 
             <div className="page-data-container__right-side">
                 <PobFiltersHeader
