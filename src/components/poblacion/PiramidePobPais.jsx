@@ -14,10 +14,10 @@ const PiramidePobPais = ({ data, filters }) => {
     // Titulo del grafico
     let infoTitleArray = []
 
-    const yearIndexSelected = getYear(filters[1]) || 0
+    const yearIndexSelected = getYear(filters[1], 2025) || 0
 
     infoTitleArray.push("")
-    infoTitleArray.push("Año: " + getYearInverse(yearIndexSelected))
+    infoTitleArray.push("Año: " + getYearInverse(yearIndexSelected, 2025))
 
     let primarySelected = getIndexPrimarySelected(data, filters[0] || "Total")
 

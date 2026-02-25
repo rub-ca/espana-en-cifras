@@ -23,7 +23,7 @@ const PagePobMuniPais = () => {
     const [secondarySelected, setSecondarySelected] = useState([])
     const [terciarySelected, setTerciarySelected] = useState([])
 
-    const [yearSelectedPiramide, setYearSelectedPiramide] = useState(2024)
+    const [yearSelectedPiramide, setYearSelectedPiramide] = useState(2025)
 
     if (loading) return <LoadingData />
     if (loading2) return <LoadingData />

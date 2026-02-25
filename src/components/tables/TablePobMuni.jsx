@@ -3,7 +3,7 @@ import ThHeader from './core/ThHeader.jsx'
 import TdFirstCell from './core/TdFirstCell.jsx'
 import TdAlignRight from './core/TdAlignRight.jsx'
 
-const TablePobMuniPais = ({ data, primarySelected, secondaryDropdowns, page, listeners }) => {
+const TablePobMuni = ({ data, primarySelected, secondaryDropdowns, page, listeners }) => {
     if (!primarySelected) return <div>No hay datos disponibles</div>
 
     const dataArray = data[getIndexPrimarySelected(data, primarySelected)].data
@@ -15,7 +15,7 @@ const TablePobMuniPais = ({ data, primarySelected, secondaryDropdowns, page, lis
     const headers = page === 'PagePobMuniEdad' ? ['Género / Edad'] : ['Género / Pais origen']
 
 
-    for (let year = 0; year < numYears; year++) headers.push(`${getYear(year)}`)
+    for (let year = 0; year < numYears; year++) headers.push(`${getYear(year, 2025)}`)
 
     const rows = []
 
@@ -99,4 +99,4 @@ const TablePobMuniPais = ({ data, primarySelected, secondaryDropdowns, page, lis
     )
 }
 
-export default TablePobMuniPais
+export default TablePobMuni

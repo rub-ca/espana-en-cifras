@@ -24,7 +24,7 @@ const PagePobMuniPais = () => {
   const [terciarySelected, setTerciarySelected] = useState([])
 
   // Piramide states
-  const [yearSelectedPiramide, setYearSelectedPiramide] = useState(2024)
+  const [yearSelectedPiramide, setYearSelectedPiramide] = useState(2025)
 
   if (loading) return <LoadingData />
   if (loading2) return <LoadingData />
@@ -58,6 +58,7 @@ const PagePobMuniPais = () => {
           data={data}
           pageName="PobMuniEdad"
           filters={[primarySelected, yearSelectedPiramide]}
+          yearStart={2025}
         />
       </div>
 

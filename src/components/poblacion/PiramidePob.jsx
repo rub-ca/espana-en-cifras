@@ -6,17 +6,17 @@ const ReactECharts = lazy(() => import('echarts-for-react'))
 
 // First filter[0] always is the primary filter
 // Second filter[1] is always yearSelected
-const PiramidePob = ({ data, pageName, filters }) => {
+const PiramidePob = ({ data, pageName, filters, yearStart = 2024 }) => {
     let resultadosMujeres = null
     let resultadoHombres = null
 
     // Titulo del grafico
     let infoTitleArray = []
 
-    const yearIndexSelected = getYear(filters[1]) || 0
+    const yearIndexSelected = getYear(filters[1], yearStart) || 0
 
     infoTitleArray.push("")
-    infoTitleArray.push("Año: " + getYearInverse(yearIndexSelected))
+    infoTitleArray.push("Año: " + getYearInverse(yearIndexSelected, yearStart))
 
     let labelsAge = ageGroups90
 
