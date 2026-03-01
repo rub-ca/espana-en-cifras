@@ -13,7 +13,7 @@ const TablePobPais = ({ data, primarySelected, secondaryDropdowns, listeners }) 
     const numGenres = dataArray[0][0].length
 
     const headers = ['Edad / Género']
-    for (let year = 0; year < numYears; year++) headers.push(`${getYear(year)}`)
+    for (let year = 0; year < numYears; year++) headers.push(`${getYear(year, 2025)}`)
 
 
     const rows = []

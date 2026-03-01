@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react"
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import React, { useState, useEffect, useRef } from "react"
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom"
 
 import "./pages/css/app.css"
 import "./pages/css/poblacion.css"
@@ -33,20 +33,72 @@ import TitlePage from "./components/core/TitlePage.jsx"
 import NotFound from "./components/core/NotFound.jsx"
 import Menu from "./components/core/Menu.jsx"
 
-import { sendFirstAnalytics } from "./js/analytics.js"
+import { sendFirstAnalytics, sendPageView } from "./js/analytics.js"
 
-let ID_SESSION_ANALYTICS = null
+const PAGEVIEW_URL = "https://data.xn--espaaencifras-lkb.es/analytics/pageviews"
+
+// Tracks how long a user stays on each page and sends analytics on every
+// route change and on tab close. Must be rendered inside <Router> so that
+// useLocation is available.
+function AnalyticsTracker({ sessionIdRef }) {
+    const location = useLocation()
+    const pageEnterTime = useRef(Date.now())
+    const prevPath = useRef(null)
+
+    useEffect(() => {
+        const now = Date.now()
+        const currentPath = location.pathname
+
+        // After the first page load, send time spent on the previous route
+        if (prevPath.current !== null && sessionIdRef.current) {
+            sendPageView(sessionIdRef.current, {
+                path: currentPath,
+                from: prevPath.current,
+                time_on_prev_ms: now - pageEnterTime.current,
+                timestamp: now,
+                exit: false,
+            })
+        }
+
+        pageEnterTime.current = now
+        prevPath.current = currentPath
+
+        // When the user closes / leaves the tab, fire a beacon for the current page
+        const handleBeforeUnload = () => {
+            if (!sessionIdRef.current) return
+            const payload = JSON.stringify({
+                session: sessionIdRef.current,
+                extra: JSON.stringify({
+                    path: currentPath,
+                    from: null,
+                    time_on_prev_ms: Date.now() - pageEnterTime.current,
+                    timestamp: Date.now(),
+                    exit: true,
+                }),
+            })
+            navigator.sendBeacon?.(PAGEVIEW_URL, new Blob([payload], { type: "application/json" }))
+        }
+
+        window.addEventListener("beforeunload", handleBeforeUnload)
+        return () => window.removeEventListener("beforeunload", handleBeforeUnload)
+    }, [location.pathname, sessionIdRef])
+
+    return null
+}
 
 const App = () => {
+    const sessionIdRef = useRef(null)
+
     useEffect(() => {
-        ID_SESSION_ANALYTICS = crypto.randomUUID()
-        sendFirstAnalytics(ID_SESSION_ANALYTICS)
+        sessionIdRef.current = crypto.randomUUID()
+        sendFirstAnalytics(sessionIdRef.current)
     }, [])
 
     const [showMenu, setShowMenu] = useState(false)
 
     return (
         <Router>
+            <AnalyticsTracker sessionIdRef={sessionIdRef} />
             <div className="app-container">
                 <Menu showMenu={showMenu} setShowMenu={setShowMenu} />
                 <TitlePage />
