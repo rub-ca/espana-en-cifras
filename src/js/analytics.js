@@ -21,6 +21,7 @@ export function sendFirstAnalytics(sessionId) {
 // Sends a page-view event (navigation or exit) for the current session.
 // Uses sendBeacon when available so it fires even on tab close.
 export function sendPageView(sessionId, pageData) {
+    console.log("Enviando pageview analytics:", { sessionId, ...pageData })
     const payload = JSON.stringify({
         session: sessionId,
         extra: JSON.stringify(pageData)
@@ -29,7 +30,9 @@ export function sendPageView(sessionId, pageData) {
     const url = "https://data.xn--espaaencifras-lkb.es/analytics/pageviews"
 
     if (navigator.sendBeacon) {
-        const blob = new Blob([payload], { type: "application/json" })
+        // text/plain is a "simple" CORS request (no preflight needed).
+        // The server still receives valid JSON in the body.
+        const blob = new Blob([payload], { type: "text/plain" })
         navigator.sendBeacon(url, blob)
     } else {
         fetch(url, {
